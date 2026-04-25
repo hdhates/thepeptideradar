@@ -467,7 +467,7 @@ function buildCard(s){
   var h='<div class="scard">';
   h+='<div class="scard-top"><div class="scard-name">'+s.name+'</div>'+(s.verified?'<div class="vbadge">Verified</div>':'')+'</div>';
   h+='<div class="scard-country">'+s.flag+' '+s.country+(s.note?' <span style="font-size:11px;color:var(--green);margin-left:6px;">'+s.note+'</span>':'')+'</div>';
-  var judgeLink=s.judgeMe?' &nbsp;<a href="'+s.url+'#reviews" target="_blank" onclick="event.stopPropagation()" style="color:var(--green);font-size:10px;text-decoration:none;">✓ Judge.me</a>':'';
+  var judgeLink=s.judgeMe?' &nbsp;<span style="color:var(--green);font-size:10px;">✓ Judge.me</span>':'';
   var ratingText=s.reviews>0?'<span class="rating-text">'+s.rating+' ('+s.reviews+' reviews)'+judgeLink+'</span>':'<span class="rating-text">No reviews yet</span>';
   h+='<div class="stars">'+renderStars(s.rating)+ratingText+'</div>';
   if(s.featuredReview){
