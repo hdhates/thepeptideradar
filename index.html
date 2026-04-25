@@ -3,7 +3,17 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>PeptideIndex — Trusted Peptide Suppliers by Country</title>
+<title>PeptideIndex — Find Trusted Peptide Suppliers by Country</title>
+<meta name="description" content="PeptideIndex is the trusted directory to find verified peptide suppliers organized by country. Community reviewed, independent, no paid placements."/>
+<meta name="keywords" content="peptide supplier, buy peptides, BPC-157, TB-500, peptide source, trusted peptide supplier, peptide directory"/>
+<meta property="og:title" content="PeptideIndex — Find Trusted Peptide Suppliers by Country"/>
+<meta property="og:description" content="Find verified, community-reviewed peptide suppliers in your country. No ads, no paid placements."/>
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="https://peptideindex.netlify.app"/>
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="PeptideIndex"/>
+<meta name="twitter:description" content="The trusted directory for peptide suppliers worldwide."/>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💊</text></svg>"/>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;700;800&family=Plus+Jakarta+Sans:wght@400;500;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet"/>
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
@@ -249,11 +259,13 @@ footer span{font-size:12px;color:var(--text3);}
   <div class="cta-banner">
     <h2>Get early access</h2>
     <p>Join the waitlist — be first to know when new suppliers hit your country.</p>
-    <div class="email-row">
-      <input type="email" placeholder="your@email.com" id="waitlist-email"/>
-      <button class="btn-primary" onclick="joinWaitlist()">Join →</button>
-    </div>
-    <p id="waitlist-thanks" style="color:var(--green);margin-top:1rem;font-size:14px;display:none;">You're on the list! We'll be in touch.</p>
+    <form action="https://formspree.io/f/xzdywbnw" method="POST" style="display:flex;flex-direction:column;align-items:center;gap:8px;">
+      <input type="hidden" name="subject" value="Waitlist signup"/>
+      <div class="email-row">
+        <input type="email" name="email" placeholder="your@email.com" required/>
+        <button type="submit" class="btn-primary">Join →</button>
+      </div>
+    </form>
   </div>
 </div>
 
@@ -276,30 +288,31 @@ footer span{font-size:12px;color:var(--text3);}
   <div class="form-wrap">
     <h2>Get in touch</h2>
     <p>Have a question, found incorrect info, or want to report a supplier? We're here.</p>
-    <div class="form-group">
-      <label>Your name</label>
-      <input type="text" placeholder="John Smith"/>
-    </div>
-    <div class="form-group">
-      <label>Email address</label>
-      <input type="email" placeholder="your@email.com"/>
-    </div>
-    <div class="form-group">
-      <label>Subject</label>
-      <select>
-        <option>General question</option>
-        <option>Report a supplier</option>
-        <option>Incorrect information</option>
-        <option>Partnership inquiry</option>
-        <option>Other</option>
-      </select>
-    </div>
-    <div class="form-group">
-      <label>Message</label>
-      <textarea placeholder="Tell us what's on your mind..."></textarea>
-    </div>
-    <button class="submit-btn" onclick="submitContact()">Send message</button>
-    <div class="success-msg" id="contact-success">Message sent! We'll get back to you within 24 hours.</div>
+    <form action="https://formspree.io/f/xzdywbnw" method="POST">
+      <div class="form-group">
+        <label>Your name</label>
+        <input type="text" name="name" placeholder="John Smith" required/>
+      </div>
+      <div class="form-group">
+        <label>Email address</label>
+        <input type="email" name="email" placeholder="your@email.com" required/>
+      </div>
+      <div class="form-group">
+        <label>Subject</label>
+        <select name="subject">
+          <option>General question</option>
+          <option>Report a supplier</option>
+          <option>Incorrect information</option>
+          <option>Partnership inquiry</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Message</label>
+        <textarea name="message" placeholder="Tell us what's on your mind..." required></textarea>
+      </div>
+      <button type="submit" class="submit-btn">Send message</button>
+    </form>
   </div>
 </div>
 
@@ -309,46 +322,59 @@ footer span{font-size:12px;color:var(--text3);}
     <h2>List your supplier</h2>
     <p>Get your business in front of buyers searching for trusted peptide suppliers in your country. Free, no strings attached.</p>
     <hr class="section-divider"/>
-
-    <div class="form-group">
-      <label>Business name</label>
-      <input type="text" placeholder="Your company name"/>
-    </div>
-    <div class="form-group">
-      <label>Website URL</label>
-      <input type="url" placeholder="https://yoursupplier.com"/>
-    </div>
-    <div class="form-group">
-      <label>Country of operation</label>
-      <select id="signup-country">
-        <option value="">Select country...</option>
-        <option>United States</option>
-        <option>Canada</option>
-        <option>United Kingdom</option>
-        <option>Germany</option>
-        <option>France</option>
-        <option>Australia</option>
-        <option>Netherlands</option>
-        <option>Switzerland</option>
-        <option>Spain</option>
-        <option>Italy</option>
-        <option>Other</option>
-      </select>
-    </div>
-    <div class="form-group">
-      <label>Contact email</label>
-      <input type="email" placeholder="contact@yoursupplier.com"/>
-    </div>
-    <div class="form-group">
-      <label>Peptide types you carry</label>
-      <input type="text" placeholder="e.g. BPC-157, TB-500, Semaglutide..."/>
-    </div>
-    <div class="form-group">
-      <label>Tell us about your business</label>
-      <textarea placeholder="Years in operation, quality standards, lab testing policy..."></textarea>
-    </div>
-    <button class="submit-btn" onclick="submitSignup()">Submit for review →</button>
-    <div class="success-msg" id="signup-success">Application received! Our team will review and get back to you within 3 business days.</div>
+    <form action="https://formspree.io/f/xpqknwaa" method="POST">
+      <div class="form-group">
+        <label>Business name</label>
+        <input type="text" name="business_name" placeholder="Your company name" required/>
+      </div>
+      <div class="form-group">
+        <label>Website URL</label>
+        <input type="url" name="website" placeholder="https://yoursupplier.com" required/>
+      </div>
+      <div class="form-group">
+        <label>Country of operation</label>
+        <select name="country" required>
+          <option value="">Select country...</option>
+          <option>United States</option>
+          <option>Canada</option>
+          <option>United Kingdom</option>
+          <option>Germany</option>
+          <option>France</option>
+          <option>Australia</option>
+          <option>Netherlands</option>
+          <option>Switzerland</option>
+          <option>Spain</option>
+          <option>Italy</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Contact email</label>
+        <input type="email" name="email" placeholder="contact@yoursupplier.com" required/>
+      </div>
+      <div class="form-group">
+        <label>Top 5 peptides you carry</label>
+        <input type="text" name="peptides" placeholder="e.g. BPC-157, TB-500, Semaglutide..."/>
+      </div>
+      <div class="form-group">
+        <label>Average shipping time</label>
+        <input type="text" name="shipping" placeholder="e.g. 2-5 business days"/>
+      </div>
+      <div class="form-group">
+        <label>Do you offer lab testing?</label>
+        <select name="lab_testing">
+          <option>Yes — third party tested</option>
+          <option>Yes — in-house testing</option>
+          <option>Partial — some products tested</option>
+          <option>No</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Tell us about your business</label>
+        <textarea name="description" placeholder="Years in operation, quality standards, anything else we should know..."></textarea>
+      </div>
+      <button type="submit" class="submit-btn">Submit for review →</button>
+    </form>
   </div>
 </div>
 
@@ -422,7 +448,7 @@ function renderGrid(){
         ${s.verified?'<div class="vbadge">Verified</div>':''}
       </div>
       <div class="scard-country">${s.flag} ${s.country}${s.name==='Elytra Labs'?' <span style="font-size:11px;color:var(--green);margin-left:6px;">🇨🇦 Canada coming soon</span>':''}</div>
-      <div class="stars">${renderStars(s.rating)}<span class="rating-text">${s.rating}.0 (${s.reviews} reviews)</span></div>
+      <div class="stars">${renderStars(s.rating)}${s.reviews > 0 ? `<span class="rating-text">${s.rating}.0 (${s.reviews} reviews)</span>` : '<span class="rating-text">No reviews yet</span>'}</div>
       <div class="tags">${s.tags.map(t=>`<div class="tag">${t}</div>`).join('')}</div>
       <div class="scard-footer">
         <span class="scard-meta">Ships in ${s.shipping}</span>
