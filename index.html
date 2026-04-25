@@ -154,9 +154,13 @@ h1 em{font-style:normal;color:var(--green);}
 .section-divider{border:none;border-top:0.5px solid var(--border);margin:1.5rem 0;}
 
 /* FOOTER */
-footer{border-top:0.5px solid var(--border);padding:2rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;background:var(--bg);}
+footer{border-top:0.5px solid var(--border);padding:2rem 2.5rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;background:var(--bg);}
+.footer-col{display:flex;flex-direction:column;gap:6px;}
+.footer-col-right{align-items:flex-end;}
 footer .logo{font-size:16px;}
 footer span{font-size:12px;color:var(--text3);}
+.footer-email{font-size:12px;color:var(--text3);text-decoration:none;transition:color 0.2s;}
+.footer-email:hover{color:var(--text2);}
 .footer-links{display:flex;gap:1.5rem;}
 .footer-links a{font-size:12px;color:var(--text3);text-decoration:none;transition:color 0.2s;}
 .footer-links a:hover{color:var(--text2);}
@@ -183,7 +187,8 @@ footer span{font-size:12px;color:var(--text3);}
   .dir-header{padding:2rem 1.25rem 1.5rem;}
   .form-wrap,.signup-wrap{padding:2rem 1.25rem;}
   .plan-cards{grid-template-columns:1fr;}
-  footer{flex-direction:column;align-items:flex-start;gap:10px;padding:1.5rem 1.25rem;}
+  footer{flex-direction:column;align-items:flex-start;gap:16px;padding:1.5rem 1.25rem;}
+  .footer-col-right{align-items:flex-start;}
   .footer-links{flex-wrap:wrap;gap:1rem;}
   .email-row{flex-direction:column;}
   .email-row input,.email-row button{width:100%;}
@@ -381,15 +386,19 @@ footer span{font-size:12px;color:var(--text3);}
 </div>
 
 <footer>
-  <div class="logo">Peptide<span>Radar</span></div>
-  <div class="footer-links">
-    <a href="#" onclick="showPage('landing');return false;">Home</a>
-    <a href="#" onclick="showPage('directory');return false;">Directory</a>
-    <a href="#" onclick="showPage('contact');return false;">Contact</a>
-    <a href="#" onclick="showPage('signup');return false;">List supplier</a>
+  <div class="footer-col">
+    <div class="logo">Peptide<span>Radar</span></div>
+    <a href="mailto:peptideradar@gmail.com" class="footer-email">peptideradar@gmail.com</a>
   </div>
-  <a href="mailto:peptideradar@gmail.com" style="font-size:12px;color:var(--text3);text-decoration:none;">peptideradar@gmail.com</a>
-  <span>© 2026 PeptideRadar</span>
+  <div class="footer-col footer-col-right">
+    <div class="footer-links">
+      <a href="#" onclick="showPage('landing');return false;">Home</a>
+      <a href="#" onclick="showPage('directory');return false;">Directory</a>
+      <a href="#" onclick="showPage('contact');return false;">Contact</a>
+      <a href="#" onclick="showPage('signup');return false;">List supplier</a>
+    </div>
+    <span>© 2026 PeptideRadar</span>
+  </div>
   <div class="disclaimer">For informational and research purposes only. PeptideRadar does not sell, endorse, or recommend any specific product for human use. Always consult a licensed healthcare professional. Laws regarding peptides vary by country — users are responsible for compliance with local regulations.</div>
 </footer>
 
