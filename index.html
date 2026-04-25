@@ -474,7 +474,7 @@ function renderGrid(){
         ${s.verified?'<div class="vbadge">Verified</div>':''}
       </div>
       <div class="scard-country">${s.flag} ${s.country}${s.note?` <span style="font-size:11px;color:var(--green);margin-left:6px;">${s.note}</span>`:''}</div>
-      <div class="stars">${renderStars(s.rating)}${s.reviews > 0 ? `<span class="rating-text">${s.rating} (${s.reviews} reviews)${s.judgeMe?` &nbsp;<a href="https://judge.me/reviews/cernumbiosciences.com" target="_blank" onclick="event.stopPropagation()" style="color:var(--green);font-size:10px;text-decoration:none;">✓ Judge.me</a>`:''}` : '<span class="rating-text">No reviews yet</span>'}</span>` : '<span class="rating-text">No reviews yet</span>'}</div>
+      <div class="stars">${renderStars(s.rating)}${s.reviews > 0 ? `<span class="rating-text">${s.rating} (${s.reviews} reviews)${s.judgeMe ? ` &nbsp;<a href="https://judge.me/reviews/cernumbiosciences.com" target="_blank" onclick="event.stopPropagation()" style="color:var(--green);font-size:10px;text-decoration:none;">✓ Judge.me</a>` : ''}</span>` : '<span class="rating-text">No reviews yet</span>'}</div>
       ${s.featuredReview?`<div onclick="event.stopPropagation()" style="margin-bottom:12px;">
         <div style="font-size:12px;color:var(--text2);font-style:italic;padding:8px 12px;background:rgba(255,255,255,0.03);border-left:2px solid rgba(93,217,138,0.3);border-radius:0 6px 6px 0;margin-bottom:6px;">"${s.featuredReview}"</div>
         ${s.allReviews?`<button onclick="toggleReviews(this);event.stopPropagation()" style="background:none;border:none;color:var(--green);font-size:11px;cursor:pointer;font-family:'DM Sans',sans-serif;padding:0;">See all ${s.reviews} reviews ↓</button>
