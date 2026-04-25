@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>PeptideFind — Trusted Peptide Suppliers by Country</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet"/>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  --green:#7ee8a2;
+  --green-dim:rgba(126,232,162,0.12);
+  --bg:#0a0a0f;
+  --bg2:#111118;
+  --bg3:#16161f;
+  --text:#f0ede8;
+  --text2:rgba(240,237,232,0.55);
+  --text3:rgba(240,237,232,0.3);
+  --border:rgba(255,255,255,0.08);
+  --border2:rgba(255,255,255,0.14);
+}
+html{scroll-behavior:smooth;}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden;}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:1rem 2rem;background:rgba(10,10,15,0.85);backdrop-filter:blur(12px);border-bottom:0.5px solid var(--border);}
+.logo{font-family:'Syne',sans-serif;font-weight:800;font-size:20px;letter-spacing:-0.5px;cursor:pointer;}
+.logo span{color:var(--green);}
+.nav-links{display:flex;gap:2rem;list-style:none;}
+.nav-links a{color:var(--text2);text-decoration:none;font-size:14px;transition:color 0.2s;}
+.nav-links a:hover{color:var(--text);}
+.nav-cta{background:var(--green);color:#0a0a0f;border:none;padding:9px 20px;border-radius:100px;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:500;cursor:pointer;transition:opacity 0.2s;}
+.nav-cta:hover{opacity:0.85;}
+
+/* PAGES */
+.page{display:none;min-height:100vh;padding-top:65px;}
+.page.active{display:block;}
+
+/* ── LANDING ── */
+#landing{background:var(--bg);}
+.hero{padding:5rem 2rem 3rem;max-width:620px;margin:0 auto;text-align:center;}
+.badge{display:inline-block;border:0.5px solid rgba(126,232,162,0.4);color:var(--green);font-size:11px;letter-spacing:1.5px;text-transform:uppercase;padding:5px 14px;border-radius:100px;margin-bottom:1.25rem;}
+h1{font-family:'Syne',sans-serif;font-size:clamp(32px,5vw,52px);font-weight:800;line-height:1.08;letter-spacing:-1.5px;margin-bottom:1rem;}
+h1 em{font-style:normal;color:var(--green);}
+.hero-sub{font-size:15px;font-weight:300;color:var(--text2);line-height:1.7;margin-bottom:2rem;max-width:420px;margin-left:auto;margin-right:auto;}
+.cta-group{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:3rem;}
+.btn-primary{background:var(--green);color:#0a0a0f;border:none;padding:14px 28px;border-radius:100px;font-family:'DM Sans',sans-serif;font-size:15px;font-weight:500;cursor:pointer;transition:opacity 0.2s,transform 0.15s;}
+.btn-primary:hover{opacity:0.88;transform:translateY(-1px);}
+.btn-ghost{background:transparent;color:var(--text2);border:0.5px solid var(--border2);padding:14px 28px;border-radius:100px;font-family:'DM Sans',sans-serif;font-size:15px;cursor:pointer;transition:all 0.2s;}
+.btn-ghost:hover{border-color:rgba(240,237,232,0.4);color:var(--text);}
+.stats-row{display:flex;justify-content:center;gap:2rem;flex-wrap:wrap;padding:1.75rem 0;border-top:0.5px solid var(--border);border-bottom:0.5px solid var(--border);margin-bottom:4rem;}
+.stat-item{text-align:center;}
+.stat-num{font-family:'Syne',sans-serif;font-size:32px;font-weight:800;color:var(--green);}
+.stat-label{font-size:12px;color:var(--text3);letter-spacing:0.5px;text-transform:uppercase;}
+
+/* HOW IT WORKS */
+.section{padding:5rem 2rem;max-width:900px;margin:0 auto;}
+.section-tag{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--text3);margin-bottom:1rem;}
+.section-title{font-family:'Syne',sans-serif;font-size:clamp(28px,4vw,40px);font-weight:800;letter-spacing:-1px;margin-bottom:3rem;}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.5rem;}
+.step{padding:1.5rem;border:0.5px solid var(--border);border-radius:16px;background:var(--bg2);transition:border-color 0.2s;}
+.step:hover{border-color:rgba(126,232,162,0.3);}
+.step-num{font-family:'Syne',sans-serif;font-size:36px;font-weight:800;color:rgba(126,232,162,0.2);margin-bottom:0.75rem;}
+.step-title{font-family:'Syne',sans-serif;font-size:16px;font-weight:700;margin-bottom:0.5rem;}
+.step-desc{font-size:13px;color:var(--text2);line-height:1.6;}
+
+/* FEATURES */
+.features-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;}
+.feat{background:var(--bg3);border:0.5px solid var(--border);border-radius:14px;padding:1.25rem;}
+.feat-icon{width:36px;height:36px;border-radius:10px;background:var(--green-dim);display:flex;align-items:center;justify-content:center;margin-bottom:14px;}
+.feat-title{font-family:'Syne',sans-serif;font-size:14px;font-weight:700;margin-bottom:6px;}
+.feat-desc{font-size:13px;color:var(--text2);line-height:1.6;}
+
+/* CTA BANNER */
+.cta-banner{background:var(--bg2);border-top:0.5px solid var(--border);border-bottom:0.5px solid var(--border);padding:5rem 2rem;text-align:center;}
+.cta-banner h2{font-family:'Syne',sans-serif;font-size:clamp(24px,4vw,38px);font-weight:800;letter-spacing:-1px;margin-bottom:1rem;}
+.cta-banner p{color:var(--text2);font-size:15px;margin-bottom:2rem;max-width:400px;margin-left:auto;margin-right:auto;}
+.email-row{display:flex;gap:8px;max-width:420px;margin:0 auto;}
+.email-row input{flex:1;background:rgba(255,255,255,0.05);border:0.5px solid var(--border2);border-radius:100px;padding:13px 20px;font-family:'DM Sans',sans-serif;font-size:14px;color:var(--text);outline:none;}
+.email-row input::placeholder{color:var(--text3);}
+.email-row input:focus{border-color:rgba(126,232,162,0.5);}
+
+/* ── DIRECTORY ── */
+#directory{background:var(--bg);}
+.dir-header{padding:3rem 2rem 2rem;max-width:1100px;margin:0 auto;}
+.dir-header h2{font-family:'Syne',sans-serif;font-size:32px;font-weight:800;letter-spacing:-1px;margin-bottom:0.5rem;}
+.dir-header p{color:var(--text2);font-size:15px;margin-bottom:2rem;}
+.search-bar{display:flex;align-items:center;gap:12px;background:var(--bg2);border:0.5px solid var(--border2);border-radius:14px;padding:1rem 1.25rem;margin-bottom:1.25rem;}
+.search-bar input{background:transparent;border:none;outline:none;font-family:'DM Sans',sans-serif;font-size:15px;color:var(--text);flex:1;}
+.search-bar input::placeholder{color:var(--text3);}
+.country-filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:2rem;}
+.cf{background:rgba(255,255,255,0.04);border:0.5px solid var(--border);color:var(--text2);font-size:12px;padding:6px 14px;border-radius:100px;cursor:pointer;transition:all 0.15s;font-family:'DM Sans',sans-serif;}
+.cf:hover,.cf.active{background:var(--green-dim);border-color:rgba(126,232,162,0.4);color:var(--green);}
+.supplier-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px;padding:0 2rem 4rem;max-width:1100px;margin:0 auto;}
+.scard{background:var(--bg2);border:0.5px solid var(--border);border-radius:16px;padding:1.5rem;transition:all 0.2s;cursor:pointer;}
+.scard:hover{border-color:rgba(126,232,162,0.35);background:var(--bg3);transform:translateY(-2px);}
+.scard-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:10px;}
+.scard-name{font-family:'Syne',sans-serif;font-size:17px;font-weight:700;}
+.vbadge{background:var(--green-dim);color:var(--green);font-size:10px;letter-spacing:0.8px;padding:3px 10px;border-radius:100px;text-transform:uppercase;white-space:nowrap;}
+.scard-country{font-size:13px;color:var(--text3);margin-bottom:10px;}
+.stars{display:flex;gap:2px;margin-bottom:12px;align-items:center;}
+.star{width:12px;height:12px;background:var(--green);clip-path:polygon(50% 0%,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%);}
+.star.e{background:rgba(255,255,255,0.12);}
+.rating-text{font-size:12px;color:var(--text3);margin-left:6px;}
+.tags{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:14px;}
+.tag{background:rgba(255,255,255,0.04);border:0.5px solid var(--border);color:var(--text2);font-size:11px;padding:3px 10px;border-radius:6px;}
+.scard-footer{display:flex;justify-content:space-between;align-items:center;padding-top:12px;border-top:0.5px solid var(--border);}
+.scard-meta{font-size:12px;color:var(--text3);}
+.visit-btn{background:var(--green);color:#0a0a0f;border:none;padding:7px 16px;border-radius:100px;font-size:12px;font-weight:500;cursor:pointer;font-family:'DM Sans',sans-serif;transition:opacity 0.2s;}
+.visit-btn:hover{opacity:0.85;}
+.no-results{text-align:center;padding:4rem 2rem;color:var(--text3);}
+
+/* ── CONTACT ── */
+#contact{background:var(--bg);}
+.form-wrap{max-width:600px;margin:0 auto;padding:4rem 2rem;}
+.form-wrap h2{font-family:'Syne',sans-serif;font-size:32px;font-weight:800;letter-spacing:-1px;margin-bottom:0.5rem;}
+.form-wrap p{color:var(--text2);font-size:15px;margin-bottom:2.5rem;}
+.form-group{margin-bottom:1.25rem;}
+.form-group label{display:block;font-size:13px;color:var(--text2);margin-bottom:6px;letter-spacing:0.3px;}
+.form-group input,.form-group textarea,.form-group select{width:100%;background:var(--bg2);border:0.5px solid var(--border2);border-radius:10px;padding:12px 16px;font-family:'DM Sans',sans-serif;font-size:14px;color:var(--text);outline:none;transition:border-color 0.2s;}
+.form-group input:focus,.form-group textarea:focus,.form-group select:focus{border-color:rgba(126,232,162,0.5);}
+.form-group textarea{resize:vertical;min-height:120px;}
+.form-group select{appearance:none;cursor:pointer;}
+.form-group select option{background:var(--bg2);}
+.submit-btn{width:100%;background:var(--green);color:#0a0a0f;border:none;padding:14px;border-radius:10px;font-family:'DM Sans',sans-serif;font-size:15px;font-weight:500;cursor:pointer;transition:opacity 0.2s,transform 0.15s;margin-top:0.5rem;}
+.submit-btn:hover{opacity:0.88;transform:translateY(-1px);}
+.success-msg{display:none;background:var(--green-dim);border:0.5px solid rgba(126,232,162,0.3);border-radius:10px;padding:1rem 1.25rem;color:var(--green);font-size:14px;margin-top:1rem;text-align:center;}
+
+/* ── SUPPLIER SIGNUP ── */
+#signup{background:var(--bg);}
+.signup-wrap{max-width:640px;margin:0 auto;padding:4rem 2rem;}
+.signup-wrap h2{font-family:'Syne',sans-serif;font-size:32px;font-weight:800;letter-spacing:-1px;margin-bottom:0.5rem;}
+.signup-wrap>p{color:var(--text2);font-size:15px;margin-bottom:2.5rem;}
+.plan-cards{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:2rem;}
+.plan{border:0.5px solid var(--border);border-radius:14px;padding:1.25rem;cursor:pointer;transition:all 0.2s;}
+.plan:hover{border-color:var(--border2);}
+.plan.selected{border-color:rgba(126,232,162,0.5);background:var(--green-dim);}
+.plan-name{font-family:'Syne',sans-serif;font-size:15px;font-weight:700;margin-bottom:4px;}
+.plan-price{font-size:22px;font-weight:500;color:var(--green);margin-bottom:8px;}
+.plan-price span{font-size:13px;color:var(--text3);}
+.plan-features{list-style:none;}
+.plan-features li{font-size:12px;color:var(--text2);padding:2px 0;}
+.plan-features li::before{content:"✓ ";color:var(--green);}
+.section-divider{border:none;border-top:0.5px solid var(--border);margin:1.5rem 0;}
+
+/* FOOTER */
+footer{border-top:0.5px solid var(--border);padding:2rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;background:var(--bg);}
+footer .logo{font-size:16px;}
+footer span{font-size:12px;color:var(--text3);}
+.footer-links{display:flex;gap:1.5rem;}
+.footer-links a{font-size:12px;color:var(--text3);text-decoration:none;transition:color 0.2s;}
+.footer-links a:hover{color:var(--text2);}
+.disclaimer{width:100%;font-size:11px;color:rgba(240,237,232,0.2);line-height:1.5;padding-top:1rem;border-top:0.5px solid var(--border);}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo" onclick="showPage('landing')">Peptide<span>Find</span></div>
+  <ul class="nav-links">
+    <li><a href="#" onclick="showPage('landing');return false;">Home</a></li>
+    <li><a href="#" onclick="showPage('directory');return false;">Directory</a></li>
+    <li><a href="#" onclick="showPage('contact');return false;">Contact</a></li>
+  </ul>
+  <button class="nav-cta" onclick="showPage('signup')">List your supplier</button>
+</nav>
+
+<!-- ══════════════ LANDING PAGE ══════════════ -->
+<div id="landing" class="page active">
+  <div class="hero">
+    <div class="badge">Trusted Supplier Network</div>
+    <h1>Find <em>verified</em> peptide suppliers in your country</h1>
+    <p class="hero-sub">The world's first verified directory of peptide suppliers — organized by country, reviewed by the community, backed by lab data.</p>
+    <div class="cta-group">
+      <button class="btn-primary" onclick="showPage('directory')">Browse suppliers →</button>
+      <button class="btn-ghost" onclick="showPage('signup')">List your business</button>
+    </div>
+    <div class="stats-row">
+      <div class="stat-item"><div class="stat-num">40+</div><div class="stat-label">Countries</div></div>
+      <div class="stat-item"><div class="stat-num">120+</div><div class="stat-label">Verified suppliers</div></div>
+      <div class="stat-item"><div class="stat-num">8K+</div><div class="stat-label">Community reviews</div></div>
+      <div class="stat-item"><div class="stat-num">100%</div><div class="stat-label">Independent</div></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-tag">How it works</div>
+    <div class="section-title">Find your supplier in 3 steps</div>
+    <div class="steps">
+      <div class="step"><div class="step-num">01</div><div class="step-title">Select your country</div><div class="step-desc">Filter suppliers by your location. We factor in local laws, shipping availability, and import restrictions.</div></div>
+      <div class="step"><div class="step-num">02</div><div class="step-title">Compare suppliers</div><div class="step-desc">Read community reviews, check lab test results, compare shipping times and pricing transparency.</div></div>
+      <div class="step"><div class="step-num">03</div><div class="step-title">Buy with confidence</div><div class="step-desc">Every listed supplier has been manually vetted by our team. No fake reviews, no paid placements.</div></div>
+    </div>
+  </div>
+
+  <div class="section" style="padding-top:0;">
+    <div class="section-tag">Why PeptideFind</div>
+    <div class="section-title">Built for the community</div>
+    <div class="features-grid">
+      <div class="feat">
+        <div class="feat-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#7ee8a2" stroke-width="1.5"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg></div>
+        <div class="feat-title">Verified only</div>
+        <div class="feat-desc">Every supplier is manually reviewed before being listed. Lab tests, shipping data, and reviews all checked.</div>
+      </div>
+      <div class="feat">
+        <div class="feat-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#7ee8a2" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 010 20M12 2a15.3 15.3 0 000 20"/></svg></div>
+        <div class="feat-title">Country-specific</div>
+        <div class="feat-desc">Filtered by your country — shipping laws, legality, and customs rules all factored in automatically.</div>
+      </div>
+      <div class="feat">
+        <div class="feat-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#7ee8a2" stroke-width="1.5"><path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg></div>
+        <div class="feat-title">Real reviews</div>
+        <div class="feat-desc">Ratings from real community members. No fake reviews, no pay-to-win placements — ever.</div>
+      </div>
+      <div class="feat">
+        <div class="feat-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#7ee8a2" stroke-width="1.5"><path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg></div>
+        <div class="feat-title">Always updated</div>
+        <div class="feat-desc">New suppliers added weekly. Ratings refresh in real time. Outdated listings get removed fast.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cta-banner">
+    <h2>Get early access</h2>
+    <p>Join the waitlist — be first to know when new suppliers hit your country.</p>
+    <div class="email-row">
+      <input type="email" placeholder="your@email.com" id="waitlist-email"/>
+      <button class="btn-primary" onclick="joinWaitlist()">Join →</button>
+    </div>
+    <p id="waitlist-thanks" style="color:var(--green);margin-top:1rem;font-size:14px;display:none;">You're on the list! We'll be in touch.</p>
+  </div>
+</div>
+
+<!-- ══════════════ DIRECTORY ══════════════ -->
+<div id="directory" class="page">
+  <div class="dir-header">
+    <h2>Supplier Directory</h2>
+    <p>Browse verified peptide suppliers filtered by country.</p>
+    <div class="search-bar">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(240,237,232,0.3)" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+      <input type="text" placeholder="Search suppliers or peptide types..." id="search-input" oninput="filterSuppliers()"/>
+    </div>
+    <div class="country-filters" id="country-filters"></div>
+  </div>
+  <div class="supplier-grid" id="supplier-grid"></div>
+</div>
+
+<!-- ══════════════ CONTACT ══════════════ -->
+<div id="contact" class="page">
+  <div class="form-wrap">
+    <h2>Get in touch</h2>
+    <p>Have a question, found incorrect info, or want to report a supplier? We're here.</p>
+    <div class="form-group">
+      <label>Your name</label>
+      <input type="text" placeholder="John Smith"/>
+    </div>
+    <div class="form-group">
+      <label>Email address</label>
+      <input type="email" placeholder="your@email.com"/>
+    </div>
+    <div class="form-group">
+      <label>Subject</label>
+      <select>
+        <option>General question</option>
+        <option>Report a supplier</option>
+        <option>Incorrect information</option>
+        <option>Partnership inquiry</option>
+        <option>Other</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label>Message</label>
+      <textarea placeholder="Tell us what's on your mind..."></textarea>
+    </div>
+    <button class="submit-btn" onclick="submitContact()">Send message</button>
+    <div class="success-msg" id="contact-success">Message sent! We'll get back to you within 24 hours.</div>
+  </div>
+</div>
+
+<!-- ══════════════ SUPPLIER SIGNUP ══════════════ -->
+<div id="signup" class="page">
+  <div class="signup-wrap">
+    <h2>List your supplier</h2>
+    <p>Join our verified network and reach thousands of buyers actively searching in your country.</p>
+
+    <div class="plan-cards">
+      <div class="plan selected" id="plan-basic" onclick="selectPlan('basic')">
+        <div class="plan-name">Basic</div>
+        <div class="plan-price">Free <span>/ forever</span></div>
+        <ul class="plan-features">
+          <li>Directory listing</li>
+          <li>Community reviews</li>
+          <li>Country filter</li>
+        </ul>
+      </div>
+      <div class="plan" id="plan-pro" onclick="selectPlan('pro')">
+        <div class="plan-name">Featured</div>
+        <div class="plan-price">$79 <span>/ month</span></div>
+        <ul class="plan-features">
+          <li>Top placement</li>
+          <li>Verified badge</li>
+          <li>Lab test display</li>
+          <li>Analytics dashboard</li>
+        </ul>
+      </div>
+    </div>
+
+    <hr class="section-divider"/>
+
+    <div class="form-group">
+      <label>Business name</label>
+      <input type="text" placeholder="Your company name"/>
+    </div>
+    <div class="form-group">
+      <label>Website URL</label>
+      <input type="url" placeholder="https://yoursupplier.com"/>
+    </div>
+    <div class="form-group">
+      <label>Country of operation</label>
+      <select id="signup-country">
+        <option value="">Select country...</option>
+        <option>United States</option>
+        <option>Canada</option>
+        <option>United Kingdom</option>
+        <option>Germany</option>
+        <option>France</option>
+        <option>Australia</option>
+        <option>Netherlands</option>
+        <option>Switzerland</option>
+        <option>Spain</option>
+        <option>Italy</option>
+        <option>Other</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label>Contact email</label>
+      <input type="email" placeholder="contact@yoursupplier.com"/>
+    </div>
+    <div class="form-group">
+      <label>Peptide types you carry</label>
+      <input type="text" placeholder="e.g. BPC-157, TB-500, Semaglutide..."/>
+    </div>
+    <div class="form-group">
+      <label>Tell us about your business</label>
+      <textarea placeholder="Years in operation, quality standards, lab testing policy..."></textarea>
+    </div>
+    <button class="submit-btn" onclick="submitSignup()">Submit for review →</button>
+    <div class="success-msg" id="signup-success">Application received! Our team will review and get back to you within 3 business days.</div>
+  </div>
+</div>
+
+<footer>
+  <div class="logo">Peptide<span>Find</span></div>
+  <div class="footer-links">
+    <a href="#" onclick="showPage('landing');return false;">Home</a>
+    <a href="#" onclick="showPage('directory');return false;">Directory</a>
+    <a href="#" onclick="showPage('contact');return false;">Contact</a>
+    <a href="#" onclick="showPage('signup');return false;">List supplier</a>
+  </div>
+  <span>© 2025 PeptideFind</span>
+  <div class="disclaimer">For informational and research purposes only. PeptideFind does not sell, endorse, or recommend any specific product for human use. Always consult a licensed healthcare professional. Laws regarding peptides vary by country — users are responsible for compliance with local regulations.</div>
+</footer>
+
+<script>
+const suppliers = [
+  {name:"Elytra Labs",country:"USA",flag:"🇺🇸",rating:5,reviews:0,tags:["Lab Tested","24h dispatch","Overnight available"],shipping:"2-5 days",verified:true,url:"https://elytralabs.shop"},
+];
+
+
+const countries = [...new Set(suppliers.map(s=>s.country))];
+let activeCountry = 'All';
+let searchTerm = '';
+
+function renderFilters(){
+  const el = document.getElementById('country-filters');
+  if(!suppliers.length){el.style.display='none';return;}
+  el.innerHTML = ['All',...countries].map(c=>`<div class="cf ${c===activeCountry?'active':''}" onclick="setCountry('${c}')">${c==='All'?'🌍 All countries':suppliers.find(s=>s.country===c).flag+' '+c}</div>`).join('');
+}
+
+function setCountry(c){activeCountry=c;renderFilters();renderGrid();}
+
+function renderStars(n){
+  return Array.from({length:5},(_,i)=>`<div class="star${i>=n?' e':''}"></div>`).join('');
+}
+
+function renderGrid(){
+  const grid = document.getElementById('supplier-grid');
+  const filtered = suppliers.filter(s=>{
+    const matchCountry = activeCountry==='All'||s.country===activeCountry;
+    const matchSearch = s.name.toLowerCase().includes(searchTerm)||s.tags.some(t=>t.toLowerCase().includes(searchTerm))||s.country.toLowerCase().includes(searchTerm);
+    return matchCountry && matchSearch;
+  });
+  if(!filtered.length){grid.innerHTML='<div class="no-results" style="grid-column:1/-1;padding:5rem 2rem;text-align:center;"><p style="font-size:22px;font-family:Syne,sans-serif;font-weight:700;margin-bottom:10px;color:var(--text);">Suppliers coming soon</p><p style="font-size:14px;color:var(--text3);max-width:320px;margin:0 auto 1.5rem;">We\'re currently verifying our first batch of suppliers. Check back soon or get notified when your country goes live.</p><button class="btn-primary" onclick="showPage(\'landing\')" style="font-size:13px;padding:10px 22px;">Join the waitlist →</button></div>';return;}
+  grid.innerHTML = filtered.map(s=>`
+    <div class="scard">
+      <div class="scard-top">
+        <div class="scard-name">${s.name}</div>
+        ${s.verified?'<div class="vbadge">Verified</div>':''}
+      </div>
+      <div class="scard-country">${s.flag} ${s.country}${s.name==='Elytra Labs'?' <span style="font-size:11px;color:var(--green);margin-left:6px;">🇨🇦 Canada coming soon</span>':''}</div>
+      <div class="stars">${renderStars(s.rating)}<span class="rating-text">${s.rating}.0 (${s.reviews} reviews)</span></div>
+      <div class="tags">${s.tags.map(t=>`<div class="tag">${t}</div>`).join('')}</div>
+      <div class="scard-footer">
+        <span class="scard-meta">Ships in ${s.shipping}</span>
+        <button class="visit-btn" onclick="window.open('${s.url}','_blank')">Visit site →</button>
+      </div>
+    </div>
+  `).join('');
+}
+
+function filterSuppliers(){
+  searchTerm = document.getElementById('search-input').value.toLowerCase();
+  renderGrid();
+}
+
+function showPage(id){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  window.scrollTo(0,0);
+}
+
+function joinWaitlist(){
+  const em = document.getElementById('waitlist-email').value;
+  if(!em)return;
+  document.getElementById('waitlist-thanks').style.display='block';
+  document.getElementById('waitlist-email').value='';
+}
+
+function submitContact(){
+  document.getElementById('contact-success').style.display='block';
+}
+
+function submitSignup(){
+  document.getElementById('signup-success').style.display='block';
+}
+
+function selectPlan(p){
+  document.getElementById('plan-basic').classList.toggle('selected',p==='basic');
+  document.getElementById('plan-pro').classList.toggle('selected',p==='pro');
+}
+
+renderFilters();
+renderGrid();
+</script>
+</body>
+</html>
