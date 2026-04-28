@@ -571,10 +571,15 @@ const pinnedFilters=['All','United States','Canada','Europe'];
 let activeCountry = 'All';
 let searchTerm = '';
 
+function track(event, params){
+  if(typeof gtag==='function') gtag('event', event, params||{});
+}
+
 function trackClick(name, url){
   const clicks = JSON.parse(localStorage.getItem('clicks')||'{}');
   clicks[name] = (clicks[name]||0) + 1;
   localStorage.setItem('clicks', JSON.stringify(clicks));
+  track('supplier_visit', {supplier_name: name, supplier_url: url});
   window.open(url,'_blank');
 }
 
@@ -608,6 +613,7 @@ function setCountry(c){
   document.querySelectorAll('#country-filters .cf').forEach(el=>el.classList.toggle('active',el.dataset.country===c));
   const sel=document.getElementById('more-countries-select');
   if(sel){const isRest=c&&[...sel.options].some(o=>o.value===c);sel.classList.toggle('active',isRest);sel.value=isRest?c:'';}
+  track('filter_country', {country: c});
   renderGrid();
 }
 
@@ -705,6 +711,7 @@ function showPage(id){
   document.querySelectorAll('.nav-links a').forEach(function(a){
     if(a.textContent.trim().toLowerCase().replace('list your supplier','signup')===map[id]||a.getAttribute('onclick').includes("'"+id+"'"))a.classList.add('active');
   });
+  track('page_view', {page_name: id});
 }
 
 function toggleNav(){document.getElementById('nav-links').classList.toggle('open');}
@@ -723,6 +730,7 @@ document.getElementById('waitlist-form').addEventListener('submit',function(e){
   e.preventDefault();
   const btn=e.target.querySelector('button[type="submit"]');
   btn.textContent='Joining...';btn.disabled=true;
+  track('waitlist_signup');
   fetch('https://formspree.io/f/xzdywbnw',{method:'POST',body:new FormData(e.target),headers:{Accept:'application/json'}})
     .then(r=>{if(r.ok){e.target.reset();btn.textContent='Joined ✓';}else{btn.textContent='Join →';btn.disabled=false;}})
     .catch(function(){btn.textContent='Join →';btn.disabled=false;});
@@ -732,6 +740,7 @@ document.getElementById('contact-form').addEventListener('submit',function(e){
   e.preventDefault();
   const btn=e.target.querySelector('.submit-btn');
   btn.textContent='Sending...';btn.disabled=true;
+  track('contact_submit', {subject: e.target.querySelector('[name="subject"]').value});
   fetch('https://formspree.io/f/mrerdbrz',{method:'POST',body:new FormData(e.target),headers:{Accept:'application/json'}})
     .then(r=>{
       if(r.ok){e.target.reset();document.getElementById('contact-success').style.display='block';}
@@ -743,6 +752,7 @@ document.getElementById('signup-form').addEventListener('submit',function(e){
   e.preventDefault();
   const btn=e.target.querySelector('.submit-btn');
   btn.textContent='Submitting...';btn.disabled=true;
+  track('supplier_apply', {business_name: e.target.querySelector('[name="business_name"]').value, country: e.target.querySelector('[name="country"]').value});
   fetch('https://formspree.io/f/xjgjzkjg',{method:'POST',body:new FormData(e.target),headers:{Accept:'application/json'}})
     .then(r=>{
       if(r.ok){e.target.reset();document.getElementById('signup-success').style.display='block';}
