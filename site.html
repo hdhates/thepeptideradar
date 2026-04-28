@@ -162,6 +162,8 @@ h1 em{font-style:normal;color:var(--green);}
 .scard-meta{font-size:12px;color:var(--text3);}
 .visit-btn{background:linear-gradient(90deg,#0a0a0f 50%,var(--green) 50%);background-size:200% 100%;background-position:right center;color:#0a0a0f;border:0.5px solid var(--green);padding:8px 18px;border-radius:100px;font-size:12px;font-weight:700;cursor:pointer;font-family:'DM Sans',sans-serif;transition:background-position 0.4s ease,color 0.3s,transform 0.15s;letter-spacing:0.1px;}
 .visit-btn:hover{background-position:left center;color:var(--green);transform:translateY(-1px);}
+.visit-btn-ghost{background:linear-gradient(90deg,var(--green) 50%,transparent 50%);background-size:200% 100%;background-position:right center;color:var(--green);}
+.visit-btn-ghost:hover{background-position:left center;color:#0a0a0f;}
 .no-results{text-align:center;padding:4rem 2rem;color:var(--text3);}
 .all-reviews::-webkit-scrollbar{width:4px;}
 .all-reviews::-webkit-scrollbar-track{background:transparent;}
@@ -264,6 +266,8 @@ footer span{font-size:12px;color:var(--text3);}
   .visit-btn{padding:10px 20px;font-size:13px;font-weight:700;}
   .cf{padding:9px 16px;font-size:13px;}
   .back-to-top{width:44px;height:44px;font-size:16px;}
+  .cta-banner{padding:2.5rem 1.25rem;}
+  .dir-header h2,.form-wrap h2,.signup-wrap h2{font-size:24px;letter-spacing:-0.5px;}
 }
 </style>
 </head>
@@ -706,7 +710,7 @@ function buildCard(s){
   }
   if(s.url2){
     var btn1='<button class="visit-btn" style="flex:1;" onclick="trackClick(\''+s.name+'\',\''+s.url+'\')">Telegram →</button>';
-    var btn2='<button class="visit-btn" style="flex:1;background:linear-gradient(90deg,var(--green) 50%,transparent 50%);background-size:200% 100%;background-position:right center;color:var(--green);" onmouseover="this.style.backgroundPosition=\'left center\';this.style.color=\'#0a0a0f\';" onmouseout="this.style.backgroundPosition=\'right center\';this.style.color=\'var(--green)\';" onclick="trackClick(\''+s.name+' WhatsApp\',\''+s.url2+'\')">WhatsApp →</button>';
+    var btn2='<button class="visit-btn visit-btn-ghost" style="flex:1;" onclick="trackClick(\''+s.name+' WhatsApp\',\''+s.url2+'\')">WhatsApp →</button>';
     h+='<div class="scard-footer" style="flex-direction:column;align-items:flex-start;gap:10px;"><span class="scard-meta">Ships in '+s.shipping+'</span><div style="display:flex;gap:8px;width:100%;">'+btn1+btn2+'</div></div>';
   } else {
     h+='<div class="scard-footer"><span class="scard-meta">Ships in '+s.shipping+'</span><button class="visit-btn" onclick="trackClick(\''+s.name+'\',\''+s.url+'\')">Visit site →</button></div>';
