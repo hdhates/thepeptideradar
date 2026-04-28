@@ -126,7 +126,8 @@ h1 em{font-style:normal;color:var(--green);}
 .cf-more{background:rgba(255,255,255,0.04);border:0.5px solid var(--border);color:var(--text2);font-size:12px;padding:6px 28px 6px 14px;border-radius:100px;cursor:pointer;font-family:'DM Sans',sans-serif;appearance:none;-webkit-appearance:none;outline:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='rgba(240%2C237%2C232%2C0.3)' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 10px center;}
 .cf-more.active{background-color:var(--green-dim);border-color:rgba(126,232,162,0.4);color:var(--green);}
 .cf-more option{background:#111118;color:#f0ede8;}
-.cf-desktop{display:none;}
+.cf-desktop{display:inline-block;}
+@media(max-width:640px){.cf-desktop{display:none;}.cf-more{display:block !important;}}
 .supplier-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px;padding:0 2rem 4rem;max-width:1100px;margin:0 auto;align-items:stretch;}
 .scard{background:var(--bg2);border:0.5px solid var(--border);border-radius:16px;padding:1.5rem;transition:all 0.2s;display:flex;flex-direction:column;}
 .scard:hover{border-color:rgba(126,232,162,0.35);background:var(--bg3);transform:translateY(-2px);}
@@ -625,7 +626,7 @@ function renderFilters(){
     const label=c==='All'?'🌍 All':c==='Europe'?'<img src="https://flagcdn.com/16x12/eu.png" style="vertical-align:middle;border-radius:2px;margin-right:5px;" alt=""> Europe':flagEmoji(c)+c;
     return `<div class="cf ${c===activeCountry?'active':''}" data-country="${c}" onclick="setCountry('${c}')">${label}</div>`;
   }).join('');
-  const desktopPills=rest.map(c=>`<div class="cf cf-desktop ${c===activeCountry?'active':''}" data-country="${c}" onclick="setCountry('${c}')">${flagEmoji(c)+c}</div>`).join('');
+  const desktopPills=rest.map(c=>`<div class="cf ${c===activeCountry?'active':''}" data-country="${c}" onclick="setCountry('${c}')">${flagEmoji(c)+c}</div>`).join('');
   const moreSelect=`<select class="cf-more ${isRestActive?'active':''}" id="more-countries-select" onchange="setCountry(this.value)">
     <option value="" disabled ${!isRestActive?'selected':''}>More countries ▾</option>
     ${rest.map(c=>`<option value="${c}" ${c===activeCountry?'selected':''}>${c}</option>`).join('')}
