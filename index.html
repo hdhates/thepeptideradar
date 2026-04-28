@@ -733,10 +733,9 @@ function showPage(id){
   document.getElementById(id).classList.add('active');
   window.scrollTo(0,0);
   document.querySelectorAll('.success-msg').forEach(function(el){el.style.display='none';});
-  document.querySelectorAll('.nav-links a').forEach(function(a){a.classList.remove('active');});
-  var map={landing:'home',directory:'directory',contact:'contact',signup:'signup',verify:'how we verify suppliers'};
   document.querySelectorAll('.nav-links a').forEach(function(a){
-    if(a.textContent.trim().toLowerCase().replace('list your supplier','signup')===map[id]||a.getAttribute('onclick').includes("'"+id+"'"))a.classList.add('active');
+    var onclick=a.getAttribute('onclick')||'';
+    a.classList.toggle('active',onclick.includes("'"+id+"'"));
   });
   track('Navigated to Page', {page_name: id});
 }
