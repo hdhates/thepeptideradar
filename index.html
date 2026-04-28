@@ -121,7 +121,7 @@ h1 em{font-style:normal;color:var(--green);}
 .search-bar input{background:transparent;border:none;outline:none;font-family:'DM Sans',sans-serif;font-size:15px;color:var(--text);flex:1;}
 .search-bar input::placeholder{color:var(--text3);}
 .country-filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:2rem;}
-.cf{background:rgba(255,255,255,0.04);border:0.5px solid var(--border);color:var(--text2);font-size:12px;padding:6px 14px;border-radius:100px;cursor:pointer;transition:all 0.15s;font-family:'DM Sans',sans-serif;}
+.cf{background:rgba(255,255,255,0.04);border:0.5px solid var(--border);color:var(--text2);font-size:12px;padding:6px 14px;border-radius:100px;cursor:pointer;transition:all 0.15s;font-family:'DM Sans',sans-serif;white-space:nowrap;}
 .cf:hover,.cf.active{background:var(--green-dim);border-color:rgba(126,232,162,0.4);color:var(--green);}
 .cf-more{background:rgba(255,255,255,0.04);border:0.5px solid var(--border);color:var(--text2);font-size:12px;padding:6px 28px 6px 14px;border-radius:100px;cursor:pointer;font-family:'DM Sans',sans-serif;appearance:none;-webkit-appearance:none;outline:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='rgba(240%2C237%2C232%2C0.3)' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 10px center;display:none;}
 .cf-more.active{background-color:var(--green-dim);border-color:rgba(126,232,162,0.4);color:var(--green);}
@@ -623,7 +623,7 @@ function renderFilters(){
   const rest=allShipCountries.filter(c=>c!=='United States'&&c!=='Canada');
   const isRestActive=rest.includes(activeCountry);
   const pinned=pinnedFilters.map(c=>{
-    const label=c==='All'?'🌍 All':c==='Europe'?'🇪🇺 Europe':flagEmoji(c)+c;
+    const label=c==='All'?'🌍 All':c==='Europe'?'<img src="https://flagcdn.com/16x12/eu.png" style="vertical-align:middle;border-radius:2px;margin-right:5px;" alt=""> Europe':flagEmoji(c)+c;
     return `<div class="cf ${c===activeCountry?'active':''}" data-country="${c}" onclick="setCountry('${c}')">${label}</div>`;
   }).join('');
   const desktopPills=rest.map(c=>`<div class="cf cf-desktop ${c===activeCountry?'active':''}" data-country="${c}" onclick="setCountry('${c}')">${flagEmoji(c)+c}</div>`).join('');
