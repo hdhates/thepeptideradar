@@ -279,6 +279,7 @@ footer span{font-size:12px;color:var(--text3);}
   <ul class="nav-links" id="nav-links">
     <li><a href="#" onclick="showPage('landing');closeNav();return false;">Home</a></li>
     <li><a href="#" onclick="showPage('directory');closeNav();return false;">Directory</a></li>
+    <li><a href="#" onclick="showPage('blog');closeNav();return false;">Blog</a></li>
     <li><a href="#" onclick="showPage('contact');closeNav();return false;">Contact</a></li>
     <li class="nav-cta-mobile"><a href="#" onclick="showPage('verify');closeNav();return false;">How We Verify Suppliers</a></li>
     <li class="nav-cta-mobile"><a href="#" onclick="showPage('signup');closeNav();return false;">List your business</a></li>
@@ -760,7 +761,7 @@ function buildCard(s){
   var h='<div class="scard">';
   var topBadge=s.verified?'<div class="vbadge">Verified</div>':s.warning?'<div class="vbadge" style="background:rgba(245,197,66,0.12);color:#f5c542;">Under Review</div>':'';
   h+='<div class="scard-top"><div class="scard-name">'+s.name+'</div>'+topBadge+'</div>';
-  h+='<div class="scard-country">'+flagEmoji(s.country)+s.country+'</div>';
+  h+='<div class="scard-country">'+flagEmoji(s.country)+s.country+(s.note&&!s.warning?' <span style="font-size:11px;color:var(--green);margin-left:6px;">'+s.note+'</span>':'')+'</div>';
   var judgeLink=s.judgeMe?' &nbsp;<span style="color:var(--green);font-size:10px;">✓ Judge.me</span>':'';
   if(s.reviews>0){
     h+='<div class="stars">'+renderStars(s.rating)+'<span class="rating-text">'+s.rating+' ('+s.reviews+' reviews)'+judgeLink+'</span></div>';
