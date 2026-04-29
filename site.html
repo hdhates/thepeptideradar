@@ -312,7 +312,7 @@ footer span{font-size:12px;color:var(--text3);}
     <div class="steps">
       <div class="step"><div class="step-num">01</div><div class="step-title">Select your country</div><div class="step-desc">Filter suppliers by your location to find ones that ship to you — more location data added as the directory grows.</div></div>
       <div class="step"><div class="step-num">02</div><div class="step-title">Compare suppliers</div><div class="step-desc">Read community reviews, check lab test results, compare shipping times and pricing transparency.</div></div>
-      <div class="step"><div class="step-num">03</div><div class="step-title">Buy with confidence</div><div class="step-desc">Every listed supplier has been manually vetted by our team. Ratings are never for sale — paid spots are always clearly labeled.</div></div>
+      <div class="step"><div class="step-num">03</div><div class="step-title">Buy with confidence</div><div class="step-desc">Every listed supplier has been manually vetted by our team. Ratings are community-driven and independent — never influenced by money.</div></div>
     </div>
   </div>
 
@@ -571,7 +571,7 @@ footer span{font-size:12px;color:var(--text3);}
 <!-- ══════════════ PRIVACY POLICY ══════════════ -->
 <div id="privacy" class="page">
   <div class="form-wrap" style="max-width:680px;">
-    <h2>Privacy Policy</h2>
+    <h2 style="color:var(--green);">Privacy Policy</h2>
     <p style="font-size:13px;color:var(--text3);margin-bottom:2rem;">Last updated: April 2026</p>
     <div style="display:flex;flex-direction:column;gap:1.5rem;font-size:14px;color:var(--text2);line-height:1.8;">
       <div>
@@ -619,7 +619,7 @@ footer span{font-size:12px;color:var(--text3);}
 <!-- ══════════════ DISCLAIMER ══════════════ -->
 <div id="disclaimer" class="page">
   <div class="form-wrap" style="max-width:680px;">
-    <h2>Disclaimer</h2>
+    <h2 style="color:var(--green);">Disclaimer</h2>
     <p style="font-size:13px;color:var(--text3);margin-bottom:2rem;">Last updated: April 2026</p>
     <div style="display:flex;flex-direction:column;gap:1.5rem;font-size:14px;color:var(--text2);line-height:1.8;">
       <div>
@@ -848,7 +848,7 @@ function filterSuppliers(){
   renderGrid();
 }
 
-var pageTitles={landing:'ThePeptideRadar — Find Trusted Peptide Suppliers by Country',directory:'Supplier Directory | ThePeptideRadar',contact:'Contact | ThePeptideRadar',signup:'List Your Business | ThePeptideRadar',verify:'How We Verify Suppliers | ThePeptideRadar'};
+var pageTitles={landing:'ThePeptideRadar — Find Trusted Peptide Suppliers by Country',directory:'Supplier Directory | ThePeptideRadar',contact:'Contact | ThePeptideRadar',signup:'List Your Business | ThePeptideRadar',verify:'How We Verify Suppliers | ThePeptideRadar',privacy:'Privacy Policy | ThePeptideRadar',disclaimer:'Disclaimer | ThePeptideRadar'};
 function showPage(id){
   document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
   document.getElementById(id).classList.add('active');
