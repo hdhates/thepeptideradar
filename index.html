@@ -833,7 +833,7 @@ function track(event, params){
 }
 
 function trackClick(name, url, eventName){
-  track(eventName||'supplier_visit', {supplier_name: name, supplier_url: url});
+  track(eventName||'Clicked Supplier - Visit Site', {supplier_name: name, supplier_url: url});
   window.open(url,'_blank','noopener,noreferrer');
 }
 
@@ -872,7 +872,7 @@ function setCountry(c){
     sel.value=isRest?c:'';
     sel.classList.toggle('active',isRest);
   }
-  track('filter_by_country',{country:c});
+  track('Filtered by Country',{country:c});
   renderGrid();
 }
 
@@ -932,8 +932,8 @@ function buildCard(s){
   var nameEsc=s.name.replace(/'/g,"\\'");
   var meta='<span class="scard-meta">Ships in '+s.shipping+' · <a href="#" onclick="reportSupplier(\''+nameEsc+'\');return false;" style="color:var(--text3);text-decoration:underline;">Report</a></span>';
   if(s.url2){
-    var btn1='<button class="visit-btn" style="flex:1;" onclick="trackClick(\''+nameEsc+'\',\''+s.url+'\',\'supplier_telegram\')">Telegram →</button>';
-    var btn2='<button class="visit-btn visit-btn-ghost" style="flex:1;" onclick="trackClick(\''+nameEsc+'\',\''+s.url2+'\',\'supplier_whatsapp\')">WhatsApp →</button>';
+    var btn1='<button class="visit-btn" style="flex:1;" onclick="trackClick(\''+nameEsc+'\',\''+s.url+'\',\'Clicked Supplier - Telegram\')">Telegram →</button>';
+    var btn2='<button class="visit-btn visit-btn-ghost" style="flex:1;" onclick="trackClick(\''+nameEsc+'\',\''+s.url2+'\',\'Clicked Supplier - WhatsApp\')">WhatsApp →</button>';
     h+='<div class="scard-footer" style="flex-direction:column;align-items:flex-start;gap:10px;">'+meta+'<div style="display:flex;gap:8px;width:100%;">'+btn1+btn2+'</div></div>';
   } else {
     h+='<div class="scard-footer" style="flex-direction:column;align-items:flex-start;gap:10px;">'+meta+'<button class="visit-btn" style="width:100%;" onclick="trackClick(\''+nameEsc+'\',\''+s.url+'\')">Visit site →</button></div>';
@@ -951,7 +951,7 @@ function reportSupplier(name){
     if(msg)msg.value='Reporting: '+name+'\n\nDetails:\n';
     if(msg)msg.focus();
   },50);
-  track('report_supplier_clicked',{supplier_name:name});
+  track('Reported Supplier',{supplier_name:name});
 }
 
 function renderGrid(){
@@ -1022,7 +1022,7 @@ function showPage(id){
     var onclick=a.getAttribute('onclick')||'';
     a.classList.toggle('active',onclick.includes("'"+id+"'"));
   });
-  track('navigate_page', {page_name: id});
+  track('Navigated to Page', {page_name: id});
 }
 
 function toggleNav(){
@@ -1055,7 +1055,7 @@ document.getElementById('waitlist-form').addEventListener('submit',function(e){
   const err=document.getElementById('waitlist-error');
   succ.style.display='none'; err.style.display='none';
   btn.textContent='Joining...';btn.disabled=true;
-  track('waitlist_join');
+  track('Joined Waitlist');
   fetch('https://formspree.io/f/mqenzgpn',{method:'POST',body:new FormData(e.target),headers:{Accept:'application/json'}})
     .then(r=>{if(r.ok){e.target.reset();succ.style.display='block';btn.textContent='Joined ✓';}else{err.style.display='block';btn.textContent='Join →';btn.disabled=false;}})
     .catch(function(){err.style.display='block';btn.textContent='Join →';btn.disabled=false;});
@@ -1065,7 +1065,7 @@ document.getElementById('contact-form').addEventListener('submit',function(e){
   e.preventDefault();
   const btn=e.target.querySelector('.submit-btn');
   btn.textContent='Sending...';btn.disabled=true;
-  track('contact_form_submit', {subject: e.target.querySelector('[name="subject"]').value});
+  track('Submitted Contact Form', {subject: e.target.querySelector('[name="subject"]').value});
   fetch('https://formspree.io/f/mrerdbrz',{method:'POST',body:new FormData(e.target),headers:{Accept:'application/json'}})
     .then(r=>{
       if(r.ok){e.target.reset();document.getElementById('contact-success').style.display='block';}
@@ -1077,7 +1077,7 @@ document.getElementById('signup-form').addEventListener('submit',function(e){
   e.preventDefault();
   const btn=e.target.querySelector('.submit-btn');
   btn.textContent='Submitting...';btn.disabled=true;
-  track('supplier_apply', {business_name: e.target.querySelector('[name="business_name"]').value, country: e.target.querySelector('[name="country"]').value});
+  track('Supplier Applied to List', {business_name: e.target.querySelector('[name="business_name"]').value, country: e.target.querySelector('[name="country"]').value});
   fetch('https://formspree.io/f/xjgjzkjg',{method:'POST',body:new FormData(e.target),headers:{Accept:'application/json'}})
     .then(r=>{
       if(r.ok){e.target.reset();document.getElementById('signup-success').style.display='block';}
@@ -1089,7 +1089,7 @@ function applyDetectedCountry(country){
   if(!country)return;
   detectedCountry=country;
   renderGrid();
-  track('country_auto_detected',{detected_country:country});
+  track('Auto-Detected Country',{detected_country:country});
 }
 function autoDetectCountry(){
   var cached=sessionStorage.getItem('detectedCountry');
@@ -1121,7 +1121,7 @@ function acceptCookies(){
   if(typeof gtag==='function')gtag('consent','update',{'analytics_storage':'granted'});
   document.getElementById('consent-banner').style.display='none';
   document.body.classList.remove('banner-visible');
-  track('cookie_consent',{choice:'accept'});
+  track('Accepted Cookies',{choice:'accept'});
 }
 function declineCookies(){
   try{localStorage.setItem('cookieConsent','denied');}catch(e){}
