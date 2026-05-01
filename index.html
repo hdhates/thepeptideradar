@@ -127,7 +127,9 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content
 h1{font-family:'Outfit',sans-serif;font-size:clamp(32px,3.2vw,48px);font-weight:800;line-height:1.15;letter-spacing:0px;margin-bottom:1.25rem;max-width:720px;display:block;transform:scaleX(1.06);transform-origin:left;}
 h1 em{font-style:normal;color:var(--green);}
 .hero-sub{font-size:16px;font-weight:300;color:var(--text2);line-height:1.7;margin-bottom:2.5rem;max-width:440px;}
-.cta-group{display:flex;gap:12px;justify-content:flex-start;flex-wrap:wrap;margin-bottom:2.5rem;}
+.cta-group{display:flex;flex-direction:column;align-items:flex-start;gap:14px;margin-bottom:2.5rem;}
+.cta-secondary-link{color:rgba(240,237,232,0.45);font-size:13px;text-decoration:none;transition:color 0.2s ease;}
+.cta-secondary-link:hover{color:var(--green);}
 .btn-primary{background:linear-gradient(90deg,#0a0a0f 50%,var(--green) 50%);background-size:200% 100%;background-position:right center;color:#0a0a0f;border:0.5px solid var(--green);padding:13px 28px;border-radius:100px;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:700;cursor:pointer;transition:background-position 0.4s ease,color 0.4s,transform 0.15s,box-shadow 0.2s;}
 .btn-ghost{background:linear-gradient(90deg,var(--green) 50%,#0a0a0f 50%);background-size:200% 100%;background-position:right center;color:var(--green);border:0.5px solid var(--green);padding:13px 28px;border-radius:100px;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:700;cursor:pointer;transition:background-position 0.4s ease,color 0.4s,transform 0.15s,box-shadow 0.2s;}
 @media(hover:hover){
@@ -288,7 +290,7 @@ footer span{font-size:12px;color:var(--text3);}
   h1{font-size:clamp(28px,8vw,38px);transform:scaleX(1);letter-spacing:-0.5px;transform-origin:center;}
   .hero-sub{margin-left:auto;margin-right:auto;}
   .hero-sub{font-size:14px;}
-  .cta-group{flex-direction:column;align-items:center;gap:10px;justify-content:center;}
+  .cta-group{flex-direction:column;align-items:center;gap:12px;}
   .btn-primary,.btn-ghost{width:100%;max-width:280px;text-align:center;}
   .stats-row{gap:1.5rem;padding:1.5rem 1rem;}
   .stat-num{font-size:24px;}
@@ -344,28 +346,18 @@ footer span{font-size:12px;color:var(--text3);}
         <p class="hero-sub">The independent directory for verified peptide suppliers — filtered by country, built by the community.</p>
         <div class="cta-group">
           <button class="btn-primary" onclick="showPage('directory')">Browse suppliers →</button>
-          <button class="btn-ghost" onclick="showPage('signup')">List your business</button>
+          <a href="#" onclick="showPage('signup');return false;" class="cta-secondary-link">Are you a supplier? List your business →</a>
         </div>
       </div>
     </div>
     <div class="stats-row">
-      <div class="stat-item"><div class="stat-num" id="stat-suppliers">5</div><div class="stat-label">Verified suppliers</div></div>
+      <div class="stat-item"><div class="stat-num">100%</div><div class="stat-label">Lab tested</div></div>
       <div class="stat-item"><div class="stat-num" id="stat-countries">35+</div><div class="stat-label">Countries served</div></div>
-      <div class="stat-item"><div class="stat-num">100%</div><div class="stat-label">Independent</div></div>
+      <div class="stat-item"><div class="stat-num">0</div><div class="stat-label">Paid placements</div></div>
     </div>
   </div>
 
   <div class="section">
-    <div class="section-tag">How it works</div>
-    <div class="section-title">Find your supplier in 3 steps</div>
-    <div class="steps">
-      <div class="step"><div class="step-num">01</div><div class="step-title">Select your country</div><div class="step-desc">Filter suppliers by your location to find ones that ship to you — more location data added as the directory grows.</div></div>
-      <div class="step"><div class="step-num">02</div><div class="step-title">Compare suppliers</div><div class="step-desc">Read community reviews, check lab test results, compare shipping times and pricing transparency.</div></div>
-      <div class="step"><div class="step-num">03</div><div class="step-title">Buy with confidence</div><div class="step-desc">Every listed supplier has been manually vetted by our team. Ratings are community-driven and independent — never influenced by money.</div></div>
-    </div>
-  </div>
-
-  <div class="section" style="padding-top:0;">
     <div class="section-tag">Buyer's Guides</div>
     <div class="section-title">Looking for a specific peptide?</div>
     <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px;margin-top:1.5rem;">
@@ -379,6 +371,16 @@ footer span{font-size:12px;color:var(--text3);}
       <a href="/peptides/cjc-1295-ipamorelin.html" style="background:rgba(255,255,255,0.03);border:0.5px solid rgba(255,255,255,0.08);border-radius:12px;padding:18px;text-decoration:none;color:inherit;transition:transform 0.15s,border-color 0.2s;display:block;" onmouseover="this.style.transform='translateY(-2px)';this.style.borderColor='rgba(78,207,122,0.4)';" onmouseout="this.style.transform='';this.style.borderColor='rgba(255,255,255,0.08)';"><div style="font-family:'Outfit',sans-serif;font-weight:800;font-size:17px;margin-bottom:4px;">CJC-1295 / Ipamorelin</div><div style="color:#4ecf7a;font-size:12px;font-weight:700;margin-bottom:6px;">2 verified suppliers →</div><div style="color:rgba(240,237,232,0.55);font-size:13px;">GHRH analog & GH secretagogue blend research pair.</div></a>
     </div>
     <div style="text-align:center;margin-top:2rem;"><a href="/peptides/" style="color:#4ecf7a;font-size:14px;text-decoration:none;font-weight:700;">View all peptide guides →</a></div>
+  </div>
+
+  <div class="section" style="padding-top:0;">
+    <div class="section-tag">How it works</div>
+    <div class="section-title">Find your supplier in 3 steps</div>
+    <div class="steps">
+      <div class="step"><div class="step-num">01</div><div class="step-title">Select your country</div><div class="step-desc">Filter suppliers by your location to find ones that ship to you — more location data added as the directory grows.</div></div>
+      <div class="step"><div class="step-num">02</div><div class="step-title">Compare suppliers</div><div class="step-desc">Read community reviews, check lab test results, compare shipping times and pricing transparency.</div></div>
+      <div class="step"><div class="step-num">03</div><div class="step-title">Buy with confidence</div><div class="step-desc">Every listed supplier has been manually vetted by our team. Ratings are community-driven and independent — never influenced by money.</div></div>
+    </div>
   </div>
 
   <div class="section" style="padding-top:0;">
@@ -883,9 +885,7 @@ function suggestSupplier(){
 }
 
 function updateStats(){
-  const verifiedCount = suppliers.filter(s=>s.verified).length;
   const countryCount = new Set(suppliers.flatMap(s=>s.shipsTo||[s.country])).size;
-  document.getElementById('stat-suppliers').textContent = verifiedCount;
   document.getElementById('stat-countries').textContent = countryCount + '+';
 }
 
