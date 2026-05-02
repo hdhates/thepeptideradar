@@ -363,37 +363,24 @@ footer span{font-size:12px;color:var(--text3);}
     <div class="section-tag">Verification Methodology</div>
     <div class="section-title">How we verify suppliers</div>
     <p style="color:var(--green);font-size:14px;font-weight:700;margin-top:-12px;margin-bottom:24px;letter-spacing:0.2px;">We don't rank opinions — we analyze data.</p>
-    <div style="background:rgba(255,255,255,0.02);border:0.5px solid var(--border);border-radius:12px;padding:18px 20px;margin-bottom:24px;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;">
-      <div>
-        <div style="font-size:11px;font-weight:800;color:var(--green);letter-spacing:0.6px;text-transform:uppercase;margin-bottom:4px;">Verification Status</div>
-        <div style="font-size:13px;color:var(--text2);line-height:1.55;">Either <strong style="color:var(--text);">Verified</strong> or <strong style="color:var(--text);">Under Review</strong>. Reflects whether documentation has passed our framework.</div>
-      </div>
-      <div>
-        <div style="font-size:11px;font-weight:800;color:var(--green);letter-spacing:0.6px;text-transform:uppercase;margin-bottom:4px;">Verification Score</div>
-        <div style="font-size:13px;color:var(--text2);line-height:1.55;">A 0–10 number measuring data confidence — based on COA quality, lab validators, and consistency. Click a card to see the breakdown.</div>
-      </div>
-      <div>
-        <div style="font-size:11px;font-weight:800;color:var(--green);letter-spacing:0.6px;text-transform:uppercase;margin-bottom:4px;">User Ratings</div>
-        <div style="font-size:13px;color:var(--text2);line-height:1.55;">Star ratings and reviews from real customers. Independent of verification — they reflect experience, not data.</div>
-      </div>
-    </div>
-    <div class="features-grid" style="grid-template-columns:repeat(auto-fit,minmax(260px,1fr));margin-top:1.5rem;">
+    <div class="features-grid" style="grid-template-columns:repeat(auto-fit,minmax(260px,1fr));">
       <div class="feat">
         <div class="feat-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#7ee8a2" stroke-width="1.5"><path d="M9 12l2 2 4-4"/><path d="M12 2a10 10 0 100 20 10 10 0 000-20z"/></svg></div>
         <div class="feat-title">We check if the lab actually exists</div>
-        <div class="feat-desc">"Lab tested" means nothing if the lab is fake. We verify every COA-issuing lab is a real, independent third party — Janoshik, Chromate, licensed HPLC/MS facilities. Made-up lab names are an automatic disqualification.</div>
+        <div class="feat-desc">"Lab tested" means nothing if the lab is fake. Made-up lab names are an automatic disqualification.</div>
       </div>
       <div class="feat">
         <div class="feat-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#7ee8a2" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 12h8M12 8v8"/></svg></div>
         <div class="feat-title">We compare COAs across batches</div>
-        <div class="feat-desc">Reusing one good COA across many batches is the oldest trick in this market. We pull multiple batches from each supplier and check that the data actually changes — like real lab results should.</div>
+        <div class="feat-desc">Reusing one COA across many batches is the oldest trick. Real lab data varies between batches — we pull multiple to check.</div>
       </div>
       <div class="feat">
         <div class="feat-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#7ee8a2" stroke-width="1.5"><path d="M12 9v3m0 4h.01M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/></svg></div>
         <div class="feat-title">We flag suppliers who hide data</div>
-        <div class="feat-desc">If a supplier won't show COAs, omits batch numbers, or publishes inconsistent results — they don't get Verified. Period. Suppliers under review stay there until evidence shows up.</div>
+        <div class="feat-desc">If a supplier won't show COAs, omits batch numbers, or publishes inconsistent results — they don't get Verified.</div>
       </div>
     </div>
+    <div style="text-align:center;margin-top:2rem;"><a href="#" onclick="showPage('verify');return false;" style="color:var(--green);font-size:14px;text-decoration:none;font-weight:700;">Read the full methodology →</a></div>
   </div>
 
   <div class="section">
@@ -618,59 +605,88 @@ footer span{font-size:12px;color:var(--text3);}
 
 <!-- ══════════════ HOW WE VERIFY ══════════════ -->
 <div id="verify" class="page">
-  <div class="form-wrap" style="max-width:640px;">
-    <div class="badge" style="margin-bottom:1rem;">Our process</div>
+  <div class="form-wrap" style="max-width:720px;">
+    <div class="badge" style="margin-bottom:1rem;">The full methodology</div>
     <h2 style="color:var(--green);margin-bottom:0.5rem;">How We Verify Suppliers</h2>
-    <p style="margin-bottom:2.5rem;">Every supplier on ThePeptideRadar is evaluated using the same verification framework before going live. The framework is data-driven and applied consistently — no shortcuts, no exceptions.</p>
+    <p style="margin-bottom:1rem;">Every supplier on ThePeptideRadar is evaluated using the same verification framework. This is the complete document — what we check, what disqualifies a supplier, and how the Verification Score is calculated.</p>
+    <p style="color:var(--green);font-weight:700;margin-bottom:2.5rem;">We don't rank opinions. We analyze data.</p>
 
-    <div style="position:relative;display:flex;flex-direction:column;gap:0;">
+    <h3 style="font-family:'Plus Jakarta Sans',sans-serif;font-size:18px;font-weight:800;margin-bottom:1rem;color:var(--text);">The 3 checks</h3>
 
-      <div style="position:absolute;left:38px;top:36px;bottom:36px;width:1px;background:linear-gradient(180deg,rgba(93,217,138,0.4),rgba(93,217,138,0.05));"></div>
+    <div style="display:flex;flex-direction:column;gap:1.25rem;margin-bottom:2.5rem;">
 
-      <div style="display:flex;gap:1.25rem;align-items:flex-start;padding:1.25rem;border:0.5px solid var(--border);border-radius:14px;background:var(--bg2);margin-bottom:10px;position:relative;">
-        <div style="min-width:36px;height:36px;border-radius:50%;background:var(--green);display:flex;align-items:center;justify-content:center;font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;color:#0a0a0f;font-size:13px;flex-shrink:0;">1</div>
-        <div>
-          <div style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:15px;margin-bottom:4px;">We reach out directly</div>
-          <div style="font-size:13px;color:var(--text2);line-height:1.7;">Every supplier is personally contacted by our team. No supplier can self-list — we initiate or verify every application before anything goes live.</div>
+      <div style="padding:1.5rem;border:0.5px solid var(--border);border-radius:14px;background:var(--bg2);">
+        <div style="display:flex;gap:1rem;align-items:flex-start;margin-bottom:1rem;">
+          <div style="min-width:36px;height:36px;border-radius:50%;background:var(--green);display:flex;align-items:center;justify-content:center;font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;color:#0a0a0f;font-size:13px;flex-shrink:0;">1</div>
+          <div>
+            <div style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:16px;margin-bottom:4px;">We check if the lab actually exists</div>
+            <div style="font-size:13px;color:var(--text3);">"Lab tested" means nothing if the lab is fake.</div>
+          </div>
+        </div>
+        <div style="font-size:14px;color:var(--text2);line-height:1.75;padding-left:52px;">
+          <p style="margin-bottom:10px;"><strong style="color:var(--text);">What we accept:</strong> COAs from independent third-party labs we can verify exist and operate legitimately — Janoshik, Chromate, and licensed HPLC/MS facilities with public records.</p>
+          <p style="margin-bottom:10px;"><strong style="color:var(--text);">Auto-disqualifies:</strong> Made-up lab names. Supplier-affiliated labs reviewing their own products. Labs with no public registration. PDFs that don't match the issuing lab's actual format.</p>
+          <p><strong style="color:var(--text);">Why it matters:</strong> The cheapest peptide-fraud trick is inventing a lab name and producing a clean-looking COA in Photoshop. We check.</p>
         </div>
       </div>
 
-      <div style="display:flex;gap:1.25rem;align-items:flex-start;padding:1.25rem;border:0.5px solid var(--border);border-radius:14px;background:var(--bg2);margin-bottom:10px;position:relative;">
-        <div style="min-width:36px;height:36px;border-radius:50%;background:var(--green);display:flex;align-items:center;justify-content:center;font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;color:#0a0a0f;font-size:13px;flex-shrink:0;">2</div>
-        <div>
-          <div style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:15px;margin-bottom:4px;">We check lab testing</div>
-          <div style="font-size:13px;color:var(--text2);line-height:1.7;">We verify whether suppliers offer third-party lab testing or Certificates of Analysis (COAs). Suppliers with verified testing get a badge on their listing.</div>
+      <div style="padding:1.5rem;border:0.5px solid var(--border);border-radius:14px;background:var(--bg2);">
+        <div style="display:flex;gap:1rem;align-items:flex-start;margin-bottom:1rem;">
+          <div style="min-width:36px;height:36px;border-radius:50%;background:var(--green);display:flex;align-items:center;justify-content:center;font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;color:#0a0a0f;font-size:13px;flex-shrink:0;">2</div>
+          <div>
+            <div style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:16px;margin-bottom:4px;">We compare COAs across batches</div>
+            <div style="font-size:13px;color:var(--text3);">Reusing one good COA across many batches is the oldest trick.</div>
+          </div>
+        </div>
+        <div style="font-size:14px;color:var(--text2);line-height:1.75;padding-left:52px;">
+          <p style="margin-bottom:10px;"><strong style="color:var(--text);">What we pull:</strong> Minimum 2-3 COAs per supplier across different batches and time periods. Real labs produce slightly different numbers each batch — that's how chemistry works.</p>
+          <p style="margin-bottom:10px;"><strong style="color:var(--text);">Red flags:</strong> Identical purity numbers across batches. Identical impurity profiles. Same test date on multiple batch certificates. Suspiciously round numbers (99.99% on every test).</p>
+          <p><strong style="color:var(--text);">Why it matters:</strong> A supplier with one good COA proves nothing. A supplier whose data varies realistically across batches proves they're actually testing.</p>
         </div>
       </div>
 
-      <div style="display:flex;gap:1.25rem;align-items:flex-start;padding:1.25rem;border:0.5px solid var(--border);border-radius:14px;background:var(--bg2);margin-bottom:10px;position:relative;">
-        <div style="min-width:36px;height:36px;border-radius:50%;background:var(--green);display:flex;align-items:center;justify-content:center;font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;color:#0a0a0f;font-size:13px;flex-shrink:0;">3</div>
-        <div>
-          <div style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:15px;margin-bottom:4px;">We review community feedback</div>
-          <div style="font-size:13px;color:var(--text2);line-height:1.7;">We cross-reference reviews from trusted platforms like Judge.me and community forums. Suppliers with a history of complaints or scam reports are not listed.</div>
+      <div style="padding:1.5rem;border:0.5px solid var(--border);border-radius:14px;background:var(--bg2);">
+        <div style="display:flex;gap:1rem;align-items:flex-start;margin-bottom:1rem;">
+          <div style="min-width:36px;height:36px;border-radius:50%;background:var(--green);display:flex;align-items:center;justify-content:center;font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;color:#0a0a0f;font-size:13px;flex-shrink:0;">3</div>
+          <div>
+            <div style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:16px;margin-bottom:4px;">We flag suppliers who hide data</div>
+            <div style="font-size:13px;color:var(--text3);">If they won't show you the data, there's a reason.</div>
+          </div>
+        </div>
+        <div style="font-size:14px;color:var(--text2);line-height:1.75;padding-left:52px;">
+          <p style="margin-bottom:10px;"><strong style="color:var(--text);">What's required:</strong> Publicly accessible COAs, batch numbers on certificates, named testing methodology (HPLC, MS, etc.), and clear identification of the issuing lab.</p>
+          <p style="margin-bottom:10px;"><strong style="color:var(--text);">Disqualifying behaviors:</strong> Refusing to share batch-level COAs. Removing batch numbers from certificates. Claiming "lab tested" without naming the lab. Showing inconsistent results between submitted documents.</p>
+          <p><strong style="color:var(--text);">Status outcome:</strong> Suppliers who can't or won't show the data stay <em>Under Review</em> — they don't get the Verified badge or a Verification Score. They can be promoted any time evidence shows up.</p>
         </div>
       </div>
 
-      <div style="display:flex;gap:1.25rem;align-items:flex-start;padding:1.25rem;border:0.5px solid var(--border);border-radius:14px;background:var(--bg2);margin-bottom:10px;position:relative;">
-        <div style="min-width:36px;height:36px;border-radius:50%;background:var(--green);display:flex;align-items:center;justify-content:center;font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;color:#0a0a0f;font-size:13px;flex-shrink:0;">4</div>
-        <div>
-          <div style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:15px;margin-bottom:4px;">We verify shipping & operations</div>
-          <div style="font-size:13px;color:var(--text2);line-height:1.7;">Shipping times, countries served, and operational status are all confirmed before listing. Outdated or inactive suppliers are removed.</div>
-        </div>
-      </div>
+    </div>
 
-      <div style="display:flex;gap:1.25rem;align-items:flex-start;padding:1.25rem;border:0.5px solid var(--border);border-radius:14px;background:var(--bg2);position:relative;">
-        <div style="min-width:36px;height:36px;border-radius:50%;background:var(--green);display:flex;align-items:center;justify-content:center;font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;color:#0a0a0f;font-size:13px;flex-shrink:0;">5</div>
-        <div>
-          <div style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:15px;margin-bottom:4px;">Listings are monitored ongoing</div>
-          <div style="font-size:13px;color:var(--text2);line-height:1.7;">Getting listed isn't permanent. We monitor suppliers over time and remove any that no longer meet our standards. You can report issues via our contact page.</div>
-        </div>
+    <h3 style="font-family:'Plus Jakarta Sans',sans-serif;font-size:18px;font-weight:800;margin-bottom:0.5rem;color:var(--text);">The Verification Score formula</h3>
+    <p style="font-size:14px;color:var(--text2);margin-bottom:1.25rem;line-height:1.7;">A 0–10 number capped at 9.8 (no perfect tens — there's always a way to be more rigorous). Calculated from data we've actually pulled and reviewed.</p>
+
+    <div style="background:var(--bg2);border:0.5px solid var(--border);border-radius:14px;padding:1.5rem;margin-bottom:2.5rem;font-size:13px;">
+      <div style="display:grid;grid-template-columns:1fr auto;gap:8px 16px;">
+        <div style="color:var(--text2);">Transparency baseline (Verified status)</div><div style="color:var(--green);font-weight:800;font-family:'Plus Jakarta Sans',sans-serif;text-align:right;">+7.0</div>
+        <div style="color:var(--text2);">Lab validation (Lab Tested tag)</div><div style="color:var(--green);font-weight:800;font-family:'Plus Jakarta Sans',sans-serif;text-align:right;">+0.3</div>
+        <div style="color:var(--text2);">COA verification (verified-lab COAs)</div><div style="color:var(--green);font-weight:800;font-family:'Plus Jakarta Sans',sans-serif;text-align:right;">+0.6</div>
+        <div style="color:var(--text2);">Multi-lab validators (2+ independent labs)</div><div style="color:var(--green);font-weight:800;font-family:'Plus Jakarta Sans',sans-serif;text-align:right;">+0.4</div>
+        <div style="color:var(--text2);">Batch consistency testing (endotoxin / heavy metals)</div><div style="color:var(--green);font-weight:800;font-family:'Plus Jakarta Sans',sans-serif;text-align:right;">+0.3</div>
+        <div style="color:var(--text2);">Customer reviews exist</div><div style="color:var(--green);font-weight:800;font-family:'Plus Jakarta Sans',sans-serif;text-align:right;">+0.3</div>
+        <div style="color:var(--text2);">Review volume (5+)</div><div style="color:var(--green);font-weight:800;font-family:'Plus Jakarta Sans',sans-serif;text-align:right;">+0.3</div>
+        <div style="color:var(--text2);">Review volume (10+)</div><div style="color:var(--green);font-weight:800;font-family:'Plus Jakarta Sans',sans-serif;text-align:right;">+0.2</div>
+        <div style="color:var(--text2);">Rating quality (4.5+ avg)</div><div style="color:var(--green);font-weight:800;font-family:'Plus Jakarta Sans',sans-serif;text-align:right;">+0.5</div>
+        <div style="grid-column:span 2;border-top:0.5px solid var(--border);margin-top:8px;padding-top:8px;display:flex;justify-content:space-between;font-weight:800;color:var(--text);"><span>Cap</span><span style="color:var(--green);font-family:'Plus Jakarta Sans',sans-serif;">9.8 / 10</span></div>
       </div>
     </div>
 
-    <div style="margin-top:2rem;padding:1.5rem;background:var(--green-dim);border:0.5px solid rgba(93,217,138,0.25);border-radius:14px;">
-      <div style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:15px;color:var(--green);margin-bottom:6px;">Know a supplier we should list?</div>
-      <div style="font-size:13px;color:var(--text2);margin-bottom:1rem;line-height:1.7;">If you've had a good experience with a supplier that isn't on ThePeptideRadar, let us know and we'll look into it.</div>
+    <h3 style="font-family:'Plus Jakarta Sans',sans-serif;font-size:18px;font-weight:800;margin-bottom:0.5rem;color:var(--text);">Independence</h3>
+    <p style="font-size:14px;color:var(--text2);margin-bottom:0.75rem;line-height:1.7;"><strong style="color:var(--text);">Suppliers cannot pay to influence verification status or scores.</strong> Verification is data-driven only. We may offer paid <em>Featured Listings</em> for additional homepage visibility, but featured status never changes a supplier's verification or score.</p>
+    <p style="font-size:14px;color:var(--text2);margin-bottom:2.5rem;line-height:1.7;">If we ever earn a commission on outbound clicks, it does not affect ranking. Suppliers stay where the data puts them.</p>
+
+    <div style="padding:1.5rem;background:var(--green-dim);border:0.5px solid rgba(93,217,138,0.25);border-radius:14px;">
+      <div style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:15px;color:var(--green);margin-bottom:6px;">Know a supplier we should review?</div>
+      <div style="font-size:13px;color:var(--text2);margin-bottom:1rem;line-height:1.7;">Submit them and we'll run the framework. If their data holds up, they get listed.</div>
       <button class="btn-primary" onclick="showPage('contact')" style="font-size:13px;padding:10px 22px;">Suggest a supplier →</button>
     </div>
   </div>
