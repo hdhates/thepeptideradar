@@ -212,6 +212,9 @@ h1 em{font-style:normal;color:var(--green);}
 
 .data-signals{margin-bottom:14px;background:rgba(78,207,122,0.05);border:0.5px solid rgba(78,207,122,0.18);border-radius:10px;padding:12px;}
 .data-signals-title{font-size:10px;font-weight:800;color:var(--text2);letter-spacing:0.8px;text-transform:uppercase;margin-bottom:8px;}
+.supplier-angle{display:inline-flex;align-items:center;gap:6px;background:rgba(78,207,122,0.08);border:0.5px solid rgba(78,207,122,0.28);color:var(--green);font-size:11px;font-weight:800;letter-spacing:0.2px;padding:5px 10px;border-radius:100px;margin:6px 0 12px;}
+.click-reason{font-size:12px;color:var(--text2);line-height:1.45;background:rgba(255,255,255,0.025);border:0.5px solid var(--border);border-radius:8px;padding:9px 10px;margin-bottom:12px;}
+.click-reason strong{color:var(--text);}
 .signal-list{display:flex;flex-direction:column;gap:6px;}
 .signal-row{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--text2);line-height:1.35;}
 .signal-good{color:var(--green);font-weight:800;}
@@ -356,7 +359,7 @@ footer span{font-size:12px;color:var(--text3);}
         <div style="font-size:13px;color:var(--green);font-weight:700;letter-spacing:0.3px;margin-bottom:6px;"><span id="hero-verified-count">6</span> data-reviewed suppliers · more being added.</div>
         <div style="font-size:13px;color:var(--green);font-weight:700;letter-spacing:0.3px;margin-bottom:1.75rem;">No paid rankings. No hidden adjustments. Paid visibility only.</div>
         <div class="cta-group">
-          <button class="btn-primary" onclick="showPage('directory')">Browse suppliers →</button>
+          <button class="btn-primary" onclick="showPage('directory')">Compare suppliers →</button>
           <a href="#" onclick="showPage('signup');return false;" class="cta-secondary-link">Are you a supplier? List your business →</a>
         </div>
       </div>
@@ -440,7 +443,7 @@ footer span{font-size:12px;color:var(--text3);}
   <div class="cta-banner">
     <h2>Browse supplier data now</h2>
     <p>Compare suppliers by country, COAs, lab sources, reviews, and transparency signals.</p>
-    <button class="btn-primary" onclick="showPage('directory')">Browse suppliers →</button>
+    <button class="btn-primary" onclick="showPage('directory')">Compare suppliers →</button>
   </div>
 </div>
 
@@ -499,7 +502,7 @@ footer span{font-size:12px;color:var(--text3);}
 <div id="signup" class="page">
   <div class="signup-wrap">
     <h2 style="color:var(--green);">List your business</h2>
-    <p>Get in front of buyers actively comparing peptide suppliers by country, products, reviews, and available lab data. Every submission is reviewed before going live.</p>
+    <p>Get in front of buyers actively comparing peptide suppliers by country, products, reviews, and available lab data. Every submission can be presented with clear data signals, shipping notes, and buyer-facing context.</p>
     <div style="display:flex;flex-wrap:wrap;gap:8px;margin:1.25rem 0;">
       <div class="tag" style="font-size:12px;padding:5px 12px;">✓ Data-reviewed listing</div>
       <div class="tag" style="font-size:12px;padding:5px 12px;">✓ Country-targeted visibility</div>
@@ -665,7 +668,7 @@ footer span{font-size:12px;color:var(--text3);}
         <div style="font-size:14px;color:var(--text2);line-height:1.75;padding-left:52px;">
           <p style="margin-bottom:10px;"><strong style="color:var(--text);">What's required:</strong> Publicly accessible COAs, batch numbers on certificates, named testing methodology (HPLC, MS, etc.), and clear identification of the issuing lab.</p>
           <p style="margin-bottom:10px;"><strong style="color:var(--text);">Disqualifying behaviors:</strong> Refusing to share batch-level COAs. Removing batch numbers from certificates. Claiming "lab tested" without naming the lab. Showing inconsistent results between submitted documents.</p>
-          <p><strong style="color:var(--text);">Status outcome:</strong> Suppliers with incomplete information are marked <em>Under Review</em> or shown with limited-data signals until stronger documentation is available.</p>
+          <p><strong style="color:var(--text);">Status outcome:</strong> Suppliers with incomplete information are marked <em>Data Pending</em> or shown with limited-data signals until stronger documentation is available.</p>
         </div>
       </div>
 
@@ -803,7 +806,7 @@ footer span{font-size:12px;color:var(--text3);}
       <div class="footer-nav-title">Navigate</div>
       <div class="footer-links">
         <a href="#" onclick="showPage('directory');return false;">Directory</a>
-        <a href="#" onclick="showPage('verify');return false;">How We Verify</a>
+        <a href="#" onclick="showPage('verify');return false;">How Data Signals Work</a>
         <a href="#" onclick="showPage('signup');return false;">List your business</a>
         <a href="#" onclick="showPage('contact');return false;">Contact</a>
       </div>
@@ -923,7 +926,7 @@ const suppliers = [
   {name:"Uther",country:"China",flag:"🇨🇳",rating:5,reviews:0,tags:["Lab Tested","Janoshik Verified","Chromate Verified"],peptides:["Retatrutide","Semaglutide","Tirzepatide","BPC-157","TB-500"],catalog:["Semaglutide","Tirzepatide","Retatrutide","Cagrilintide","Mazdutide","Survodutide","BPC-157","TB-500","NAD+","CJC-1295 No DAC","CJC-1295 DAC","Melanotan II","Melanotan I","SNAP-8","SS-31","Tesamorelin","MOTS-C","FOXO4-DRI","Oxytocin","Epitalon","HGH","Pinealon","Prostamax","Thymosin Alpha-1","Vesugen","AOD-9604","GHK-Cu","AHK-Cu","Ipamorelin","Selank","Semax","N-Acetyl Semax","N-Acetyl Selank","PT-141","Cartalax","Cortagen","Ovagen","Vilon","Chonluten","DSIP","KPV","PNC-27","Livagen","Bronchogen","IGF-1 LR3","Hexarelin","GHRP-2","GHRP-6","Sermorelin","LL-37","Kisspeptin","Adipotide","VIP","HGH Fragment 176-191","Abaloparatide","Thymosin Alpha-1","Thymulin","P21","PE-22-28","ARA-290","Oxytocin","HCG","Glutathione","Cerebrolysin"],shipping:"USA: 5-10 days · EU/UK: 7-10 days",verified:true,verifiedDate:"2026-04",url:"https://t.me/+hMYZjdVCq2o5MDFh",url2:"https://wa.me/18167939434",note:"Order via Telegram or WhatsApp",shipsTo:["United States","United Kingdom","Canada","Australia","Brazil","Indonesia","Russia","Thailand","Austria","Belgium","Bulgaria","Croatia","Cyprus","Czech Republic","Denmark","Estonia","Finland","France","Germany","Greece","Hungary","Ireland","Italy","Latvia","Lithuania","Luxembourg","Malta","Netherlands","Poland","Portugal","Romania","Slovakia","Slovenia","Spain","Sweden","Switzerland"]},
   {name:"Elytra Labs",country:"United States",flag:"🇺🇸",rating:5,reviews:0,tags:["Lab Tested","COA Verified (lab confirmed)","HPLC Verified","MS Verified","99%+ Purity","24h dispatch"],peptides:["Retatrutide","BPC-157","CJC-1295 / Ipamorelin","GHK-Cu","MT-2","GLP-3","MOTS-C","GLOW"],shipping:"USA: 2-5 days",verified:true,verifiedDate:"2026-05",isNew:true,url:"https://elytralabs.shop",note:"🇨🇦 Canada coming soon",coaCount:4,coaSource:"HPLC+MS",shipsTo:["United States"]},
   {name:"Pure Peptides UK",country:"United Kingdom",flag:"🇬🇧",rating:5,reviews:8,tags:["Lab Tested","COA Verified (lab confirmed)","Heavy Metals Tested"],peptides:["BPC-157","GHK-Cu","Ipamorelin","TB-500","MOTS-c","HMG"],shipping:"UK: 1-2 days · International: 3-14 days",isNew:true,verified:true,verifiedDate:"2026-04",url:"https://purepeptidesuk.com/",reviewsIoUrl:"https://www.reviews.io/company-reviews/store/purepeptidesuk.com",featuredReview:"Only place in UK I would purchase my peptides from — great customer care, fast delivery.",allReviews:[{author:"Tony L",rating:5,verified:true,text:"Only place in UK I would purchase my peptides from great customer care fast delivery"},{author:"Christian Y",rating:5,verified:true,text:"I have been a customer for just short of a decade. Always received my products. Very helpful and fast reply via emails or queries. Delivery with Royal Mail has always been fast and reliable. Great customer service and products."},{author:"Lutgarde D",rating:5,verified:true,text:"My package got misplaced in the post and I received a replacement within the next 2 days. Friendly and helpful on the phone."},{author:"Ken S",rating:5,verified:true,text:"Been using Pure for a long time now. Always great service and prices are always excellent. Quality is top class and delivery is within days of order. Highly recommend."},{author:"James M",rating:5,verified:true,text:"Been dealing with Mark @ PP for nearly 8 years now — great products and great customer service."},{author:"Iain F",rating:5,verified:true,text:"Fast shipping, answered my query quickly and as advertised. I've used this outlet many times and always reliable products and service."},{author:"Fazal F",rating:5,verified:true,text:"Great experience, customer service and reliable product. Will carry on ordering in the future as have done for many years!"},{author:"Luis G",rating:5,verified:false,text:"Outstanding customer service from Marina. She was always available, responsive, and genuinely committed to finding the right solution for every question I had. Rare to find this level of attention and professionalism. Highly recommended."}],shipsTo:["United Kingdom","United States","Canada","Australia","Brazil","India","Indonesia","Israel","Japan","Russia","Serbia","South Africa","Thailand","United Arab Emirates","Belgium","Bulgaria","Croatia","Cyprus","Czech Republic","Denmark","Estonia","Finland","France","Greece","Hungary","Ireland","Italy","Latvia","Lithuania","Luxembourg","Malta","Netherlands","Poland","Romania","Slovakia","Slovenia","Liechtenstein","Monaco","Bermuda"]},
-  {name:"Particle Peptides",country:"Slovakia",flag:"🇸🇰",rating:5,reviews:0,tags:["Lab Tested","HPLC Verified","Endotoxin Tested","Heavy Metals Tested"],peptides:["BPC-157","TB-500","GHK-Cu","Ipamorelin","GLP-3"],catalog:["AOD-9604","BPC-157","CJC-1295 + DAC","DSIP","Epithalon","FOXO4-DRI","GHK-Cu","Copper Peptide","GHRP-2","GHRP-6","Hexarelin","Ipamorelin","KPV","LL-37","Melanotan 2","Melanotan II","MT-2","Mod GRF 1-29","MOTS-c","Pinealon","GLP-3","Selank","Semax","Thymalin","Thymosin Alpha 1","TB-500","Thymosin Beta-4"],shipping:"International: 1-8 days",verified:false,warning:true,url:"https://particlepeptides.com",note:"Verification under review",shipsTo:["Austria","Belgium","Bermuda","Brazil","Bulgaria","Cyprus","Czech Republic","Denmark","Estonia","France","Germany","Greece","Hungary","India","Indonesia","Israel","Italy","Japan","Latvia","Lithuania","Malta","Netherlands","Poland","Portugal","Romania","Serbia","Slovakia","Slovenia","South Africa","Spain","Sweden","Switzerland","United Kingdom","United Arab Emirates"]},
+  {name:"Particle Peptides",country:"Slovakia",flag:"🇸🇰",rating:5,reviews:0,tags:["Lab Tested","HPLC Verified","Endotoxin Tested","Heavy Metals Tested"],peptides:["BPC-157","TB-500","GHK-Cu","Ipamorelin","GLP-3"],catalog:["AOD-9604","BPC-157","CJC-1295 + DAC","DSIP","Epithalon","FOXO4-DRI","GHK-Cu","Copper Peptide","GHRP-2","GHRP-6","Hexarelin","Ipamorelin","KPV","LL-37","Melanotan 2","Melanotan II","MT-2","Mod GRF 1-29","MOTS-c","Pinealon","GLP-3","Selank","Semax","Thymalin","Thymosin Alpha 1","TB-500","Thymosin Beta-4"],shipping:"International: 1-8 days",verified:false,warning:true,url:"https://particlepeptides.com",note:"More data pending",shipsTo:["Austria","Belgium","Bermuda","Brazil","Bulgaria","Cyprus","Czech Republic","Denmark","Estonia","France","Germany","Greece","Hungary","India","Indonesia","Israel","Italy","Japan","Latvia","Lithuania","Malta","Netherlands","Poland","Portugal","Romania","Serbia","Slovakia","Slovenia","South Africa","Spain","Sweden","Switzerland","United Kingdom","United Arab Emirates"]},
   {name:"Peptide Centre",country:"Australia",flag:"🇦🇺",rating:5,reviews:0,tags:["Lab Tested","COA Verified (lab confirmed)","Janoshik Verified"],peptides:["Retatrutide","CJC-1295 / Ipamorelin","BPC-157 & TB-500","GHK-Cu","TB-500","IGF-1 LR3","Tesamorelin","Ipamorelin","MOTS-c"],shipping:"AU: 2 days · International: 3-7 days",verified:true,verifiedDate:"2026-05",isNew:true,url:"https://peptidecentre.com",coaCount:12,coaSource:"Janoshik",shipsTo:["Australia","United States","United Kingdom","Canada","New Zealand"]},
 ];
 
@@ -999,6 +1002,32 @@ function formatVerifiedDate(d){
   return months[parseInt(parts[1],10)-1]+' '+parts[0];
 }
 
+
+function supplierAngle(s){
+  var angles={
+    'Cernum Biosciences':'Best for US buyers',
+    'EuroPeptides':'Strong EU shipping option',
+    'Uther':'Broadest peptide catalog',
+    'Elytra Labs':'Fast US dispatch option',
+    'Pure Peptides UK':'Strong UK review profile',
+    'Particle Peptides':'EU/international option',
+    'Peptide Centre':'Australia + global option'
+  };
+  return angles[s.name] || 'Supplier data available';
+}
+function clickReason(s){
+  var reasons={
+    'Cernum Biosciences':'US-based supplier with visible lab tags, customer reviews, and popular research peptides.',
+    'EuroPeptides':'EU-focused supplier with fast regional shipping notes, reviews, and common peptide coverage.',
+    'Uther':'Large catalog with multiple lab-source tags and direct ordering options for international buyers.',
+    'Elytra Labs':'Newer US option with HPLC/MS references, fast dispatch claim, and popular peptide coverage.',
+    'Pure Peptides UK':'UK supplier with strong visible reviews, fast UK shipping, and broad international shipping notes.',
+    'Particle Peptides':'International/EU option with lab-testing tags and a broad peptide catalog; more data pending.',
+    'Peptide Centre':'Australia-based option with Janoshik-tagged COAs, fast AU shipping, and global shipping notes.'
+  };
+  return reasons[s.name] || 'Supplier listing includes available transparency signals and shipping details.';
+}
+
 function dataSignals(s){
   var tags=(s.tags||[]).map(function(t){return t.toLowerCase();});
   var signals=[];
@@ -1007,7 +1036,7 @@ function dataSignals(s){
   if(has('janoshik')||has('chromate')||has('hplc')||has('ms verified')||has('3rd party')){signals.push({type:'good',text:'Third-party lab source listed'});} else if(has('lab tested')){signals.push({type:'warn',text:'Lab tested claim needs context'});} else {signals.push({type:'warn',text:'Lab source not listed'});}
   if(s.coaCount&&s.coaCount>1){signals.push({type:'good',text:s.coaCount+' COAs referenced'});} else {signals.push({type:'warn',text:'Limited batch history shown'});}
   if((s.reviews||0)>0){signals.push({type:'good',text:s.reviews+' customer review'+(s.reviews===1?'':'s')+' surfaced'});} else {signals.push({type:'warn',text:'No customer reviews yet'});}
-  if(s.warning){signals.unshift({type:'warn',text:'Under review — more documentation needed'});}
+  if(s.warning){signals.unshift({type:'warn',text:'Data pending — more documentation can improve this listing'});}
   return signals.slice(0,5);
 }
 function renderDataSignals(s){
@@ -1025,10 +1054,12 @@ function renderDataSignals(s){
 function buildCard(s){
   var h='<div class="scard'+(s.featured?' scard-featured':'')+'">';
   if(s.featured){h+='<div style="display:inline-flex;align-items:center;gap:5px;background:linear-gradient(90deg,rgba(255,193,7,0.15),rgba(255,193,7,0.05));border:0.5px solid rgba(255,193,7,0.4);color:#ffc107;font-size:10px;font-weight:800;letter-spacing:0.8px;padding:4px 10px;border-radius:100px;text-transform:uppercase;margin-bottom:10px;" title="Featured = paid visibility. Does not change Data Signals.">★ Featured · paid visibility</div>';}
-  var topBadge=s.verified?'<div class="vbadge" title="Data reviewed '+formatVerifiedDate(s.verifiedDate)+'">Data Reviewed</div>':s.warning?'<div class="vbadge" style="background:rgba(245,197,66,0.12);color:#f5c542;">Under Review</div>':'';
+  var topBadge=s.verified?'<div class="vbadge" title="Data reviewed '+formatVerifiedDate(s.verifiedDate)+'">Data Reviewed</div>':s.warning?'<div class="vbadge" style="background:rgba(245,197,66,0.12);color:#f5c542;">Data Pending</div>':'';
   var newBadge=s.isNew?'<div style="display:inline-block;background:#4ecf7a;color:#0a0a0f;font-size:9px;font-weight:800;letter-spacing:1px;padding:2px 8px;border-radius:100px;text-transform:uppercase;margin-left:7px;vertical-align:middle;">New</div>':'';
   h+='<div class="scard-top"><div class="scard-name">'+s.name+newBadge+'</div>'+topBadge+'</div>';
   h+='<div class="scard-country">'+flagEmoji(s.country)+s.country+(s.note&&!s.warning?' <span style="font-size:11px;color:var(--green);margin-left:6px;">'+s.note+'</span>':'')+'</div>';
+  h+='<div class="supplier-angle">✓ '+supplierAngle(s)+'</div>';
+  h+='<div class="click-reason"><strong>Why compare:</strong> '+clickReason(s)+'</div>';
   if(s.verifiedDate&&s.verified){h+='<div style="font-size:11px;color:var(--text2);margin-top:2px;margin-bottom:12px;">Data reviewed: '+formatVerifiedDate(s.verifiedDate)+'</div>';}
   if(s.coaCount&&s.verified){h+='<div style="display:inline-flex;align-items:center;gap:5px;background:rgba(78,207,122,0.08);border:0.5px solid rgba(78,207,122,0.3);color:var(--green);font-size:11px;font-weight:700;padding:3px 10px;border-radius:100px;margin-bottom:12px;">✓ '+s.coaCount+' '+(s.coaSource||'lab')+' COAs reviewed</div>';}
   h+=renderDataSignals(s);
@@ -1048,7 +1079,7 @@ function buildCard(s){
       s.allReviews.forEach(function(r){
         h+='<div style="padding:8px 0;border-bottom:0.5px solid var(--border);">';
         h+='<div style="display:flex;justify-content:space-between;margin-bottom:3px;">';
-        h+='<span style="font-size:12px;font-weight:500;color:var(--text);">'+r.author+(r.verified?' <span style="font-size:10px;color:var(--text3);">· Verified Buyer</span>':'')+'</span>';
+        h+='<span style="font-size:12px;font-weight:500;color:var(--text);">'+r.author+(r.verified?' <span style="font-size:10px;color:var(--text3);">· Review source</span>':'')+'</span>';
         h+='<span style="font-size:11px;color:var(--green);">';
         for(var i=0;i<r.rating;i++)h+='★';
         for(var i=r.rating;i<5;i++)h+='☆';
@@ -1069,14 +1100,14 @@ function buildCard(s){
   var nameEsc=s.name.replace(/'/g,"\\'");
   var meta='<span class="scard-meta">Ships in '+s.shipping+' · <a href="#" onclick="reportSupplier(\''+nameEsc+'\');return false;" style="color:var(--text3);text-decoration:underline;">Report</a></span>';
   if(s.url2){
-    var btn1='<button class="visit-btn" style="flex:1;" onclick="trackClick(\''+nameEsc+'\',\''+s.url+'\',\'Clicked Supplier - Telegram\')">Telegram →</button>';
-    var btn2='<button class="visit-btn visit-btn-ghost" style="flex:1;" onclick="trackClick(\''+nameEsc+'\',\''+s.url2+'\',\'Clicked Supplier - WhatsApp\')">WhatsApp →</button>';
+    var btn1='<button class="visit-btn" style="flex:1;" onclick="trackClick(\''+nameEsc+'\',\''+s.url+'\',\'Clicked Supplier - Telegram\')">Check Telegram →</button>';
+    var btn2='<button class="visit-btn visit-btn-ghost" style="flex:1;" onclick="trackClick(\''+nameEsc+'\',\''+s.url2+'\',\'Clicked Supplier - WhatsApp\')">Check WhatsApp →</button>';
     var contactNote='<div style="font-size:11px;color:var(--text3);font-style:italic;line-height:1.5;">Order via direct contact (common for international suppliers).</div>';
     h+='<div class="scard-footer" style="flex-direction:column;align-items:flex-start;gap:10px;">'+meta+contactNote+'<div style="display:flex;gap:8px;width:100%;">'+btn1+btn2+'</div></div>';
   } else {
-    h+='<div class="scard-footer" style="flex-direction:column;align-items:flex-start;gap:10px;">'+meta+'<button class="visit-btn" style="width:100%;" onclick="trackClick(\''+nameEsc+'\',\''+s.url+'\')">Visit site →</button></div>';
+    h+='<div class="scard-footer" style="flex-direction:column;align-items:flex-start;gap:10px;">'+meta+'<button class="visit-btn" style="width:100%;" onclick="trackClick(\''+nameEsc+'\',\''+s.url+'\')">Check supplier →</button></div>';
   }
-  h+='<div style="font-size:10px;color:var(--text3);margin-top:14px;padding-top:12px;border-top:0.5px solid var(--border);line-height:1.5;">Signals based on available COA data, lab sources, reviews, and transparency.</div>';
+  h+='<div style="font-size:10px;color:var(--text3);margin-top:14px;padding-top:12px;border-top:0.5px solid var(--border);line-height:1.5;">Signals based on available COA data, lab sources, reviews, shipping info, and transparency.</div>';
   h+='</div>';
   return h;
 }
@@ -1222,7 +1253,7 @@ function renderTopSuppliers(){
   grid.innerHTML=top.map(function(s){
     var ts='Data';
     var reviews=s.reviews>0?'<div style="font-size:12px;color:var(--text3);margin-bottom:10px;">★ '+s.rating+' · '+s.reviews+' review'+(s.reviews===1?'':'s')+'</div>':'<div style="font-size:12px;color:var(--text3);margin-bottom:10px;">No reviews yet</div>';
-    var verifiedText=s.verifiedDate?'Verified: '+formatVerifiedDate(s.verifiedDate):'Verified';
+    var verifiedText=s.verifiedDate?'Data reviewed: '+formatVerifiedDate(s.verifiedDate):'Data reviewed';
     return '<a href="#" onclick="showPage(\'directory\');setTimeout(function(){var s=document.getElementById(\'search-input\');if(s){s.value=\''+s.name.replace(/'/g,"\\'")+'\';s.dispatchEvent(new Event(\'input\'));}},100);return false;" style="background:rgba(255,255,255,0.03);border:0.5px solid rgba(255,255,255,0.08);border-radius:14px;padding:20px;text-decoration:none;color:inherit;transition:transform 0.15s,border-color 0.2s;display:block;" onmouseover="this.style.transform=\'translateY(-2px)\';this.style.borderColor=\'rgba(78,207,122,0.4)\';" onmouseout="this.style.transform=\'\';this.style.borderColor=\'rgba(255,255,255,0.08)\';">'+
       '<div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:6px;"><div style="font-family:\'Outfit\',sans-serif;font-weight:800;font-size:18px;color:var(--text);">'+s.name+'</div><div style="font-family:\'Plus Jakarta Sans\',sans-serif;font-size:18px;font-weight:800;color:var(--green);line-height:1;">'+ts+'</div></div>'+
       '<div style="font-size:13px;color:var(--text2);margin-bottom:4px;">'+flagEmoji(s.country)+s.country+'</div>'+
