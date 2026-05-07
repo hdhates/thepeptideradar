@@ -1012,9 +1012,9 @@ function formatVerifiedDate(d){
 
 function supplierAngle(s){
   var angles={
-    'Cernum Biosciences':'Best for US buyers',
+    'Cernum Biosciences':'US-based option',
     'EuroPeptides':'Strong EU shipping option',
-    'Uther':'Broadest peptide catalog',
+    'Uther':'Large peptide catalog',
     'Elytra Labs':'Fast US dispatch option',
     'Pure Peptides UK':'Strong UK review profile',
     'Particle Peptides':'EU/international option',
@@ -1068,7 +1068,7 @@ function buildCard(s){
   h+='<div class="scard-top"><div class="scard-name">'+s.name+newBadge+'</div>'+topBadge+'</div>';
   h+='<div class="scard-country">'+flagEmoji(s.country)+s.country+(s.note&&!s.warning?' <span style="font-size:11px;color:var(--green);margin-left:6px;">'+s.note+'</span>':'')+'</div>';
   h+='<div class="supplier-angle">✓ '+supplierAngle(s)+'</div>';
-  h+='<div class="click-reason"><strong>Why compare:</strong> '+clickReason(s)+'</div>';
+  h+='<div class="click-reason"><strong>About this supplier:</strong> '+clickReason(s)+'</div>';
   if(s.verifiedDate&&s.verified){h+='<div style="font-size:11px;color:var(--text2);margin-top:2px;margin-bottom:12px;">Data reviewed: '+formatVerifiedDate(s.verifiedDate)+'</div>';}
   if(s.coaCount&&s.verified){h+='<div style="display:inline-flex;align-items:center;gap:5px;background:rgba(78,207,122,0.08);border:0.5px solid rgba(78,207,122,0.3);color:var(--green);font-size:11px;font-weight:700;padding:3px 10px;border-radius:100px;margin-bottom:12px;">✓ '+s.coaCount+' '+(s.coaSource||'lab')+' COAs reviewed</div>';}
   h+=renderDataSignals(s);
