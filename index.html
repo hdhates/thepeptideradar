@@ -4,7 +4,7 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>ThePeptideRadar — Explore Trusted Peptide Suppliers by Country</title>
-<meta name="description" content="Explore trusted peptide suppliers with available COAs, lab sources, shipping info, and transparency signals. Filter by country. No paid rankings — just clearer supplier information."/>
+<meta name="description" content="Explore trusted peptide suppliers with available COAs, lab sources, and shipping data. Filter by country. No paid rankings — just clearer supplier information."/>
 <meta name="keywords" content="peptide supplier, buy peptides, BPC-157, TB-500, peptide source, trusted peptide supplier, peptide directory"/>
 <meta name="google" content="notranslate"/>
 <meta property="og:title" content="ThePeptideRadar — Explore Trusted Peptide Suppliers by Country"/>
@@ -158,10 +158,15 @@ h1 em{font-style:normal;color:var(--green);}
 .feat-title{font-family:'Plus Jakarta Sans',sans-serif;font-size:13px;font-weight:700;margin-bottom:5px;}
 .feat-desc{font-size:13px;color:var(--text2);line-height:1.6;}
 
-/* CTA BANNER */
-.cta-banner{background:var(--bg2);border-top:0.5px solid var(--border);border-bottom:0.5px solid var(--border);padding:4rem 2rem;text-align:center;}
-.cta-banner h2{font-family:'Plus Jakarta Sans',sans-serif;font-size:clamp(22px,3vw,32px);font-weight:800;letter-spacing:-0.5px;margin-bottom:0.75rem;}
-.cta-banner p{color:var(--text2);font-size:14px;margin-bottom:1.75rem;max-width:380px;margin-left:auto;margin-right:auto;}
+/* FAQ */
+.faq-item{background:var(--bg2);border:0.5px solid var(--border);border-radius:12px;padding:16px 20px;margin-bottom:8px;cursor:pointer;transition:border-color 0.2s;}
+.faq-item[open]{border-color:rgba(126,232,162,0.25);}
+.faq-item summary{font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:14px;list-style:none;color:var(--text);}
+.faq-item summary::-webkit-details-marker{display:none;}
+.faq-item summary::after{content:"+";float:right;color:var(--green);font-size:18px;line-height:1;font-weight:400;}
+.faq-item[open] summary::after{content:"−";}
+.faq-item p{margin-top:12px;color:var(--text2);font-size:14px;line-height:1.7;}
+
 .email-row{display:flex;gap:8px;max-width:400px;margin:0 auto;}
 .email-row input{flex:1;background:rgba(255,255,255,0.05);border:0.5px solid var(--border2);border-radius:100px;padding:12px 20px;font-family:'DM Sans',sans-serif;font-size:14px;color:var(--text);outline:none;}
 .email-row input::placeholder{color:var(--text3);}
@@ -323,7 +328,6 @@ footer span{font-size:12px;color:var(--text3);}
   .visit-btn{padding:13px 24px;font-size:15px;font-weight:700;}
   .cf{padding:9px 16px;font-size:13px;}
   .back-to-top{width:44px;height:44px;font-size:16px;}
-  .cta-banner{padding:2.5rem 1.25rem;}
   .dir-header h2,.form-wrap h2,.signup-wrap h2{font-size:24px;letter-spacing:-0.5px;}
 }
 </style>
@@ -364,7 +368,7 @@ footer span{font-size:12px;color:var(--text3);}
     <div class="stats-row">
       <div class="stat-item"><div class="stat-num" id="stat-suppliers">—</div><div class="stat-label">Suppliers listed</div></div>
       <div class="stat-item"><div class="stat-num" id="stat-countries">35+</div><div class="stat-label">Countries served</div></div>
-      <div class="stat-item"><div class="stat-num">8</div><div class="stat-label">Peptide guides</div></div>
+      <div class="stat-item"><div class="stat-num">11</div><div class="stat-label">Peptide guides</div></div>
     </div>
   </div>
 
@@ -403,7 +407,7 @@ footer span{font-size:12px;color:var(--text3);}
       <a href="/peptides/tirzepatide.html" style="background:rgba(255,255,255,0.03);border:0.5px solid rgba(255,255,255,0.08);border-radius:12px;padding:18px;text-decoration:none;color:inherit;transition:transform 0.15s,border-color 0.2s;display:block;" onmouseover="this.style.transform='translateY(-2px)';this.style.borderColor='rgba(78,207,122,0.4)';" onmouseout="this.style.transform='';this.style.borderColor='rgba(255,255,255,0.08)';"><div style="font-family:'Outfit',sans-serif;font-weight:800;font-size:17px;margin-bottom:4px;">Tirzepatide</div><div style="color:#4ecf7a;font-size:12px;font-weight:700;margin-bottom:6px;">1 supplier listed →</div><div style="color:rgba(240,237,232,0.55);font-size:13px;">Dual GIP & GLP-1 receptor agonist research peptide.</div></a>
       <a href="/peptides/semaglutide.html" style="background:rgba(255,255,255,0.03);border:0.5px solid rgba(255,255,255,0.08);border-radius:12px;padding:18px;text-decoration:none;color:inherit;transition:transform 0.15s,border-color 0.2s;display:block;" onmouseover="this.style.transform='translateY(-2px)';this.style.borderColor='rgba(78,207,122,0.4)';" onmouseout="this.style.transform='';this.style.borderColor='rgba(255,255,255,0.08)';"><div style="font-family:'Outfit',sans-serif;font-weight:800;font-size:17px;margin-bottom:4px;">Semaglutide</div><div style="color:#4ecf7a;font-size:12px;font-weight:700;margin-bottom:6px;">1 supplier listed →</div><div style="color:rgba(240,237,232,0.55);font-size:13px;">GLP-1 receptor agonist research peptide.</div></a>
     </div>
-    <div style="text-align:center;margin-top:2rem;"><a href="/peptides/" style="color:#4ecf7a;font-size:14px;text-decoration:none;font-weight:700;">View all 8 peptide guides →</a></div>
+    <div style="text-align:center;margin-top:2rem;"><a href="/peptides/" style="color:#4ecf7a;font-size:14px;text-decoration:none;font-weight:700;">View all 11 peptide guides →</a></div>
   </div>
 
   <div class="section" style="padding-top:0;">
@@ -411,8 +415,8 @@ footer span{font-size:12px;color:var(--text3);}
     <div class="section-title">Find your supplier in 3 steps</div>
     <div class="steps">
       <div class="step"><div class="step-num">01</div><div class="step-title">Select your country</div><div class="step-desc">Filter suppliers by your location to find ones that ship to you — more location data added as the directory grows.</div></div>
-      <div class="step"><div class="step-num">02</div><div class="step-title">Compare suppliers</div><div class="step-desc">Read community reviews, check lab test results, compare shipping times and pricing transparency.</div></div>
-      <div class="step"><div class="step-num">03</div><div class="step-title">Decide with more context</div><div class="step-desc">Use visible signals like COAs, labs, reviews, and shipping details to compare suppliers faster.</div></div>
+      <div class="step"><div class="step-num">02</div><div class="step-title">Review supplier data</div><div class="step-desc">Read community reviews, check lab test results, and review shipping times alongside pricing transparency.</div></div>
+      <div class="step"><div class="step-num">03</div><div class="step-title">Decide with more context</div><div class="step-desc">Use visible signals like COAs, labs, reviews, and shipping details to make a more informed choice.</div></div>
     </div>
   </div>
 
@@ -433,10 +437,6 @@ footer span{font-size:12px;color:var(--text3);}
     </div>
   </div>
 
-  <div class="section" style="padding-top:0;padding-bottom:2rem;">
-    <p style="color:var(--text2);font-size:14px;line-height:1.7;max-width:760px;"><strong style="color:var(--text);">ThePeptideRadar</strong> is an independent peptide supplier directory built around visible data. We track COA availability, lab sources, review signals, shipping countries, and transparency indicators so users can compare suppliers faster — without pretending a paid placement changes the data.</p>
-  </div>
-
   <div class="section" style="padding-top:0;">
     <div class="section-tag">Browse Suppliers</div>
     <div class="section-title">Start exploring</div>
@@ -444,10 +444,13 @@ footer span{font-size:12px;color:var(--text3);}
     <div style="text-align:center;margin-top:2rem;"><button class="btn-primary" onclick="showPage('directory')" style="font-size:13px;padding:10px 22px;">See all suppliers →</button></div>
   </div>
 
-  <div class="cta-banner">
-    <h2>Browse supplier data now</h2>
-    <p>Browse suppliers by country, COAs, lab sources, reviews, and transparency signals.</p>
-    <button class="btn-primary" onclick="showPage('directory')">Explore trusted suppliers →</button>
+  <div class="section" style="padding-top:0;">
+    <div class="section-tag">Frequently asked</div>
+    <div class="section-title">Common questions</div>
+    <details class="faq-item"><summary>How does ThePeptideRadar review supplier data?</summary><p>We surface available supplier information — COAs, lab sources, testing methods, shipping details, reviews, and transparency signals — so users can explore and compare more easily. Suppliers cannot pay to change their data signals.</p></details>
+    <details class="faq-item"><summary>Can I find peptide suppliers that ship to my country?</summary><p>Yes. Filter the directory by country to find suppliers that ship to your location. We list suppliers shipping to the United States, Canada, the EU, the UK, and many other regions.</p></details>
+    <details class="faq-item"><summary>Can suppliers pay to change their listing data?</summary><p>No. Suppliers cannot pay to change their COA, lab, review, or transparency data. Featured Listings are available for additional placement, but never alter the underlying supplier information.</p></details>
+    <details class="faq-item"><summary>What peptides can I find suppliers for?</summary><p>The directory includes suppliers of common research peptides such as BPC-157, TB-500, GHK-Cu, CJC-1295, Ipamorelin, Retatrutide, Semaglutide, Tirzepatide, MOTS-c, Melanotan II, Sermorelin, Selank, and Semax.</p></details>
   </div>
 </div>
 
