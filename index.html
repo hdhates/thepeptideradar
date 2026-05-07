@@ -3,12 +3,12 @@
 <head><meta name="msvalidate.01" content="F486214BE54B384A84EDD3DB321D97B1" />
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>ThePeptideRadar — Find Trusted Peptide Suppliers by Country</title>
-<meta name="description" content="ThePeptideRadar is the trusted directory to find verified peptide suppliers organized by country. COA-reviewed, community-verified — suppliers cannot pay to influence verification status or scores."/>
+<title>ThePeptideRadar — Explore Trusted Peptide Suppliers by Country</title>
+<meta name="description" content="Explore trusted peptide suppliers with available COAs, lab sources, shipping info, and transparency signals. Filter by country. No paid rankings — just clearer supplier information."/>
 <meta name="keywords" content="peptide supplier, buy peptides, BPC-157, TB-500, peptide source, trusted peptide supplier, peptide directory"/>
 <meta name="google" content="notranslate"/>
-<meta property="og:title" content="ThePeptideRadar — Find Trusted Peptide Suppliers by Country"/>
-<meta property="og:description" content="Find verified, community-reviewed peptide suppliers in your country. Suppliers cannot pay to influence verification or scores."/>
+<meta property="og:title" content="ThePeptideRadar — Explore Trusted Peptide Suppliers by Country"/>
+<meta property="og:description" content="Explore peptide suppliers by COAs, lab sources, shipping, and transparency signals — all in one place. Filter by country. No paid rankings."/>
 <meta property="og:type" content="website"/>
 <meta property="og:url" content="https://thepeptideradar.com/"/>
 <meta property="og:image" content="https://thepeptideradar.com/og-image.png"/>
@@ -18,8 +18,8 @@
 <meta name="twitter:image" content="https://thepeptideradar.com/og-image.png"/>
 <meta name="twitter:site" content="@ThePeptideRadar"/>
 <meta name="twitter:creator" content="@ThePeptideRadar"/>
-<meta name="twitter:title" content="ThePeptideRadar — Find Trusted Peptide Suppliers by Country"/>
-<meta name="twitter:description" content="The trusted independent directory for verified peptide suppliers worldwide. Suppliers cannot pay to influence verification or scores."/>
+<meta name="twitter:title" content="ThePeptideRadar — Explore Trusted Peptide Suppliers by Country"/>
+<meta name="twitter:description" content="Explore peptide suppliers with COAs, lab sources, shipping info, and transparency signals. Filter by country. No paid rankings."/>
 <link rel="icon" type="image/x-icon" href="/favicon.ico"/>
 <link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"/>
@@ -44,10 +44,9 @@
 </script>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
-{"@type":"Question","name":"How does ThePeptideRadar verify suppliers?","acceptedAnswer":{"@type":"Answer","text":"We manually review each supplier's lab testing, third-party COAs (Janoshik, Chromate), product purity, shipping reliability, and community reviews. No supplier pays for placement or ratings."}},
-{"@type":"Question","name":"Are the peptide suppliers listed safe and legitimate?","acceptedAnswer":{"@type":"Answer","text":"Every verified supplier on ThePeptideRadar has been manually vetted. We check for HPLC and mass-spec testing, third-party COAs, endotoxin and heavy metals testing, and require positive community reviews. Suppliers under review or with red flags are clearly marked."}},
+{"@type":"Question","name":"How does ThePeptideRadar review supplier data?","acceptedAnswer":{"@type":"Answer","text":"We surface available supplier information including COAs, lab sources, testing methods, shipping details, reviews, and transparency signals so users can explore and compare more easily. No supplier pays to change their data signals."}},
 {"@type":"Question","name":"Can I find peptide suppliers that ship to my country?","acceptedAnswer":{"@type":"Answer","text":"Yes. ThePeptideRadar lets you filter suppliers by country to find ones that ship to your location. We list suppliers shipping to the United States, Canada, EU, UK, and many other countries worldwide."}},
-{"@type":"Question","name":"Can suppliers pay to improve their verification or score?","acceptedAnswer":{"@type":"Answer","text":"No. Suppliers cannot pay to influence verification status or scores. Verification is data-driven, based on COA evidence, lab testing, and independent reviews. We may offer featured placements for additional visibility, but featured status never changes a supplier's verification or score."}},
+{"@type":"Question","name":"Can suppliers pay to change their listing data?","acceptedAnswer":{"@type":"Answer","text":"No. Suppliers cannot pay to change their COA, lab, review, or transparency data. Paid visibility (Featured Listings) is available for additional placement, but it never changes the underlying supplier information."}},
 {"@type":"Question","name":"What peptides can I find suppliers for?","acceptedAnswer":{"@type":"Answer","text":"The directory includes suppliers of common research peptides such as BPC-157, TB-500, GHK-Cu, CJC-1295, Ipamorelin, Retatrutide, Semaglutide, Tirzepatide, MOTS-c, Melanotan II, Sermorelin, Selank, and Semax."}}
 ]}
 </script>
@@ -356,8 +355,7 @@ footer span{font-size:12px;color:var(--text3);}
       <div class="hero-content-col">
         <h1>Explore peptide suppliers with <em>clear lab data</em>.</h1>
        <p class="hero-sub">COAs, lab sources, shipping, and transparency signals — all in one place.</p>
-        <div style="font-size:13px;color:var(--green);font-weight:700;letter-spacing:0.3px;margin-bottom:6px;"><span id="hero-verified-count">6</span> data-reviewed suppliers · more being added.</div>
-        <div style="font-size:13px;color:var(--green);font-weight:700;letter-spacing:0.3px;margin-bottom:1.75rem;">No paid rankings. No hidden adjustments. Paid visibility only.</div>
+        <div style="font-size:13px;color:var(--green);font-weight:700;letter-spacing:0.3px;margin-bottom:1.75rem;">No paid rankings. COAs, lab sources, and shipping — all in one place.</div>
         <div class="cta-group">
           <button class="btn-primary" onclick="showPage('directory')">Explore trusted suppliers →</button>
           <a href="#" onclick="showPage('signup');return false;" class="cta-secondary-link">Are you a supplier? List your business →</a>
@@ -441,8 +439,8 @@ footer span{font-size:12px;color:var(--text3);}
   </div>
 
   <div class="section" style="padding-top:0;">
-    <div class="section-tag">Top Verified Suppliers</div>
-    <div class="section-title">Highest-rated right now</div>
+    <div class="section-tag">Browse Suppliers</div>
+    <div class="section-title">Start exploring</div>
     <div id="top-suppliers" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px;margin-top:1.5rem;"></div>
     <div style="text-align:center;margin-top:2rem;"><button class="btn-primary" onclick="showPage('directory')" style="font-size:13px;padding:10px 22px;">See all suppliers →</button></div>
   </div>
