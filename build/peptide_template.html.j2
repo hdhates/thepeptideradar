@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Where to Buy MOTS-c | ThePeptideRadar</title>
-<meta name="description" content="Explore peptide suppliers selling MOTS-c with available COAs, lab sources, and shipping info. Country-filtered, transparency-first, no paid placements."/>
-<meta name="keywords" content="MOTS-c, MOTS c, buy MOTS-c, MOTS-c supplier, where to buy MOTS-c, mitochondrial peptide, MOTS-c review"/>
-<link rel="canonical" href="https://thepeptideradar.com/peptides/mots-c.html"/>
-<meta property="og:title" content="Where to Buy MOTS-c — Trusted Peptide Suppliers"/>
-<meta property="og:description" content="Explore peptide suppliers selling MOTS-c with available COAs, lab sources, and shipping data."/>
-<meta property="og:url" content="https://thepeptideradar.com/peptides/mots-c.html"/>
+<title>{{ seo_title }}</title>
+<meta name="description" content="{{ seo_description }}"/>
+<meta name="keywords" content="{{ seo_keywords }}"/>
+<link rel="canonical" href="https://thepeptideradar.com/peptides/{{ slug }}.html"/>
+<meta property="og:title" content="{{ og_title }}"/>
+<meta property="og:description" content="{{ og_description }}"/>
+<meta property="og:url" content="https://thepeptideradar.com/peptides/{{ slug }}.html"/>
 <meta property="og:image" content="https://thepeptideradar.com/og-image.png"/>
 <meta property="og:type" content="article"/>
 <meta name="twitter:card" content="summary_large_image"/>
@@ -19,17 +19,16 @@
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
-{"@type":"Question","name":"What is MOTS-c?","acceptedAnswer":{"@type":"Answer","text":"MOTS-c is a 16-amino acid mitochondrial-derived peptide encoded within the 12S rRNA gene. It is studied in research for its role in metabolic regulation, insulin sensitivity, and exercise-induced adaptations in animal models."}},
-{"@type":"Question","name":"Where can I buy MOTS-c?","acceptedAnswer":{"@type":"Answer","text":"MOTS-c is sold by multiple research peptide suppliers worldwide. The suppliers above ship to the United States, Europe, the UK, and other regions, with available lab data and transparency signals."}},
-{"@type":"Question","name":"What should I look for in a MOTS-c supplier?","acceptedAnswer":{"@type":"Answer","text":"Look for third-party COAs (HPLC and mass spectrometry), endotoxin and heavy-metals testing, transparent batch documentation, and consistent community reviews. All suppliers above surface this data."}},
-{"@type":"Question","name":"How is MOTS-c typically researched?","acceptedAnswer":{"@type":"Answer","text":"MOTS-c is a research-use-only (RUO) compound. In research settings it is typically reconstituted with bacteriostatic water and stored refrigerated. Quality and purity vary, which is why third-party lab testing matters."}}
+{%- for f in faqs %}
+{"@type":"Question","name":{{ f.q | tojson }},"acceptedAnswer":{"@type":"Answer","text":{{ f.a | tojson }}}}{% if not loop.last %},{% endif %}
+{%- endfor %}
 ]}
 </script>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"ItemList","name":"MOTS-c Suppliers","description":"Research peptide suppliers selling MOTS-c.","itemListElement":[
-{"@type":"ListItem","position":1,"item":{"@type":"Organization","name":"Cernum Biosciences","url":"https://cernumbiosciences.com/","address":{"@type":"PostalAddress","addressCountry":"United States"}}},
-{"@type":"ListItem","position":2,"item":{"@type":"Organization","name":"EuroPeptides","url":"https://europeptides.de","address":{"@type":"PostalAddress","addressCountry":"Austria"}}},
-{"@type":"ListItem","position":3,"item":{"@type":"Organization","name":"Uther","url":"https://t.me/+hMYZjdVCq2o5MDFh","address":{"@type":"PostalAddress","addressCountry":"China"}}}
+{"@context":"https://schema.org","@type":"ItemList","name":{{ (name + " Suppliers") | tojson }},"description":{{ ("Research peptide suppliers selling " + name + ".") | tojson }},"itemListElement":[
+{%- for s in suppliers %}
+{"@type":"ListItem","position":{{ loop.index }},"item":{"@type":"Organization","name":{{ s.name | tojson }},"url":{{ s.url | tojson }},"address":{"@type":"PostalAddress","addressCountry":{{ s.country | tojson }}}}}{% if not loop.last %},{% endif %}
+{%- endfor %}
 ]}
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
@@ -107,53 +106,54 @@ footer{margin-top:60px;border-top:0.5px solid var(--border);padding:3rem 2.5rem 
   </ul>
 </nav>
 <main>
-  <div class="crumb"><a href="/">Home</a> / <a href="/peptides/">Peptides</a> / MOTS-c</div>
-  <h1>Where to Buy <em>MOTS-c</em></h1>
-  <p class="lead">Explore trusted research peptide suppliers selling MOTS-c — with available third-party COAs, lab sources, and shipping data. No paid rankings.</p>
+  <div class="crumb"><a href="/">Home</a> / <a href="/peptides/">Peptides</a> / {{ name }}</div>
+  <h1>Where to Buy <em>{{ h1_em }}</em></h1>
+  <p class="lead">{{ lead }}</p>
 
   <div class="intro">
-    <h2>About MOTS-c</h2>
-    <p>MOTS-c (Mitochondrial Open Reading Frame of the 12S rRNA-c) is a 16-amino acid mitochondrial-derived peptide. It is studied in research for its role in metabolic homeostasis, insulin sensitivity, and exercise-induced adaptations in animal models.</p>
-    <p>MOTS-c is sold worldwide as a research-use-only (RUO) compound. Purity and consistency vary between suppliers, which is why third-party lab testing (HPLC, mass spectrometry) and certificates of analysis matter when comparing options.</p>
+    <h2>About {{ name }}</h2>
+    {%- for p in intro %}
+    <p>{{ p }}</p>
+    {%- endfor %}
   </div>
 
-  <h2 class="section">MOTS-c Suppliers</h2>
+  <h2 class="section">{{ name }} Suppliers</h2>
   <p style="margin-top:-12px;margin-bottom:20px;color:var(--text3);font-size:14px;">Suppliers below surface lab data, COAs, and shipping details so you can compare with more context.</p>
   <div class="grid">
+    {%- for s in suppliers %}
     <div class="card">
-      <div class="card-name">🇺🇸 Cernum Biosciences</div>
-      <div class="card-meta">United States · Ships in 3 days</div>
-      <div class="card-tags"><span class="tag">Lab Tested</span><span class="tag">3rd Party COA</span><span class="tag">Janoshik</span></div>
-      <a class="card-cta" href="https://cernumbiosciences.com/" target="_blank" rel="noopener noreferrer">Visit Cernum →</a>
+      <div class="card-name">{{ s.flag }} {{ s.name }}</div>
+      <div class="card-meta">{{ s.meta }}</div>
+      <div class="card-tags">{% for t in s.tags %}<span class="tag">{{ t }}</span>{% endfor %}</div>
+      <a class="card-cta" href="{{ s.url }}" target="_blank" rel="noopener noreferrer">{{ s.cta }}</a>
     </div>
-    <div class="card">
-      <div class="card-name">🇦🇹 EuroPeptides</div>
-      <div class="card-meta">Austria · Ships EU + CH in 1-7 days</div>
-      <div class="card-tags"><span class="tag">Lab Tested</span><span class="tag">Janoshik</span><span class="tag">3rd Party COA</span></div>
-      <a class="card-cta" href="https://europeptides.de" target="_blank" rel="noopener noreferrer">Visit EuroPeptides →</a>
-    </div>
-    <div class="card">
-      <div class="card-name">🇨🇳 Uther</div>
-      <div class="card-meta">China · 5-10 days USA · 7-10 EU/UK</div>
-      <div class="card-tags"><span class="tag">Lab Tested</span><span class="tag">Janoshik</span><span class="tag">Chromate</span></div>
-      <a class="card-cta" href="https://t.me/+hMYZjdVCq2o5MDFh" target="_blank" rel="noopener noreferrer">Visit Uther (Telegram) →</a>
-    </div>
+    {%- endfor %}
   </div>
-  <h2 class="section">What to look for</h2>
-  <p style="color:var(--text2);font-size:15px;margin-bottom:20px;max-width:760px;">When comparing MOTS-c suppliers, the most useful transparency signals are:</p>
+
+  {%- if comparison %}
+  <h2 class="section">{{ comparison.title }}</h2>
+  <p style="color:var(--text2);font-size:15px;margin-bottom:20px;max-width:760px;">{{ comparison.intro }}</p>
   <ul style="color:var(--text2);font-size:15px;margin-bottom:48px;padding-left:20px;line-height:1.9;max-width:760px;">
-    <li><strong style="color:var(--text);">Third-party COAs</strong> — independent HPLC and mass spectrometry results from a recognised lab (Janoshik, Chromate, etc.)</li>
-    <li><strong style="color:var(--text);">Batch consistency</strong> — multiple recent COAs across different batches, not a single static document</li>
-    <li><strong style="color:var(--text);">Endotoxin & heavy metals</strong> — additional safety testing for research use</li>
-    <li><strong style="color:var(--text);">Shipping clarity</strong> — published transit times to your country, with tracking</li>
-    <li><strong style="color:var(--text);">Community reviews</strong> — independent feedback from research forums and communities</li>
+    {%- for b in comparison.bullets %}
+    <li><strong style="color:var(--text);">{{ b.label }}</strong> — {{ b.text }}</li>
+    {%- endfor %}
   </ul>
+  {%- endif %}
+
+  {%- if what_to_look_for %}
+  <h2 class="section">What to look for</h2>
+  <p style="color:var(--text2);font-size:15px;margin-bottom:20px;max-width:760px;">{{ what_to_look_for.intro }}</p>
+  <ul style="color:var(--text2);font-size:15px;margin-bottom:48px;padding-left:20px;line-height:1.9;max-width:760px;">
+    {%- for b in what_to_look_for.bullets %}
+    <li><strong style="color:var(--text);">{{ b.label }}</strong> — {{ b.text }}</li>
+    {%- endfor %}
+  </ul>
+  {%- endif %}
 
   <h2 class="section">Frequently Asked Questions</h2>
-  <details><summary>What is MOTS-c?</summary><p>MOTS-c is a 16-amino acid mitochondrial-derived peptide encoded within the 12S rRNA gene. It is studied in research for its role in metabolic regulation, insulin sensitivity, and exercise-induced adaptations in animal models.</p></details>
-  <details><summary>Where can I buy MOTS-c?</summary><p>MOTS-c is sold by multiple research peptide suppliers worldwide. The suppliers above ship to the United States, Europe, the UK, and other regions, with available lab data and transparency signals.</p></details>
-  <details><summary>What should I look for in a MOTS-c supplier?</summary><p>Look for third-party COAs (HPLC and mass spectrometry), endotoxin and heavy-metals testing, transparent batch documentation, and consistent community reviews. All suppliers above surface this data.</p></details>
-  <details><summary>How is MOTS-c typically researched?</summary><p>MOTS-c is a research-use-only (RUO) compound. In research settings it is typically reconstituted with bacteriostatic water and stored refrigerated. Quality and purity vary, which is why third-party lab testing matters.</p></details>
+  {%- for f in faqs %}
+  <details><summary>{{ f.q }}</summary><p>{{ f.a }}</p></details>
+  {%- endfor %}
 
   <div class="cta-row"><a href="/#directory">Browse the full supplier directory →</a></div>
 </main>
@@ -176,10 +176,9 @@ footer{margin-top:60px;border-top:0.5px solid var(--border);padding:3rem 2.5rem 
     <div class="footer-nav">
       <div class="footer-nav-title">Popular Guides</div>
       <div class="footer-links">
-        <a href="/peptides/bpc-157.html">BPC-157</a>
-        <a href="/peptides/retatrutide.html">Retatrutide</a>
-        <a href="/peptides/tirzepatide.html">Tirzepatide</a>
-        <a href="/peptides/sermorelin.html">Sermorelin</a>
+        {%- for g in related %}
+        <a href="/peptides/{{ g.slug }}.html">{{ g.label }}</a>
+        {%- endfor %}
       </div>
     </div>
     <div class="footer-nav">

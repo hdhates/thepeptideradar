@@ -1,0 +1,432 @@
+# Source data for all peptide guide pages.
+# To add a new peptide: append an entry below, then run `py build/render_peptides.py`.
+# Supplier IDs reference build/suppliers.yaml.
+
+bpc-157:
+  name: "BPC-157"
+  seo_title: "Where to Buy BPC-157 | Trusted Suppliers | ThePeptideRadar"
+  seo_description: "Explore peptide suppliers selling BPC-157. Lab tested with third-party COAs, country-filtered. Independent reviews, no paid placements."
+  seo_keywords: "BPC-157, BPC 157, buy BPC-157, BPC-157 supplier, BPC-157 source, BPC-157 peptide, where to buy BPC-157, BPC-157 review"
+  og_title: "Where to Buy BPC-157 — 5 Trusted Peptide Suppliers"
+  og_description: "Explore peptide suppliers selling BPC-157. Lab tested, country-filtered. Independent reviews."
+  lead: "Trusted research peptide suppliers selling BPC-157, with lab data, third-party COAs, and shipping details surfaced for each. No paid placements."
+  intro:
+    - "BPC-157 (Body Protection Compound 157) is a synthetic peptide derived from a protective protein in human gastric juice. It is one of the most widely studied research peptides for tissue repair, gut barrier function, and tendon and ligament healing in animal models."
+    - "BPC-157 is sold worldwide as a research-use-only (RUO) compound. Quality and purity vary significantly between suppliers, which is why third-party lab testing (HPLC, mass spectrometry) and certificates of analysis matter."
+  suppliers: [cernum, europeptides, uther, elytra, purepeptides_uk]
+  faqs:
+    - q: "What is BPC-157?"
+      a: "BPC-157 (Body Protection Compound 157) is a synthetic peptide derived from a protective protein found in human gastric juice. It is widely studied in research for its effects on tissue repair, gut health, and tendon healing in animal models."
+    - q: "Where can I buy BPC-157?"
+      a: "BPC-157 is available from multiple research peptide suppliers worldwide. The suppliers listed above ship to the United States, Europe, the UK, and other regions. All have been independently reviewed."
+    - q: "How is BPC-157 supplier data shown?"
+      a: "Each listed supplier surfaces lab data, third-party COAs (Janoshik, Chromate where available), shipping details, and community reviews. No supplier pays to change this data on ThePeptideRadar."
+    - q: "What should I look for in a BPC-157 supplier?"
+      a: "Look for suppliers with third-party lab tests (HPLC and mass spectrometry), endotoxin and heavy-metals testing, transparent certificates of analysis, consistent shipping times, and independent community reviews. All suppliers above meet these criteria."
+  related:
+    - { slug: tb-500, label: "TB-500" }
+    - { slug: retatrutide, label: "Retatrutide" }
+    - { slug: tirzepatide, label: "Tirzepatide" }
+    - { slug: semaglutide, label: "Semaglutide" }
+
+tb-500:
+  name: "TB-500"
+  seo_title: "Where to Buy TB-500 | ThePeptideRadar"
+  seo_description: "Explore peptide suppliers selling TB-500 (Thymosin Beta-4). Lab data, COAs, and shipping details. No paid placements."
+  seo_keywords: "TB-500, Thymosin Beta-4, buy TB-500, TB-500 supplier, where to buy TB-500, TB-500 review"
+  og_title: "Where to Buy TB-500 — Trusted Peptide Suppliers"
+  og_description: "Explore peptide suppliers selling TB-500 with lab data, COAs, and shipping details."
+  lead: "Trusted research peptide suppliers selling TB-500 (Thymosin Beta-4), with lab data, third-party COAs, and shipping details surfaced for each."
+  intro:
+    - "TB-500 is a synthetic version of Thymosin Beta-4 (TB-4), a naturally occurring peptide found throughout the body. It is widely studied in research for its effects on tissue repair, recovery, and inflammation in animal models."
+    - "TB-500 is sold worldwide as a research-use-only (RUO) compound. Purity and consistency vary between suppliers, which is why third-party lab testing (HPLC, mass spectrometry) and certificates of analysis matter."
+  suppliers: [cernum, uther, purepeptides_uk]
+  faqs:
+    - q: "What is TB-500?"
+      a: "TB-500 is a synthetic version of Thymosin Beta-4. It is widely studied in research for its effects on tissue repair, recovery, and inflammation in animal models."
+    - q: "Where can I buy TB-500?"
+      a: "TB-500 is available from research peptide suppliers worldwide. The 3 suppliers above ship to the United States, the UK, and internationally."
+    - q: "How is TB-500 supplier data shown?"
+      a: "Each listed supplier surfaces HPLC and mass-spec lab testing, third-party COAs, shipping details, and community reviews. No supplier pays to change this data."
+  related:
+    - { slug: bpc-157, label: "BPC-157" }
+    - { slug: retatrutide, label: "Retatrutide" }
+    - { slug: tirzepatide, label: "Tirzepatide" }
+    - { slug: semaglutide, label: "Semaglutide" }
+
+ghk-cu:
+  name: "GHK-Cu"
+  seo_title: "Where to Buy GHK-Cu | Copper Peptide | ThePeptideRadar"
+  seo_description: "Explore peptide suppliers selling GHK-Cu (copper peptide). Lab data, COAs, and shipping details. No paid placements."
+  seo_keywords: "GHK-Cu, copper peptide, buy GHK-Cu, GHK-Cu supplier, where to buy GHK-Cu, GHK-Cu review"
+  og_title: "Where to Buy GHK-Cu — Trusted Peptide Suppliers"
+  og_description: "Explore peptide suppliers selling GHK-Cu with lab data, COAs, and shipping details."
+  lead: "Trusted research peptide suppliers selling GHK-Cu (copper peptide), with lab data, third-party COAs, and shipping details surfaced for each."
+  intro:
+    - "GHK-Cu is a naturally occurring copper-binding tripeptide (glycyl-histidyl-lysyl copper) — sometimes simply called \"copper peptide.\" It is widely studied in research for skin remodeling, wound healing, hair growth signaling, and antioxidant effects."
+    - "GHK-Cu is sold worldwide as a research-use-only compound. Because copper-binding stability matters, third-party HPLC and mass spectrometry testing is critical for purity verification."
+  suppliers: [cernum, europeptides, elytra, purepeptides_uk]
+  faqs:
+    - q: "What is GHK-Cu?"
+      a: "GHK-Cu is a naturally occurring copper-binding tripeptide. It is widely studied in research for skin remodeling, wound healing, hair growth, and antioxidant effects, and is sometimes called copper peptide."
+    - q: "Where can I buy GHK-Cu?"
+      a: "GHK-Cu is available from multiple research peptide suppliers worldwide. The 4 suppliers above ship to the United States, Europe, and the UK."
+    - q: "How is GHK-Cu supplier data shown?"
+      a: "Each listed supplier surfaces HPLC and mass-spec lab testing, third-party COAs, shipping details, and community reviews. No supplier pays to change this data."
+
+retatrutide:
+  name: "Retatrutide"
+  seo_title: "Where to Buy Retatrutide | ThePeptideRadar"
+  seo_description: "Explore peptide suppliers selling Retatrutide. Lab data, COAs, and shipping details. No paid placements."
+  seo_keywords: "Retatrutide, buy Retatrutide, Retatrutide supplier, where to buy Retatrutide, Retatrutide review, GLP-1 GIP glucagon"
+  og_title: "Where to Buy Retatrutide — Trusted Peptide Suppliers"
+  og_description: "Explore peptide suppliers selling Retatrutide with lab data, COAs, and shipping details."
+  lead: "Trusted research peptide suppliers selling Retatrutide, with lab data, third-party COAs, and shipping details surfaced for each."
+  intro:
+    - "Retatrutide is an investigational triple agonist research peptide that targets GLP-1, GIP, and glucagon receptors. It has attracted significant clinical and research interest for its metabolic profile in studies."
+    - "As a relatively new compound, sourcing matters more than ever. Look for suppliers with HPLC and mass spectrometry verification and third-party certificates of analysis."
+  suppliers: [cernum, europeptides, uther, elytra]
+  faqs:
+    - q: "What is Retatrutide?"
+      a: "Retatrutide is an investigational triple agonist research peptide targeting GLP-1, GIP, and glucagon receptors. It is being studied in clinical research for metabolic effects."
+    - q: "Where can I buy Retatrutide?"
+      a: "Retatrutide is available from select research peptide suppliers. The 4 suppliers above ship to the United States, Europe, and internationally."
+    - q: "How is Retatrutide supplier data shown?"
+      a: "Each listed supplier surfaces HPLC and mass-spec lab testing, third-party COAs, shipping details, and community reviews. No supplier pays to change this data."
+
+tirzepatide:
+  name: "Tirzepatide"
+  seo_title: "Where to Buy Tirzepatide | ThePeptideRadar"
+  seo_description: "Explore peptide suppliers selling Tirzepatide. Lab data, COAs, and shipping details. No paid placements."
+  seo_keywords: "Tirzepatide, buy Tirzepatide, Tirzepatide supplier, where to buy Tirzepatide, Tirzepatide review, GIP GLP-1"
+  og_title: "Where to Buy Tirzepatide — Trusted Peptide Suppliers"
+  og_description: "Explore peptide suppliers selling Tirzepatide with lab data, COAs, and shipping details."
+  lead: "Trusted research peptide supplier selling Tirzepatide, with lab data, third-party COAs, and shipping details surfaced for each."
+  intro:
+    - "Tirzepatide is a dual GIP and GLP-1 receptor agonist research peptide. It is widely studied in clinical research for metabolic effects and is the active ingredient in several approved medications worldwide."
+    - "Research-grade Tirzepatide is sold for laboratory and research use only. Quality varies significantly between sources, making third-party HPLC and mass spectrometry verification essential."
+  suppliers: [uther]
+  faqs:
+    - q: "What is Tirzepatide?"
+      a: "Tirzepatide is a dual GIP and GLP-1 receptor agonist research peptide. It is widely studied in clinical research for metabolic effects."
+    - q: "Where can I buy research Tirzepatide?"
+      a: "Research-grade Tirzepatide is available from select research peptide suppliers. The supplier above ships internationally with third-party lab testing."
+    - q: "How is Tirzepatide supplier data shown?"
+      a: "The supplier surfaces HPLC and mass-spec lab testing, third-party COAs, shipping details, and community reviews. No supplier pays to change this data."
+
+semaglutide:
+  name: "Semaglutide"
+  seo_title: "Where to Buy Semaglutide | ThePeptideRadar"
+  seo_description: "Explore peptide suppliers selling Semaglutide. Lab data, COAs, and shipping details. No paid placements."
+  seo_keywords: "Semaglutide, buy Semaglutide, Semaglutide supplier, where to buy Semaglutide, Semaglutide review, GLP-1"
+  og_title: "Where to Buy Semaglutide — Trusted Peptide Suppliers"
+  og_description: "Explore peptide suppliers selling Semaglutide with lab data, COAs, and shipping details."
+  lead: "Trusted research peptide supplier selling Semaglutide, with lab data, third-party COAs, and shipping details surfaced for each."
+  intro:
+    - "Semaglutide is a GLP-1 receptor agonist peptide. It is widely studied in clinical research for metabolic and weight-related effects, and is the active ingredient in several FDA-approved medications."
+    - "Research-grade Semaglutide is sold for laboratory and research use only. Quality varies significantly between sources, so HPLC and mass spectrometry purity verification is essential."
+  suppliers: [uther]
+  faqs:
+    - q: "What is Semaglutide?"
+      a: "Semaglutide is a GLP-1 receptor agonist peptide. It is widely studied in clinical research for metabolic and weight-related effects."
+    - q: "Where can I buy research Semaglutide?"
+      a: "Research-grade Semaglutide is available from select research peptide suppliers. The supplier above ships internationally with third-party lab testing."
+    - q: "How is Semaglutide supplier data shown?"
+      a: "The supplier surfaces HPLC and mass-spec lab testing, third-party COAs, shipping details, and community reviews. No supplier pays to change this data."
+
+melanotan-ii:
+  name: "Melanotan II"
+  seo_title: "Where to Buy Melanotan II | ThePeptideRadar"
+  seo_description: "Explore peptide suppliers selling Melanotan II (MT-2). Lab data, COAs, and shipping details. No paid placements."
+  seo_keywords: "Melanotan II, MT-2, buy Melanotan II, Melanotan II supplier, where to buy Melanotan II, Melanotan II review"
+  og_title: "Where to Buy Melanotan II — Trusted Peptide Suppliers"
+  og_description: "Explore peptide suppliers selling Melanotan II with lab data, COAs, and shipping details."
+  lead: "Trusted research peptide suppliers selling Melanotan II (MT-2), with lab data, third-party COAs, and shipping details surfaced for each."
+  intro:
+    - "Melanotan II (MT-2) is a synthetic analog of alpha-melanocyte stimulating hormone (alpha-MSH). It is widely studied in research for melanogenesis (skin pigmentation) and other physiological effects in animal models."
+    - "Sold worldwide as a research compound, purity varies significantly between sources. Look for suppliers with HPLC verification and third-party certificates of analysis."
+  suppliers: [europeptides, elytra]
+  faqs:
+    - q: "What is Melanotan II?"
+      a: "Melanotan II (MT-2) is a synthetic analog of alpha-melanocyte stimulating hormone. It is widely studied in research for melanogenesis (skin pigmentation) effects."
+    - q: "Where can I buy Melanotan II?"
+      a: "Melanotan II is available from research peptide suppliers in Europe and the US. The 2 suppliers above ship to the US, EU, and Switzerland."
+    - q: "How is Melanotan II supplier data shown?"
+      a: "Each listed supplier surfaces HPLC and mass-spec lab testing, third-party COAs, shipping details, and community reviews. No supplier pays to change this data."
+
+cjc-1295-ipamorelin:
+  name: "CJC-1295 / Ipamorelin"
+  seo_title: "Where to Buy CJC-1295 / Ipamorelin | ThePeptideRadar"
+  seo_description: "Explore peptide suppliers selling the CJC-1295 / Ipamorelin blend. Lab data, COAs, and shipping details. No paid placements."
+  seo_keywords: "CJC-1295, Ipamorelin, CJC-1295 Ipamorelin blend, buy CJC-1295, where to buy Ipamorelin, GHRH analog, GH secretagogue"
+  og_title: "Where to Buy CJC-1295 / Ipamorelin — Trusted Peptide Suppliers"
+  og_description: "Explore peptide suppliers selling the CJC-1295 / Ipamorelin blend with lab data, COAs, and shipping details."
+  lead: "Trusted research peptide suppliers selling the CJC-1295 / Ipamorelin blend, with lab data, third-party COAs, and shipping details surfaced for each."
+  intro:
+    - "The CJC-1295 / Ipamorelin blend is one of the most popular research peptide combinations. CJC-1295 is a growth-hormone releasing hormone (GHRH) analog, and Ipamorelin is a selective growth-hormone secretagogue. Together they are widely studied in research as a synergistic GH-axis pair."
+    - "Quality matters significantly with this blend, since two compounds need accurate dosing and purity. Look for suppliers with HPLC verification on both peptides."
+  suppliers: [cernum, elytra]
+  faqs:
+    - q: "What is the CJC-1295 / Ipamorelin blend?"
+      a: "It is a popular research peptide combination. CJC-1295 is a GHRH analog and Ipamorelin is a selective growth-hormone secretagogue. Together they are widely studied in research as a synergistic GH-axis pair."
+    - q: "Where can I buy CJC-1295 / Ipamorelin?"
+      a: "The blend is available from research peptide suppliers in the US. The 2 suppliers above ship within the United States."
+    - q: "How is CJC-1295 / Ipamorelin supplier data shown?"
+      a: "Each listed supplier surfaces HPLC and mass-spec lab testing, third-party COAs, shipping details, and community reviews. No supplier pays to change this data."
+
+mots-c:
+  name: "MOTS-c"
+  seo_title: "Where to Buy MOTS-c | ThePeptideRadar"
+  seo_description: "Explore peptide suppliers selling MOTS-c with available COAs, lab sources, and shipping info. Country-filtered, transparency-first, no paid placements."
+  seo_keywords: "MOTS-c, MOTS c, buy MOTS-c, MOTS-c supplier, where to buy MOTS-c, mitochondrial peptide, MOTS-c review"
+  og_title: "Where to Buy MOTS-c — Trusted Peptide Suppliers"
+  og_description: "Explore peptide suppliers selling MOTS-c with available COAs, lab sources, and shipping data."
+  intro:
+    - "MOTS-c (Mitochondrial Open Reading Frame of the 12S rRNA-c) is a 16-amino acid mitochondrial-derived peptide. It is studied in research for its role in metabolic homeostasis, insulin sensitivity, and exercise-induced adaptations in animal models."
+    - "MOTS-c is sold worldwide as a research-use-only (RUO) compound. Purity and consistency vary between suppliers, which is why third-party lab testing (HPLC, mass spectrometry) and certificates of analysis matter when comparing options."
+  suppliers: [cernum, europeptides, uther]
+  what_to_look_for:
+    intro: "When comparing MOTS-c suppliers, the most useful transparency signals are:"
+    bullets:
+      - { label: "Third-party COAs", text: "independent HPLC and mass spectrometry results from a recognised lab (Janoshik, Chromate, etc.)" }
+      - { label: "Batch consistency", text: "multiple recent COAs across different batches, not a single static document" }
+      - { label: "Endotoxin & heavy metals", text: "additional safety testing for research use" }
+      - { label: "Shipping clarity", text: "published transit times to your country, with tracking" }
+      - { label: "Community reviews", text: "independent feedback from research forums and communities" }
+  faqs:
+    - q: "What is MOTS-c?"
+      a: "MOTS-c is a 16-amino acid mitochondrial-derived peptide encoded within the 12S rRNA gene. It is studied in research for its role in metabolic regulation, insulin sensitivity, and exercise-induced adaptations in animal models."
+    - q: "Where can I buy MOTS-c?"
+      a: "MOTS-c is sold by multiple research peptide suppliers worldwide. The suppliers above ship to the United States, Europe, the UK, and other regions, with available lab data and transparency signals."
+    - q: "What should I look for in a MOTS-c supplier?"
+      a: "Look for third-party COAs (HPLC and mass spectrometry), endotoxin and heavy-metals testing, transparent batch documentation, and consistent community reviews. All suppliers above surface this data."
+    - q: "How is MOTS-c typically researched?"
+      a: "MOTS-c is a research-use-only (RUO) compound. In research settings it is typically reconstituted with bacteriostatic water and stored refrigerated. Quality and purity vary, which is why third-party lab testing matters."
+
+sermorelin:
+  name: "Sermorelin"
+  seo_title: "Where to Buy Sermorelin | ThePeptideRadar"
+  seo_description: "Explore peptide suppliers selling Sermorelin with available COAs, lab sources, and shipping info. Country-filtered, transparency-first, no paid placements."
+  seo_keywords: "Sermorelin, buy Sermorelin, Sermorelin supplier, Sermorelin source, Sermorelin peptide, where to buy Sermorelin, Sermorelin review, GHRH analog"
+  og_title: "Where to Buy Sermorelin — Trusted Peptide Suppliers"
+  og_description: "Explore peptide suppliers selling Sermorelin with available COAs, lab sources, and shipping data."
+  intro:
+    - "Sermorelin is a synthetic 29-amino acid peptide and a GHRH (growth hormone-releasing hormone) analog. In research it is studied for its effect on stimulating endogenous growth hormone secretion via the pituitary gland."
+    - "Sermorelin is sold worldwide as a research-use-only (RUO) compound. Purity and consistency vary between suppliers, which is why third-party lab testing (HPLC, mass spectrometry) and certificates of analysis matter when comparing options."
+  suppliers: [cernum, europeptides, purepeptides_uk]
+  comparison:
+    title: "Sermorelin vs CJC-1295"
+    intro: "Both Sermorelin and CJC-1295 are GHRH analogs studied for their effect on the pituitary gland. The key research-pharmacokinetic distinctions:"
+    bullets:
+      - { label: "Half-life", text: "Sermorelin has a short half-life (~10 minutes); CJC-1295 with DAC extends to several days due to drug affinity complex" }
+      - { label: "Sequence length", text: "Sermorelin is 29 amino acids; CJC-1295 is a modified 30-amino acid analog" }
+      - { label: "Research dosing", text: "protocols differ significantly between the two due to the half-life difference" }
+      - { label: "Stack pairing", text: "both are commonly studied alongside Ipamorelin in research literature" }
+  faqs:
+    - q: "What is Sermorelin?"
+      a: "Sermorelin is a synthetic 29-amino acid peptide and a growth hormone-releasing hormone (GHRH) analog. In research it is studied for its effect on stimulating endogenous growth hormone secretion via the pituitary gland."
+    - q: "Where can I buy Sermorelin?"
+      a: "Sermorelin is sold by multiple research peptide suppliers worldwide. The suppliers above ship to the United States, Europe, the UK, and other regions, with available lab data and transparency signals."
+    - q: "What should I look for in a Sermorelin supplier?"
+      a: "Look for third-party COAs (HPLC and mass spectrometry), endotoxin and heavy-metals testing, transparent batch documentation, and consistent community reviews. All suppliers above surface this data."
+    - q: "How is Sermorelin different from CJC-1295?"
+      a: "Both are GHRH analogs studied for their effects on the pituitary gland. CJC-1295 (with DAC) has a longer half-life due to drug affinity complex modifications, while Sermorelin has a much shorter half-life and a different research-pharmacokinetic profile."
+  related:
+    - { slug: bpc-157, label: "BPC-157" }
+    - { slug: cjc-1295-ipamorelin, label: "CJC-1295 + Ipamorelin" }
+    - { slug: mots-c, label: "MOTS-c" }
+    - { slug: retatrutide, label: "Retatrutide" }
+
+selank:
+  name: "Selank"
+  seo_title: "Where to Buy Selank | ThePeptideRadar"
+  seo_description: "Explore peptide suppliers selling Selank with available COAs, lab sources, and shipping info. Country-filtered, transparency-first, no paid placements."
+  seo_keywords: "Selank, buy Selank, Selank supplier, Selank source, where to buy Selank, Selank peptide, Russian peptide, Selank review"
+  og_title: "Where to Buy Selank — Trusted Peptide Suppliers"
+  og_description: "Explore peptide suppliers selling Selank with available COAs, lab sources, and shipping data."
+  intro:
+    - "Selank is a synthetic heptapeptide developed in Russia, structurally based on the natural immunomodulatory peptide tuftsin. In research it is studied for anxiolytic-like effects, immune modulation, and cognitive endpoints in animal models."
+    - "Selank is sold worldwide as a research-use-only (RUO) compound, often distributed in nasal-spray or lyophilized form. Purity and consistency vary between suppliers, which is why third-party lab testing (HPLC, mass spectrometry) and certificates of analysis matter when comparing options."
+  suppliers: [cernum, europeptides, uther]
+  comparison:
+    title: "Selank vs Semax"
+    intro: "Both Selank and Semax are Russian-developed synthetic peptides commonly studied for nootropic and neuropeptide-like research effects. Key distinctions in the literature:"
+    bullets:
+      - { label: "Selank", text: "most often associated with anxiolytic-like research endpoints and immune modulation" }
+      - { label: "Semax", text: "typically associated with cognitive and neurotrophic research endpoints" }
+      - { label: "Form factor", text: "both commonly distributed in nasal-spray or lyophilized form for research use" }
+      - { label: "Storage", text: "research lyophilized peptides are typically refrigerated; reconstituted forms have a shorter shelf life" }
+  faqs:
+    - q: "What is Selank?"
+      a: "Selank is a synthetic heptapeptide developed in Russia, structurally based on the natural immunomodulatory peptide tuftsin. In research it is studied for anxiolytic-like effects, immune modulation, and cognitive endpoints in animal models."
+    - q: "Where can I buy Selank?"
+      a: "Selank is sold by multiple research peptide suppliers worldwide. The suppliers above ship to the United States, Europe, the UK, and other regions, with available lab data and transparency signals."
+    - q: "What should I look for in a Selank supplier?"
+      a: "Look for third-party COAs (HPLC and mass spectrometry), endotoxin and heavy-metals testing, transparent batch documentation, and consistent community reviews. All suppliers above surface this data."
+    - q: "How does Selank compare to Semax?"
+      a: "Both are Russian-developed synthetic peptides studied for nootropic-like research effects. Selank is most often associated with anxiolytic-like research endpoints, while Semax is typically associated with cognitive and neurotrophic research endpoints."
+
+pt-141:
+  name: "PT-141"
+  seo_title: "Where to Buy PT-141 (Bremelanotide) | ThePeptideRadar"
+  seo_description: "Explore peptide suppliers selling PT-141 (Bremelanotide) with available COAs, lab sources, and shipping info. Country-filtered, transparency-first, no paid placements."
+  seo_keywords: "PT-141, Bremelanotide, buy PT-141, PT-141 supplier, PT-141 source, where to buy PT-141, Bremelanotide peptide, PT 141, PT-141 review"
+  og_title: "Where to Buy PT-141 (Bremelanotide) — Trusted Peptide Suppliers"
+  og_description: "Explore peptide suppliers selling PT-141 with available COAs, lab sources, and shipping data."
+  intro:
+    - "PT-141 (Bremelanotide) is a synthetic cyclic heptapeptide and a melanocortin receptor agonist with selectivity for MC4R. It is studied in research for its effects on central melanocortin signaling and sexual response endpoints."
+    - "PT-141 is sold worldwide as a research-use-only (RUO) compound. Purity and consistency vary between suppliers, which is why third-party lab testing (HPLC, mass spectrometry) and certificates of analysis matter when comparing options."
+  suppliers: [cernum, uther]
+  comparison:
+    title: "PT-141 vs Melanotan II"
+    intro: "Both are melanocortin receptor agonists studied in research, but with different selectivity profiles:"
+    bullets:
+      - { label: "Receptor selectivity", text: "PT-141 is more selective for MC4R; Melanotan II is non-selective and also targets MC1R" }
+      - { label: "Research focus", text: "PT-141 is primarily studied for CNS-mediated sexual response; Melanotan II for melanogenesis and pigmentation endpoints" }
+      - { label: "Half-life", text: "both are short-acting research peptides; protocols differ between the two" }
+      - { label: "Stability", text: "both should be reconstituted with bacteriostatic water and stored refrigerated" }
+  faqs:
+    - q: "What is PT-141?"
+      a: "PT-141 (Bremelanotide) is a synthetic cyclic heptapeptide and a melanocortin receptor agonist with selectivity for MC4R. It is studied in research for its effects on sexual response and central melanocortin signaling pathways."
+    - q: "Where can I buy PT-141?"
+      a: "PT-141 is sold by multiple research peptide suppliers worldwide. The suppliers above ship to the United States, Europe, the UK, and other regions, with available lab data and transparency signals."
+    - q: "What should I look for in a PT-141 supplier?"
+      a: "Look for third-party COAs (HPLC and mass spectrometry), endotoxin and heavy-metals testing, transparent batch documentation, and consistent community reviews. All suppliers above surface this data."
+    - q: "How is PT-141 different from Melanotan II?"
+      a: "Both are melanocortin receptor agonists, but PT-141 is more selective for MC4R and is studied for CNS-mediated effects, while Melanotan II also targets MC1R and is studied for melanogenesis. Their research-pharmacokinetic profiles and protocols differ."
+  related:
+    - { slug: bpc-157, label: "BPC-157" }
+    - { slug: melanotan-ii, label: "Melanotan II" }
+    - { slug: retatrutide, label: "Retatrutide" }
+    - { slug: sermorelin, label: "Sermorelin" }
+
+nad:
+  name: "NAD+"
+  seo_title: "Where to Buy NAD+ | ThePeptideRadar"
+  seo_description: "Explore peptide suppliers selling NAD+ with available COAs, lab sources, and shipping info. Country-filtered, transparency-first, no paid placements."
+  seo_keywords: "NAD+, NAD plus, buy NAD+, NAD+ supplier, NAD+ source, where to buy NAD+, NAD peptide, NAD+ research, NAD+ review"
+  og_title: "Where to Buy NAD+ — Trusted Research Suppliers"
+  og_description: "Explore suppliers selling NAD+ with available COAs, lab sources, and shipping data."
+  lead: "Explore trusted research suppliers selling NAD+ — with available third-party COAs, lab sources, and shipping data. No paid rankings."
+  intro:
+    - "NAD+ (Nicotinamide Adenine Dinucleotide) is a coenzyme central to cellular redox reactions and energy metabolism. In research it is studied for its role in mitochondrial function, sirtuin signaling, DNA repair pathways, and aging-related endpoints."
+    - "NAD+ is sold worldwide as a research-use-only (RUO) compound, typically as a lyophilized powder. Purity and consistency vary between suppliers, which is why third-party lab testing (HPLC, mass spectrometry) and certificates of analysis matter when comparing options."
+  suppliers: [cernum, uther]
+  what_to_look_for:
+    intro: "When comparing NAD+ suppliers, the most useful transparency signals are:"
+    bullets:
+      - { label: "Third-party COAs", text: "independent HPLC and mass spectrometry results from a recognised lab (Janoshik, Chromate, etc.)" }
+      - { label: "Batch consistency", text: "multiple recent COAs across different batches, not a single static document" }
+      - { label: "Endotoxin & heavy metals", text: "additional safety testing for research use" }
+      - { label: "Vial size", text: "NAD+ is typically supplied in 100mg–500mg vials; check what suits your protocol" }
+      - { label: "Shipping clarity", text: "published transit times to your country, with tracking" }
+  faqs:
+    - q: "What is NAD+?"
+      a: "NAD+ (Nicotinamide Adenine Dinucleotide) is a coenzyme found in every living cell, central to redox reactions and energy metabolism. In research it is studied for its role in mitochondrial function, sirtuin signaling, DNA repair, and aging-related pathways."
+    - q: "Where can I buy NAD+?"
+      a: "NAD+ is sold by multiple research suppliers worldwide. The suppliers above ship to the United States, Europe, the UK, and other regions, with available lab data and transparency signals."
+    - q: "What should I look for in a NAD+ supplier?"
+      a: "Look for third-party COAs (HPLC and mass spectrometry), endotoxin and heavy-metals testing, transparent batch documentation, and consistent community reviews. All suppliers above surface this data."
+    - q: "How is NAD+ different from NMN or NR?"
+      a: "NAD+ is the active coenzyme itself. NMN (Nicotinamide Mononucleotide) and NR (Nicotinamide Riboside) are precursors the body converts into NAD+. Research peptide suppliers typically sell the lyophilized NAD+ form for laboratory study."
+  related:
+    - { slug: bpc-157, label: "BPC-157" }
+    - { slug: mots-c, label: "MOTS-c" }
+    - { slug: retatrutide, label: "Retatrutide" }
+    - { slug: sermorelin, label: "Sermorelin" }
+
+igf-1-lr3:
+  name: "IGF-1 LR3"
+  seo_title: "Where to Buy IGF-1 LR3 | ThePeptideRadar"
+  seo_description: "Explore peptide suppliers selling IGF-1 LR3 with available COAs, lab sources, and shipping info. Country-filtered, transparency-first, no paid placements."
+  seo_keywords: "IGF-1 LR3, IGF1 LR3, buy IGF-1 LR3, IGF-1 LR3 supplier, IGF-1 LR3 source, where to buy IGF-1 LR3, Long R3 IGF-1, IGF-1 LR3 review"
+  intro:
+    - "IGF-1 LR3 (Long R3 Insulin-like Growth Factor-1) is an 83-amino acid analog of human IGF-1 with a longer half-life and reduced binding to IGF binding proteins (IGFBPs). It is studied in research for its effects on cellular growth signaling and IGF-1 receptor activation."
+    - "IGF-1 LR3 is sold worldwide as a research-use-only (RUO) compound. Because of its 83-amino acid length, manufacturing quality and proper folding directly affect biological activity — third-party lab testing (HPLC, mass spectrometry) and certificates of analysis matter when comparing options."
+  suppliers: [cernum, europeptides, uther, peptidecentre]
+  what_to_look_for:
+    intro: "When comparing IGF-1 LR3 suppliers, the most useful transparency signals are:"
+    bullets:
+      - { label: "Third-party COAs", text: "independent HPLC and mass spectrometry results from a recognised lab (Janoshik, Chromate, etc.)" }
+      - { label: "Folding & purity", text: "IGF-1 LR3 is an 83-aa polypeptide; correct disulfide bonding and high purity are critical to biological activity" }
+      - { label: "Cold-chain handling", text: "IGF-1 LR3 should be shipped and stored cold; suppliers with proper cold-chain documentation reduce degradation risk" }
+      - { label: "Endotoxin & heavy metals", text: "additional safety testing for research use" }
+      - { label: "Vial size", text: "typically supplied in 1mg vials" }
+  faqs:
+    - q: "What is IGF-1 LR3?"
+      a: "IGF-1 LR3 (Long R3 Insulin-like Growth Factor-1) is an 83-amino acid analog of human IGF-1 with a longer half-life and reduced binding to IGF binding proteins. It is studied in research for its effects on cellular growth signaling and IGF-1 receptor activation."
+    - q: "Where can I buy IGF-1 LR3?"
+      a: "IGF-1 LR3 is sold by multiple research peptide suppliers worldwide. The suppliers above ship to the United States, Europe, the UK, Australia, and other regions, with available lab data and transparency signals."
+    - q: "What should I look for in an IGF-1 LR3 supplier?"
+      a: "Look for third-party COAs (HPLC and mass spectrometry), endotoxin and heavy-metals testing, transparent batch documentation, and cold-chain handling. IGF-1 LR3 is particularly sensitive to manufacturing quality due to its length."
+    - q: "How is IGF-1 LR3 different from regular IGF-1?"
+      a: "IGF-1 LR3 has an arginine substitution at position 3 and an extra 13-aa N-terminal extension. These modifications give it a half-life of about 20–30 hours (compared to ~10 minutes for native IGF-1) and reduce binding to IGFBPs."
+  related:
+    - { slug: bpc-157, label: "BPC-157" }
+    - { slug: sermorelin, label: "Sermorelin" }
+    - { slug: cjc-1295-ipamorelin, label: "CJC-1295 + Ipamorelin" }
+    - { slug: mots-c, label: "MOTS-c" }
+
+aod-9604:
+  name: "AOD-9604"
+  seo_title: "Where to Buy AOD-9604 | ThePeptideRadar"
+  seo_description: "Explore peptide suppliers selling AOD-9604 with available COAs, lab sources, and shipping info. Country-filtered, transparency-first, no paid placements."
+  seo_keywords: "AOD-9604, AOD 9604, buy AOD-9604, AOD-9604 supplier, AOD-9604 source, where to buy AOD-9604, HGH fragment 176-191, AOD-9604 review"
+  intro:
+    - "AOD-9604 is a synthetic 16-amino acid modified fragment of the C-terminus of human growth hormone (residues 176–191), with an additional disulfide bond for stability. It is studied in research for its effects on lipolysis and adipose tissue regulation in animal models."
+    - "AOD-9604 is sold worldwide as a research-use-only (RUO) compound. Purity and consistency vary between suppliers, which is why third-party lab testing (HPLC, mass spectrometry) and certificates of analysis matter when comparing options."
+  suppliers: [cernum, uther, particle]
+  comparison:
+    title: "AOD-9604 vs HGH Fragment 176-191"
+    intro: "AOD-9604 and HGH Fragment 176-191 share the same core 16-amino acid sequence but differ in stability:"
+    bullets:
+      - { label: "Disulfide bond", text: "AOD-9604 includes an extra disulfide bond not present in unmodified HGH Frag 176-191" }
+      - { label: "Stability", text: "the modification was designed to extend stability and shelf-life in research samples" }
+      - { label: "Sequence", text: "both are derived from residues 176–191 of the C-terminus of hGH" }
+      - { label: "Research history", text: "AOD-9604 was investigated as an obesity therapeutic candidate but did not advance clinically; both remain RUO research peptides" }
+  faqs:
+    - q: "What is AOD-9604?"
+      a: "AOD-9604 is a synthetic 16-amino acid modified fragment of the C-terminus of human growth hormone (residues 176–191), with an additional disulfide bond. It is studied in research for its effects on lipolysis and adipose tissue regulation."
+    - q: "Where can I buy AOD-9604?"
+      a: "AOD-9604 is sold by multiple research peptide suppliers worldwide. The suppliers above ship to the United States, Europe, and other regions, with available lab data and transparency signals."
+    - q: "What should I look for in an AOD-9604 supplier?"
+      a: "Look for third-party COAs (HPLC and mass spectrometry), endotoxin and heavy-metals testing, transparent batch documentation, and consistent community reviews. All suppliers above surface this data."
+    - q: "How is AOD-9604 different from HGH Fragment 176-191?"
+      a: "AOD-9604 is a modified version of HGH Fragment 176-191 with an extra disulfide bond added to improve stability. They share the same core sequence and are often discussed interchangeably."
+  related:
+    - { slug: bpc-157, label: "BPC-157" }
+    - { slug: retatrutide, label: "Retatrutide" }
+    - { slug: sermorelin, label: "Sermorelin" }
+    - { slug: mots-c, label: "MOTS-c" }
+
+tesamorelin:
+  name: "Tesamorelin"
+  seo_title: "Where to Buy Tesamorelin | ThePeptideRadar"
+  seo_description: "Explore peptide suppliers selling Tesamorelin with available COAs, lab sources, and shipping info. Country-filtered, transparency-first, no paid placements."
+  seo_keywords: "Tesamorelin, buy Tesamorelin, Tesamorelin supplier, Tesamorelin source, where to buy Tesamorelin, Tesamorelin peptide, GHRH analog, Tesamorelin review"
+  intro:
+    - "Tesamorelin is a synthetic 44-amino acid analog of growth hormone-releasing hormone (GHRH), with a trans-3-hexenoic acid modification at the N-terminus that extends its plasma stability. It is studied in research for its effects on endogenous growth hormone secretion and visceral adipose tissue."
+    - "Tesamorelin is sold worldwide as a research-use-only (RUO) compound. Purity and consistency vary between suppliers, which is why third-party lab testing (HPLC, mass spectrometry) and certificates of analysis matter when comparing options."
+  suppliers: [cernum, uther, peptidecentre]
+  comparison:
+    title: "Tesamorelin vs Sermorelin vs CJC-1295"
+    intro: "All three are GHRH analogs studied in research, but with distinct pharmacokinetic profiles:"
+    bullets:
+      - { label: "Sequence length", text: "Sermorelin is a 29-aa fragment; Tesamorelin is the full 44-aa GHRH sequence; CJC-1295 is a 30-aa modified analog" }
+      - { label: "Half-life", text: "Sermorelin ~10 minutes; Tesamorelin ~25–40 minutes; CJC-1295 with DAC several days" }
+      - { label: "Modification", text: "Tesamorelin's N-terminal trans-3-hexenoic acid resists DPP-IV cleavage, extending stability over Sermorelin" }
+      - { label: "Research dosing", text: "protocols differ significantly between the three due to half-life differences" }
+  faqs:
+    - q: "What is Tesamorelin?"
+      a: "Tesamorelin is a synthetic 44-amino acid analog of GHRH with a trans-3-hexenoic acid modification at the N-terminus. It is studied in research for endogenous growth hormone secretion and visceral adipose tissue endpoints."
+    - q: "Where can I buy Tesamorelin?"
+      a: "Tesamorelin is sold by multiple research peptide suppliers worldwide. The suppliers above ship to the United States, Europe, and other regions, with available lab data and transparency signals."
+    - q: "What should I look for in a Tesamorelin supplier?"
+      a: "Look for third-party COAs (HPLC and mass spectrometry), endotoxin and heavy-metals testing, transparent batch documentation, and consistent community reviews. All suppliers above surface this data."
+    - q: "How is Tesamorelin different from Sermorelin or CJC-1295?"
+      a: "All are GHRH analogs. Sermorelin (29-aa) has a very short half-life. Tesamorelin (44-aa, modified) extends stability modestly. CJC-1295 with DAC extends half-life to several days. Each has a distinct research-pharmacokinetic profile."
+  related:
+    - { slug: sermorelin, label: "Sermorelin" }
+    - { slug: cjc-1295-ipamorelin, label: "CJC-1295 + Ipamorelin" }
+    - { slug: bpc-157, label: "BPC-157" }
+    - { slug: mots-c, label: "MOTS-c" }

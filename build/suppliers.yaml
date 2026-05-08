@@ -1,0 +1,65 @@
+# Shared supplier data used by all peptide guide pages.
+# Add a new supplier here and reference it by key in peptides.yaml.
+
+cernum:
+  flag: "🇺🇸"
+  name: "Cernum Biosciences"
+  country: "United States"
+  meta: "United States · Ships in 3 days"
+  tags: ["Lab Tested", "3rd Party COA", "Janoshik"]
+  url: "https://cernumbiosciences.com/"
+  cta: "Visit Cernum →"
+
+europeptides:
+  flag: "🇦🇹"
+  name: "EuroPeptides"
+  country: "Austria"
+  meta: "Austria · Ships EU + CH in 1-7 days"
+  tags: ["Lab Tested", "Janoshik", "3rd Party COA"]
+  url: "https://europeptides.de"
+  cta: "Visit EuroPeptides →"
+
+uther:
+  flag: "🇨🇳"
+  name: "Uther"
+  country: "China"
+  meta: "China · 5-10 days USA · 7-10 EU/UK"
+  tags: ["Lab Tested", "Janoshik", "Chromate"]
+  url: "https://t.me/+hMYZjdVCq2o5MDFh"
+  cta: "Visit Uther (Telegram) →"
+
+elytra:
+  flag: "🇺🇸"
+  name: "Elytra Labs"
+  country: "United States"
+  meta: "United States · Ships in 2-5 days"
+  tags: ["Lab Tested", "24h dispatch", "Overnight available"]
+  url: "https://elytralabs.shop"
+  cta: "Visit Elytra Labs →"
+
+purepeptides_uk:
+  flag: "🇬🇧"
+  name: "Pure Peptides UK"
+  country: "United Kingdom"
+  meta: "United Kingdom · 1-2 days UK · 3-14 intl"
+  tags: ["Lab Tested", "3rd Party COA", "Heavy Metals"]
+  url: "https://purepeptidesuk.com/"
+  cta: "Visit Pure Peptides UK →"
+
+particle:
+  flag: "🇸🇰"
+  name: "Particle Peptides"
+  country: "Slovakia"
+  meta: "Slovakia · International 1-8 days"
+  tags: ["Lab Tested", "HPLC", "Endotoxin Tested"]
+  url: "https://particlepeptides.com"
+  cta: "Visit Particle Peptides →"
+
+peptidecentre:
+  flag: "🇦🇺"
+  name: "Peptide Centre"
+  country: "Australia"
+  meta: "Australia · Ships AU in 2 days · Intl 3-7"
+  tags: ["Lab Tested", "Janoshik", "12 COAs on file"]
+  url: "https://peptidecentre.com"
+  cta: "Visit Peptide Centre →"
