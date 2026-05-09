@@ -116,7 +116,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content
 .page.active{display:block;}
 
 /* ── LANDING ── */
-#landing{background:var(--bg);}
+#landing{background:var(--bg);position:relative;}
+#landing::before{content:"";position:fixed;top:0;left:0;right:0;height:100vh;background-image:radial-gradient(ellipse 80% 40% at 50% 0%,rgba(78,207,122,0.05),transparent 70%);pointer-events:none;z-index:-1;}
 .hero{position:relative;padding:6rem 3rem 3rem;max-width:1100px;margin:0 auto;overflow:hidden;}
 .hero::before{content:"";position:absolute;inset:-80px -40px 0 -40px;background-image:radial-gradient(ellipse at 18% 28%,rgba(78,207,122,0.14),transparent 42%),radial-gradient(ellipse at 84% 72%,rgba(78,207,122,0.07),transparent 48%);pointer-events:none;z-index:0;}
 .hero::after{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(78,207,122,0.09) 1px,transparent 1px);background-size:26px 26px;-webkit-mask-image:radial-gradient(ellipse 65% 60% at 50% 45%,#000 30%,transparent 80%);mask-image:radial-gradient(ellipse 65% 60% at 50% 45%,#000 30%,transparent 80%);pointer-events:none;z-index:0;opacity:0.7;}
@@ -157,10 +158,10 @@ h1 em{font-style:normal;color:var(--green);position:relative;}
 .stat-label{font-size:10px;color:var(--text3);letter-spacing:1.4px;text-transform:uppercase;font-weight:600;}
 
 /* HOW IT WORKS */
-.section{padding:2rem 2rem 3rem;max-width:900px;margin:0 auto;scroll-margin-top:80px;}
+.section{padding:3rem 2rem 4rem;max-width:1000px;margin:0 auto;scroll-margin-top:80px;position:relative;}
 .section-tag{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--text3);margin-bottom:0.75rem;display:inline-flex;align-items:center;gap:10px;font-weight:700;}
 .section-tag::before{content:"";display:inline-block;width:18px;height:1px;background:var(--green);opacity:0.6;}
-.section-title{font-family:'Plus Jakarta Sans',sans-serif;font-size:clamp(22px,3vw,34px);font-weight:800;letter-spacing:-1px;margin-bottom:2rem;line-height:1.1;}
+.section-title{font-family:'Plus Jakarta Sans',sans-serif;font-size:clamp(28px,3.6vw,44px);font-weight:800;letter-spacing:-1.4px;margin-bottom:2rem;line-height:1.05;max-width:680px;}
 .steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;}
 .step{position:relative;padding:1.6rem 1.5rem 1.5rem;border:0.5px solid var(--border);border-radius:16px;background:linear-gradient(180deg,var(--bg2),rgba(17,17,24,0.4));transition:border-color 0.25s,transform 0.2s,background 0.25s;overflow:hidden;}
 .step::before{content:"";position:absolute;top:0;left:0;height:1px;width:0;background:linear-gradient(90deg,var(--green),transparent);transition:width 0.4s ease;}
@@ -432,7 +433,7 @@ html{scroll-padding-top:80px;}
         <canvas id="hero-radar"></canvas>
       </div>
       <div class="hero-content-col">
-        <div class="live-pill"><span class="dot" aria-hidden="true"></span>Live <span class="sep">·</span> tracking <em id="live-suppliers">—</em> suppliers <span class="sep">·</span> <em id="live-countries">35+</em> countries <span class="sep">·</span> <em>16</em> guides</div>
+        <div class="live-pill"><span class="dot" aria-hidden="true"></span>Independent <span class="sep">·</span> No paid rankings <span class="sep">·</span> Updated weekly</div>
         <h1>Peptide suppliers, with the data <em>made visible</em>.</h1>
         <p class="hero-sub">COAs, lab sources, shipping, and transparency signals — surfaced in one place. Filter by country, search by peptide.</p>
         <div class="cta-group">
@@ -969,10 +970,6 @@ function updateStats(){
   if(hvc) hvc.textContent = verifiedCount;
   const totalEl = document.getElementById('stat-suppliers');
   if(totalEl) totalEl.textContent = suppliers.length;
-  const lsSup = document.getElementById('live-suppliers');
-  if(lsSup) lsSup.textContent = suppliers.length;
-  const lsCty = document.getElementById('live-countries');
-  if(lsCty) lsCty.textContent = countryCount + '+';
 }
 
 function renderFilters(){
