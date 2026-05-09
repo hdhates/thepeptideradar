@@ -137,7 +137,7 @@ h1 em{font-style:normal;color:var(--green);position:relative;}
 .cta-secondary-link{color:rgba(240,237,232,0.45);font-size:13px;text-decoration:none;transition:color 0.2s ease;width:100%;margin-top:6px;}
 .cta-secondary-link:hover{color:var(--green);}
 .btn-primary{background:linear-gradient(90deg,#0a0a0f 50%,var(--green) 50%);background-size:200% 100%;background-position:right center;color:#0a0a0f;border:0.5px solid var(--green);padding:13px 28px;border-radius:100px;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:700;cursor:pointer;transition:background-position 0.4s ease,color 0.4s,transform 0.15s,box-shadow 0.25s;box-shadow:0 0 0 0 rgba(78,207,122,0),0 0 20px rgba(78,207,122,0.15);}
-.btn-ghost{background:linear-gradient(90deg,var(--green) 50%,transparent 50%);background-size:200% 100%;background-position:right center;color:var(--text);border:0.5px solid var(--border2);padding:13px 26px;border-radius:100px;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:700;cursor:pointer;transition:background-position 0.4s ease,color 0.4s,border-color 0.2s,transform 0.15s,box-shadow 0.2s;}
+.btn-ghost{display:inline-flex;align-items:center;justify-content:center;text-decoration:none;background:linear-gradient(90deg,var(--green) 50%,transparent 50%);background-size:200% 100%;background-position:right center;color:var(--text);border:0.5px solid var(--border2);padding:13px 26px;border-radius:100px;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:700;cursor:pointer;transition:background-position 0.4s ease,color 0.4s,border-color 0.2s,transform 0.15s,box-shadow 0.2s;}
 @media(hover:hover){
   .btn-primary:hover{background-position:left center;color:var(--green);transform:translateY(-2px);box-shadow:0 6px 24px rgba(78,207,122,0.4),0 0 20px rgba(78,207,122,0.15);}
   .btn-ghost:hover{background-position:left center;color:#0a0a0f;border-color:var(--green);transform:translateY(-2px);box-shadow:0 4px 16px rgba(78,207,122,0.25);}
@@ -450,7 +450,8 @@ html{scroll-padding-top:80px;}
         <h1>Peptide suppliers, with the data <em>made visible</em>.</h1>
         <p class="hero-sub">An independent directory that surfaces lab data, COAs, and shipping details for each supplier — so you can actually compare them. Filter by country. No paid rankings.</p>
         <div class="cta-group">
-          <button class="btn-primary" onclick="showPage('directory')">Explore directory →</button>
+          <button class="btn-primary" onclick="showPage('directory')">Find a supplier →</button>
+          <a href="/peptides/" class="btn-ghost">Research a peptide →</a>
           <a href="#" onclick="showPage('signup');return false;" class="cta-secondary-link">Are you a supplier? List your business →</a>
         </div>
       </div>
@@ -461,21 +462,6 @@ html{scroll-padding-top:80px;}
       <div class="stat-item"><div class="stat-num">16<em>+</em></div><div class="stat-label">Peptide guides</div></div>
     </div>
   </div>
-
-  <div class="section" id="guides-anchor-target">
-    <div class="section-tag">Buyer's Guides</div>
-    <div class="section-title">Looking for a specific peptide?</div>
-    <div class="guides-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(min(240px,100%),1fr));gap:12px;margin-top:1.5rem;">
-      <a href="/peptides/bpc-157.html" class="gcard"><div class="gcard-head"><div class="gcard-title">BPC-157</div><span class="gcard-arrow">→</span></div><div class="gcard-meta">5 suppliers</div><div class="gcard-desc">Tissue repair & gut health research peptide.</div></a>
-      <a href="/peptides/tb-500.html" class="gcard"><div class="gcard-head"><div class="gcard-title">TB-500</div><span class="gcard-arrow">→</span></div><div class="gcard-meta">3 suppliers</div><div class="gcard-desc">Thymosin Beta-4 fragment for tissue repair.</div></a>
-      <a href="/peptides/retatrutide.html" class="gcard"><div class="gcard-head"><div class="gcard-title">Retatrutide</div><span class="gcard-arrow">→</span></div><div class="gcard-meta">4 suppliers</div><div class="gcard-desc">Triple agonist GLP-1/GIP/glucagon research peptide.</div></a>
-      <a href="/peptides/semaglutide.html" class="gcard"><div class="gcard-head"><div class="gcard-title">Semaglutide</div><span class="gcard-arrow">→</span></div><div class="gcard-meta">1 supplier</div><div class="gcard-desc">GLP-1 receptor agonist research peptide.</div></a>
-      <a href="/peptides/ghk-cu.html" class="gcard"><div class="gcard-head"><div class="gcard-title">GHK-Cu</div><span class="gcard-arrow">→</span></div><div class="gcard-meta">4 suppliers</div><div class="gcard-desc">Copper peptide for skin & wound healing research.</div></a>
-      <a href="/peptides/igf-1-lr3.html" class="gcard"><div class="gcard-head"><div class="gcard-title">IGF-1 LR3</div><span class="gcard-arrow">→</span></div><div class="gcard-meta">4 suppliers</div><div class="gcard-desc">Long R3 IGF-1 analog with extended half-life.</div></a>
-    </div>
-    <div style="text-align:center;margin-top:2rem;"><a href="/peptides/" style="color:#4ecf7a;font-size:14px;text-decoration:none;font-weight:700;">View all peptide guides →</a></div>
-  </div>
-
 
 </div>
 
