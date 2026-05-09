@@ -330,6 +330,22 @@ footer span{font-size:12px;color:var(--text3);}
   .back-to-top{width:44px;height:44px;font-size:16px;}
   .dir-header h2,.form-wrap h2,.signup-wrap h2{font-size:24px;letter-spacing:-0.5px;}
 }
+
+/* UX: keyboard focus rings (only show on keyboard nav, not click) */
+:focus{outline:none;}
+a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible,details:focus-visible,summary:focus-visible,[role="button"]:focus-visible,[tabindex]:focus-visible{outline:2px solid var(--green);outline-offset:3px;border-radius:4px;}
+
+/* UX: anchor scroll offset so sticky nav doesn't hide section headers */
+html{scroll-padding-top:80px;}
+
+/* UX: skeleton placeholder for supplier grid before JS populates it */
+.supplier-grid:empty::before{content:"Loading suppliers…";display:block;grid-column:1/-1;padding:4rem 2rem;text-align:center;font-size:14px;color:var(--text3);animation:radarPulse 1.6s ease-in-out infinite;}
+@keyframes radarPulse{0%,100%{opacity:0.4;}50%{opacity:1;}}
+
+/* UX: respect users who prefer reduced motion */
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:0.01ms !important;animation-iteration-count:1 !important;transition-duration:0.01ms !important;scroll-behavior:auto !important;}
+}
 </style>
 </head>
 <body>

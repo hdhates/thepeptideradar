@@ -93,6 +93,14 @@ footer{margin-top:60px;border-top:0.5px solid var(--border);padding:3rem 2.5rem 
 .footer-copy a{color:var(--text3);}
 .footer-copy a:hover{color:var(--green);}
 @media(max-width:640px){main{padding:32px 20px 60px;}.grid{grid-template-columns:1fr;}}
+
+/* UX: keyboard focus rings */
+:focus{outline:none;}
+a:focus-visible,button:focus-visible,details:focus-visible,summary:focus-visible{outline:2px solid var(--green);outline-offset:3px;border-radius:4px;}
+html{scroll-padding-top:80px;}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:0.01ms !important;animation-iteration-count:1 !important;transition-duration:0.01ms !important;scroll-behavior:auto !important;}
+}
 </style>
 </head>
 <body>
