@@ -236,7 +236,8 @@ h1 em{font-style:normal;color:var(--green);position:relative;}
 .search-bar{display:flex;align-items:center;gap:12px;background:var(--bg2);border:0.5px solid var(--border2);border-radius:14px;padding:1rem 1.25rem;margin-bottom:1.25rem;}
 .search-bar input{background:transparent;border:none;outline:none;font-family:'DM Sans',sans-serif;font-size:15px;color:var(--text);flex:1;}
 .search-bar input::placeholder{color:var(--text3);}
-.country-filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:2rem;}
+.country-filters{display:flex;gap:8px;flex-wrap:nowrap;overflow-x:auto;margin-bottom:2rem;padding-bottom:4px;scrollbar-width:none;-ms-overflow-style:none;}
+.country-filters::-webkit-scrollbar{display:none;}
 .cf{background:rgba(255,255,255,0.04);border:0.5px solid var(--border);color:var(--text2);font-size:12px;padding:6px 14px;border-radius:100px;cursor:pointer;transition:all 0.15s;font-family:'DM Sans',sans-serif;white-space:nowrap;}
 .cf:hover,.cf.active{background:var(--green-dim);border-color:rgba(126,232,162,0.4);color:var(--green);}
 .cf-select{background:rgba(255,255,255,0.04);border:0.5px solid var(--border);color:var(--text2);font-size:12px;padding:6px 28px 6px 14px;border-radius:100px;cursor:pointer;font-family:'DM Sans',sans-serif;appearance:none;-webkit-appearance:none;outline:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='rgba(240%2C237%2C232%2C0.3)' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 10px center;display:none;}
@@ -460,20 +461,6 @@ html{scroll-padding-top:80px;}
       <div class="stat-item"><div class="stat-num" id="stat-countries">—</div><div class="stat-label">Countries served</div></div>
       <div class="stat-item"><div class="stat-num">16<em>+</em></div><div class="stat-label">Peptide guides</div></div>
     </div>
-  </div>
-
-  <div class="section">
-    <div class="section-tag">Buyer's Guides</div>
-    <div class="section-title">Looking for a specific peptide?</div>
-    <div class="guides-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(min(240px,100%),1fr));gap:12px;margin-top:1.5rem;">
-      <a href="/peptides/bpc-157.html" class="gcard"><div class="gcard-head"><div class="gcard-title">BPC-157</div><span class="gcard-arrow">→</span></div><div class="gcard-meta">5 suppliers</div><div class="gcard-desc">Tissue repair & gut health research peptide.</div></a>
-      <a href="/peptides/tb-500.html" class="gcard"><div class="gcard-head"><div class="gcard-title">TB-500</div><span class="gcard-arrow">→</span></div><div class="gcard-meta">3 suppliers</div><div class="gcard-desc">Thymosin Beta-4 fragment for tissue repair.</div></a>
-      <a href="/peptides/retatrutide.html" class="gcard"><div class="gcard-head"><div class="gcard-title">Retatrutide</div><span class="gcard-arrow">→</span></div><div class="gcard-meta">4 suppliers</div><div class="gcard-desc">Triple agonist GLP-1/GIP/glucagon research peptide.</div></a>
-      <a href="/peptides/semaglutide.html" class="gcard"><div class="gcard-head"><div class="gcard-title">Semaglutide</div><span class="gcard-arrow">→</span></div><div class="gcard-meta">1 supplier</div><div class="gcard-desc">GLP-1 receptor agonist research peptide.</div></a>
-      <a href="/peptides/ghk-cu.html" class="gcard"><div class="gcard-head"><div class="gcard-title">GHK-Cu</div><span class="gcard-arrow">→</span></div><div class="gcard-meta">4 suppliers</div><div class="gcard-desc">Copper peptide for skin & wound healing research.</div></a>
-      <a href="/peptides/igf-1-lr3.html" class="gcard"><div class="gcard-head"><div class="gcard-title">IGF-1 LR3</div><span class="gcard-arrow">→</span></div><div class="gcard-meta">4 suppliers</div><div class="gcard-desc">Long R3 IGF-1 analog with extended half-life.</div></a>
-    </div>
-    <div style="text-align:center;margin-top:2rem;"><a href="/peptides/" style="color:#4ecf7a;font-size:14px;text-decoration:none;font-weight:700;">View all peptide guides →</a></div>
   </div>
 
   <div class="section" style="padding-top:0;">
@@ -1019,9 +1006,6 @@ function buildCard(s){
   h+='<div class="scard-top"><div class="scard-name">'+s.name+newBadge+'</div>'+topBadge+'</div>';
   h+='<div class="scard-country">'+flagEmoji(s.country)+s.country+(s.note&&!s.warning?' <span style="font-size:11px;color:var(--green);margin-left:6px;">'+s.note+'</span>':'')+'</div>';
   h+='<div class="supplier-angle">✓ '+supplierAngle(s)+'</div>';
-  h+='<div class="click-reason"><strong>About this supplier:</strong> '+clickReason(s)+'</div>';
-  if(s.verifiedDate&&s.verified){h+='<div style="font-size:11px;color:var(--text2);margin-top:2px;margin-bottom:12px;">Data reviewed: '+formatVerifiedDate(s.verifiedDate)+'</div>';}
-  if(s.coaCount&&s.verified){h+='<div style="display:inline-flex;align-items:center;gap:5px;background:rgba(78,207,122,0.08);border:0.5px solid rgba(78,207,122,0.3);color:var(--green);font-size:11px;font-weight:700;padding:3px 10px;border-radius:100px;margin-bottom:12px;">✓ '+s.coaCount+' '+(s.coaSource||'lab')+' COAs reviewed</div>';}
   h+=renderDataSignals(s);
   var judgeLink=s.judgeMe?' &nbsp;<span style="color:var(--green);font-size:10px;">✓ Judge.me</span>':'';
   var reviewsIoLink=s.reviewsIoUrl?' &nbsp;<a href="'+s.reviewsIoUrl+'" target="_blank" rel="noopener" onclick="event.stopPropagation()" style="color:var(--green);font-size:10px;text-decoration:none;">✓ Reviews.io</a>':'';
@@ -1067,7 +1051,6 @@ function buildCard(s){
   } else {
     h+='<div class="scard-footer" style="flex-direction:column;align-items:flex-start;gap:10px;">'+meta+'<button class="visit-btn" style="width:100%;" onclick="trackClick(\''+nameEsc+'\',\''+s.url+'\')">Check supplier →</button></div>';
   }
-  h+='<div style="font-size:10px;color:var(--text3);margin-top:14px;padding-top:12px;border-top:0.5px solid var(--border);line-height:1.5;">Signals based on available COA data, lab sources, reviews, shipping info, and transparency.</div>';
   h+='</div>';
   return h;
 }
