@@ -34,85 +34,23 @@
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@700;800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet"/>
-<style>
-*{margin:0;padding:0;box-sizing:border-box}
-:root{--green:#4ecf7a;--bg:#0a0a0f;--bg2:#111118;--text:#f0ede8;--text2:rgba(240,237,232,0.6);--text3:rgba(240,237,232,0.35);--border:rgba(255,255,255,0.08);}
-body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;}
-a{color:var(--green);text-decoration:none;}
-nav{padding:1rem 2.5rem;display:flex;justify-content:space-between;align-items:center;border-bottom:0.5px solid var(--border);background:var(--bg);position:sticky;top:0;z-index:100;backdrop-filter:blur(10px);}
-.logo{font-family:'Outfit',sans-serif;font-size:24px;font-weight:800;letter-spacing:-0.5px;display:flex;align-items:center;color:var(--text);text-decoration:none;}
-.logo span{color:var(--green);}
-.logo svg{margin-right:8px;}
-.nav-links{list-style:none;display:flex;gap:2rem;align-items:center;}
-.nav-links a{font-size:14px;color:var(--text2);text-decoration:none;transition:color 0.2s;font-weight:500;}
-.nav-links a:hover{color:var(--green);}
-main{max-width:1100px;margin:0 auto;padding:48px 32px 80px;}
-.crumb{font-size:13px;color:var(--text3);margin-bottom:24px;}
-.crumb a{color:var(--text2);}
-h1{font-family:'Outfit',sans-serif;font-size:clamp(34px,5vw,52px);font-weight:800;letter-spacing:-1.5px;line-height:1.05;margin-bottom:16px;}
-h1 em{font-style:normal;color:var(--green);}
-.lead{font-size:18px;color:var(--text2);margin-bottom:32px;max-width:720px;}
-.intro{background:var(--bg2);border:0.5px solid var(--border);border-radius:14px;padding:28px;margin-bottom:48px;}
-.intro h2{font-family:'Outfit',sans-serif;font-size:18px;font-weight:700;margin-bottom:12px;color:var(--green);text-transform:uppercase;letter-spacing:1px;}
-.intro p{font-size:15px;color:var(--text2);margin-bottom:12px;}
-.intro p:last-child{margin-bottom:0;}
-h2.section{font-family:'Outfit',sans-serif;font-size:28px;font-weight:800;letter-spacing:-0.5px;margin:0 0 20px;}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:14px;margin-bottom:48px;}
-.card{background:var(--bg2);border:0.5px solid var(--border);border-radius:14px;padding:22px;display:flex;flex-direction:column;}
-.card-name{font-family:'Outfit',sans-serif;font-size:18px;font-weight:800;margin-bottom:6px;}
-.card-meta{font-size:13px;color:var(--text3);margin-bottom:14px;}
-.card-tags{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:18px;}
-.tag{background:rgba(78,207,122,0.06);border:0.5px solid rgba(78,207,122,0.18);color:var(--text2);font-size:11px;padding:3px 9px;border-radius:6px;}
-.card-cta{margin-top:auto;display:inline-block;background:linear-gradient(90deg,var(--green) 50%,#0a0a0f 50%);background-size:200% 100%;background-position:left center;color:#0a0a0f;border:0.5px solid var(--green);padding:11px 22px;border-radius:100px;font-weight:700;font-size:14px;text-align:center;transition:background-position 0.4s ease,color 0.3s,transform 0.15s,box-shadow 0.2s;}
-.card-cta:hover{background-position:right center;color:var(--green);transform:translateY(-1px);box-shadow:0 4px 14px rgba(78,207,122,0.35);}
-details{background:var(--bg2);border:0.5px solid var(--border);border-radius:10px;padding:18px 22px;margin-bottom:10px;cursor:pointer;}
-details summary{font-weight:700;font-size:15px;list-style:none;}
-details summary::-webkit-details-marker{display:none;}
-details summary::after{content:"+";float:right;color:var(--green);font-size:20px;line-height:1;}
-details[open] summary::after{content:"−";}
-details p{margin-top:14px;color:var(--text2);font-size:14px;}
-.cta-row{text-align:center;margin:48px 0 24px;}
-.cta-row a{display:inline-block;background:linear-gradient(90deg,var(--green) 50%,#0a0a0f 50%);background-size:200% 100%;background-position:left center;color:#0a0a0f;border:0.5px solid var(--green);padding:14px 28px;border-radius:100px;font-weight:700;font-size:15px;transition:background-position 0.4s ease,color 0.3s,transform 0.15s,box-shadow 0.2s;}
-.cta-row a:hover{background-position:right center;color:var(--green);transform:translateY(-1px);box-shadow:0 4px 14px rgba(78,207,122,0.35);}
-footer{margin-top:60px;border-top:0.5px solid var(--border);padding:3rem 2.5rem 2rem;background:var(--bg);}
-.footer-main{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:2rem;margin-bottom:2rem;max-width:1100px;margin-left:auto;margin-right:auto;}
-.footer-brand{display:flex;flex-direction:column;gap:6px;max-width:240px;}
-.footer-brand .logo{font-family:'Outfit',sans-serif;font-size:18px;letter-spacing:-0.5px;margin-bottom:2px;}
-.footer-tagline{font-size:12px;color:var(--text3);line-height:1.6;}
-.footer-email{font-size:12px;color:var(--text3);text-decoration:none;transition:color 0.2s;margin-top:2px;}
-.footer-email:hover{color:var(--green);}
-.footer-nav{display:flex;flex-direction:column;gap:10px;}
-.footer-nav-title{font-size:10px;letter-spacing:1px;text-transform:uppercase;color:var(--text3);margin-bottom:2px;font-weight:700;}
-.footer-links{display:flex;flex-direction:column;gap:8px;}
-.footer-links a{font-size:13px;color:var(--text2);text-decoration:none;transition:color 0.2s;}
-.footer-links a:hover{color:var(--green);}
-.footer-bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;padding-top:1.5rem;border-top:0.5px solid var(--border);max-width:1100px;margin:0 auto;}
-.footer-copy{font-size:12px;color:var(--text3);}
-.footer-copy a{color:var(--text3);}
-.footer-copy a:hover{color:var(--green);}
-@media(max-width:640px){main{padding:32px 20px 60px;}.grid{grid-template-columns:1fr;}}
-
-/* UX: keyboard focus rings */
-:focus{outline:none;}
-a:focus-visible,button:focus-visible,details:focus-visible,summary:focus-visible{outline:2px solid var(--green);outline-offset:3px;border-radius:4px;}
-html{scroll-padding-top:80px;}
-@media(prefers-reduced-motion:reduce){
-  *,*::before,*::after{animation-duration:0.01ms !important;animation-iteration-count:1 !important;transition-duration:0.01ms !important;scroll-behavior:auto !important;}
-}
-</style>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@800&family=Plus+Jakarta+Sans:wght@700;800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="/peptides/guide.css"/>
 </head>
 <body>
 <nav>
   <a href="/" class="logo">
-    <svg width="22" height="22" viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="44" fill="none" stroke="#4ecf7a" stroke-width="6"/><circle cx="50" cy="50" r="29" fill="none" stroke="#4ecf7a" stroke-width="4" opacity=".6"/><circle cx="50" cy="50" r="14" fill="none" stroke="#4ecf7a" stroke-width="3" opacity=".35"/><line x1="50" y1="50" x2="84" y2="18" stroke="#4ecf7a" stroke-width="5" stroke-linecap="round"/><circle cx="50" cy="50" r="5" fill="#4ecf7a"/></svg>
+    <svg width="20" height="20" viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="44" fill="none" stroke="#4ecf7a" stroke-width="6"/><circle cx="50" cy="50" r="29" fill="none" stroke="#4ecf7a" stroke-width="4" opacity=".6"/><circle cx="50" cy="50" r="14" fill="none" stroke="#4ecf7a" stroke-width="3" opacity=".35"/><line x1="50" y1="50" x2="84" y2="18" stroke="#4ecf7a" stroke-width="5" stroke-linecap="round"/><circle cx="50" cy="50" r="5" fill="#4ecf7a"/></svg>
     The<span>Peptide</span>Radar
   </a>
-  <ul class="nav-links">
+  <ul class="nav-links" id="nav-links">
+    <li><a href="/">Home</a></li>
     <li><a href="/#directory">Directory</a></li>
     <li><a href="/peptides/">Guides</a></li>
-    <li><a href="/">Home</a></li>
+    <li><a href="/#contact">Contact</a></li>
   </ul>
+  <a href="/#directory" class="nav-cta">Explore Directory</a>
+  <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
 </nav>
 <main>
   <div class="crumb"><a href="/">Home</a> / <a href="/peptides/">Peptides</a> / Tesamorelin</div>
@@ -129,19 +67,19 @@ html{scroll-padding-top:80px;}
   <p style="margin-top:-12px;margin-bottom:20px;color:var(--text3);font-size:14px;">Suppliers below surface lab data, COAs, and shipping details so you can compare with more context.</p>
   <div class="grid">
     <div class="card">
-      <div class="card-name">🇺🇸 Cernum Biosciences</div>
+      <div class="card-name"><img src="https://flagcdn.com/16x12/us.png" style="vertical-align:middle;border-radius:2px;margin-right:5px;" alt="" loading="lazy">Cernum Biosciences</div>
       <div class="card-meta">United States · Ships in 3 days</div>
       <div class="card-tags"><span class="tag">Lab Tested</span><span class="tag">3rd Party COA</span><span class="tag">Janoshik</span></div>
       <a class="card-cta" href="https://cernumbiosciences.com/" target="_blank" rel="noopener noreferrer">Visit Cernum →</a>
     </div>
     <div class="card">
-      <div class="card-name">🇨🇳 Uther</div>
+      <div class="card-name"><img src="https://flagcdn.com/16x12/cn.png" style="vertical-align:middle;border-radius:2px;margin-right:5px;" alt="" loading="lazy">Uther</div>
       <div class="card-meta">China · 5-10 days USA · 7-10 EU/UK</div>
       <div class="card-tags"><span class="tag">Lab Tested</span><span class="tag">Janoshik</span><span class="tag">Chromate</span></div>
       <a class="card-cta" href="https://t.me/+hMYZjdVCq2o5MDFh" target="_blank" rel="noopener noreferrer">Visit Uther (Telegram) →</a>
     </div>
     <div class="card">
-      <div class="card-name">🇦🇺 Peptide Centre</div>
+      <div class="card-name"><img src="https://flagcdn.com/16x12/au.png" style="vertical-align:middle;border-radius:2px;margin-right:5px;" alt="" loading="lazy">Peptide Centre</div>
       <div class="card-meta">Australia · Ships AU in 2 days · Intl 3-7</div>
       <div class="card-tags"><span class="tag">Lab Tested</span><span class="tag">Janoshik</span><span class="tag">12 COAs on file</span></div>
       <a class="card-cta" href="https://peptidecentre.com" target="_blank" rel="noopener noreferrer">Visit Peptide Centre →</a>
@@ -157,10 +95,10 @@ html{scroll-padding-top:80px;}
   </ul>
 
   <h2 class="section">Frequently Asked Questions</h2>
-  <details><summary>What is Tesamorelin?</summary><p>Tesamorelin is a synthetic 44-amino acid analog of GHRH with a trans-3-hexenoic acid modification at the N-terminus. It is studied in research for endogenous growth hormone secretion and visceral adipose tissue endpoints.</p></details>
-  <details><summary>Where can I buy Tesamorelin?</summary><p>Tesamorelin is sold by multiple research peptide suppliers worldwide. The suppliers above ship to the United States, Europe, and other regions, with available lab data and transparency signals.</p></details>
-  <details><summary>What should I look for in a Tesamorelin supplier?</summary><p>Look for third-party COAs (HPLC and mass spectrometry), endotoxin and heavy-metals testing, transparent batch documentation, and consistent community reviews. All suppliers above surface this data.</p></details>
-  <details><summary>How is Tesamorelin different from Sermorelin or CJC-1295?</summary><p>All are GHRH analogs. Sermorelin (29-aa) has a very short half-life. Tesamorelin (44-aa, modified) extends stability modestly. CJC-1295 with DAC extends half-life to several days. Each has a distinct research-pharmacokinetic profile.</p></details>
+  <details class="faq-item"><summary>What is Tesamorelin?</summary><p>Tesamorelin is a synthetic 44-amino acid analog of GHRH with a trans-3-hexenoic acid modification at the N-terminus. It is studied in research for endogenous growth hormone secretion and visceral adipose tissue endpoints.</p></details>
+  <details class="faq-item"><summary>Where can I buy Tesamorelin?</summary><p>Tesamorelin is sold by multiple research peptide suppliers worldwide. The suppliers above ship to the United States, Europe, and other regions, with available lab data and transparency signals.</p></details>
+  <details class="faq-item"><summary>What should I look for in a Tesamorelin supplier?</summary><p>Look for third-party COAs (HPLC and mass spectrometry), endotoxin and heavy-metals testing, transparent batch documentation, and consistent community reviews. All suppliers above surface this data.</p></details>
+  <details class="faq-item"><summary>How is Tesamorelin different from Sermorelin or CJC-1295?</summary><p>All are GHRH analogs. Sermorelin (29-aa) has a very short half-life. Tesamorelin (44-aa, modified) extends stability modestly. CJC-1295 with DAC extends half-life to several days. Each has a distinct research-pharmacokinetic profile.</p></details>
 
   <div class="cta-row"><a href="/#directory">Browse the full supplier directory →</a></div>
 </main>
@@ -202,5 +140,6 @@ html{scroll-padding-top:80px;}
     <span style="font-size:11px;color:rgba(240,237,232,0.3);">For research purposes only. Not medical advice.</span>
   </div>
 </footer>
+<script src="/peptides/guide.js"></script>
 </body>
 </html>
