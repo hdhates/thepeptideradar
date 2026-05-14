@@ -999,20 +999,59 @@ function renderFilters(){
   el.innerHTML='<span class="filter-row-label">Region</span>'+pills+sel;
 }
 
+var PEPTIDE_NORM={
+  'melanotan 2':'Melanotan II','mt-2':'Melanotan II',
+  'melanotan i':'Melanotan I','mt-1':'Melanotan I','afamelanotide':'Melanotan I','melanotan 1':'Melanotan I',
+  'mots c':'MOTS-c','mots-c':'MOTS-c',
+  'nad':'NAD+',
+  'thymosin beta-4':'TB-500','thymosin beta 4':'TB-500',
+  'copper peptide':'GHK-Cu','ghk-cu':'GHK-Cu',
+  'bremelanotide':'PT-141',
+  'cjc-1295 no dac':'CJC-1295','mod grf 1-29':'CJC-1295',
+  'cjc-1295 + dac':'CJC-1295 + DAC','cjc-1295 dac':'CJC-1295 + DAC',
+  'thymosin alpha 1':'Thymosin Alpha-1','thymosin alpha-1':'Thymosin Alpha-1',
+  'epitalon':'Epithalon',
+};
+function normPeptide(p){if(!p)return p;return PEPTIDE_NORM[p.toLowerCase().trim()]||p;}
 function supplierHasPeptide(s,p){
   if(!p||p==='All')return true;
-  var norm=p.toLowerCase();
+  var canonP=normPeptide(p).toLowerCase();
   var arr=(s.catalog||[]).concat(s.peptides||[]);
-  return arr.some(function(x){return x.toLowerCase().indexOf(norm)>-1||norm.indexOf(x.toLowerCase())>-1;});
+  return arr.some(function(x){
+    var cx=normPeptide(x).toLowerCase();
+    return cx.indexOf(canonP)>-1||canonP.indexOf(cx)>-1;
+  });
+}
+function buildPeptideCandidates(){
+  var counts={},display={};
+  suppliers.forEach(function(s){
+    var seen={};
+    var all=(s.catalog||[]).concat(s.peptides||[]);
+    all.forEach(function(p){
+      if(!p)return;
+      if(p.toLowerCase().includes('blend')||p.length>38)return;
+      var canon=normPeptide(p);
+      var lk=canon.toLowerCase();
+      if(seen[lk])return;
+      seen[lk]=1;
+      counts[lk]=(counts[lk]||0)+1;
+      if(!display[lk])display[lk]=canon;
+    });
+  });
+  return Object.keys(counts)
+    .filter(function(k){return counts[k]>=2;})
+    .sort(function(a,b){return counts[b]-counts[a];})
+    .slice(0,24)
+    .map(function(k){return display[k];});
 }
 function renderPeptideFilters(){
   var el=document.getElementById('peptide-filters');
   if(!el)return;
-  var candidates=['BPC-157','GHK-Cu','Retatrutide','TB-500','Selank','Tesamorelin','MOTS-c','Melanotan II','Semax','IGF-1 LR3','Sermorelin','NAD+','PT-141'];
+  var candidates=buildPeptideCandidates();
   var withCounts=candidates.map(function(p){
     return {p:p,n:suppliers.filter(function(s){return supplierHasPeptide(s,p);}).length};
   }).filter(function(x){return x.n>0;}).sort(function(a,b){return b.n-a.n;});
-  var emojiMap={'BPC-157':'🔬','GHK-Cu':'✨','Retatrutide':'⚡','TB-500':'💪','Selank':'🧠','Tesamorelin':'🏃','MOTS-c':'🧬','Melanotan II':'☀️','Semax':'🧠','IGF-1 LR3':'📈','Sermorelin':'💫','NAD+':'⚡','PT-141':'🔥'};
+  var emojiMap={'BPC-157':'🔬','GHK-Cu':'✨','Retatrutide':'⚡','TB-500':'💪','Selank':'🧠','Tesamorelin':'🏃','MOTS-c':'🧬','Melanotan II':'☀️','Semax':'🧠','IGF-1 LR3':'📈','Sermorelin':'💫','NAD+':'⚡','PT-141':'🔥','Ipamorelin':'💉','CJC-1295':'⚗️','CJC-1295 + DAC':'⚗️','Semaglutide':'💊','Tirzepatide':'💊','Epithalon':'⏳','AOD-9604':'🏋️','FOXO4-DRI':'🔄','Melanotan I':'🌅','KPV':'🛡️','LL-37':'🦠','GHRP-2':'📊','Hexarelin':'🔩','Thymosin Alpha-1':'💉','N-Acetyl Semax':'🧠'};
   var allPill='<div class="pf'+(activePeptide==='All'?' active':'')+'" data-peptide="All" onclick="setPeptide(\'All\')">All</div>';
   var pills=withCounts.map(function(x){
     var em=emojiMap[x.p]?emojiMap[x.p]+' ':'';
@@ -1116,6 +1155,7 @@ function buildCard(s){
   html+='<div class="scard-top"><div class="scard-name">'+s.name+newBadge+'</div>'+topBadge+'</div>';
   html+='<div class="scard-country">'+flagEmoji(s.country)+s.country+(s.note&&!s.warning?' <span style="color:var(--green);font-size:11px;margin-left:6px;">'+s.note+'</span>':'')+'</div>';
   html+='<div class="supplier-angle">✓ '+supplierAngle(s)+'</div>';
+  html+='<div class="scard-about">'+clickReason(s)+'</div>';
   if(s.reviews>0||judgeLink||reviewsLink){html+='<div class="scard-stars-row">'+stars+judgeLink+reviewsLink+'</div>';}
   if(s.featuredReview){html+='<div class="scard-review">"'+s.featuredReview+'"</div>';}
   if(s.coaCount&&s.verified){html+='<div class="coa-badge">✓ '+s.coaCount+' '+(s.coaSource||'lab')+' COAs reviewed</div>';}
