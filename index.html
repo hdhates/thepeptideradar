@@ -1041,14 +1041,14 @@ function formatVerifiedDate(d){
 
 function supplierAngle(s){
   var angles={
-    'Cernum Biosciences':'Janoshik COAs · Judge.me verified reviews',
-    'EuroPeptides':'1–7 day EU shipping · 10 community reviews',
-    'Uther':'60+ peptides including GLP-1s and nootropics',
-    'Elytra Labs':'HPLC + MS tested · same-day dispatch',
-    'Pure Peptides UK':'8+ years active · 8 verified Reviews.io reviews',
-    'Particle Peptides':'Endotoxin + heavy metals tested',
-    'Peptide Centre':'12 Janoshik COAs on file',
-    'Research Peptides Europe':'Public test results page · FedEx & UPS EU-wide'
+    'Cernum Biosciences':'Strong COA profile · US-based',
+    'EuroPeptides':'Strong EU shipping option',
+    'Uther':'Largest catalog in the directory',
+    'Elytra Labs':'Fast US dispatch option',
+    'Pure Peptides UK':'Strong UK review profile',
+    'Particle Peptides':'Broad testing panel · EU ships',
+    'Peptide Centre':'Strong COA depth · AU-based',
+    'Research Peptides Europe':'EU-wide shipping + public test data'
   };
   return angles[s.name] || 'Supplier data available';
 }
@@ -1093,26 +1093,27 @@ function buildCard(s){
   var nameEsc=s.name.replace(/'/g,"\\'");
   var topBadge=s.verified?'<div class="vbadge">Data Reviewed</div>':s.warning?'<div class="vbadge" style="color:#f5c542;border-color:rgba(245,197,66,0.3);">Data Pending</div>':'';
   var newBadge=s.isNew?'<span class="scard-new">New</span>':'';
+  var stars=s.reviews>0?'<div class="stars" style="margin-bottom:0;">'+renderStars(s.rating)+'<span class="rating-text">'+s.rating+' ('+s.reviews+')</span></div>':'<span class="rating-text">No reviews yet</span>';
   var reviewsLink=s.reviewsIoUrl?'<a href="'+s.reviewsIoUrl+'" target="_blank" rel="noopener" onclick="event.stopPropagation()" style="color:var(--green);font-size:10px;text-decoration:none;margin-left:8px;">✓ Reviews.io</a>':'';
   var judgeLink=s.judgeUrl?'<a href="'+s.judgeUrl+'" target="_blank" rel="noopener" onclick="event.stopPropagation()" style="color:var(--green);font-size:10px;text-decoration:none;margin-left:8px;">✓ Judge.me</a>':'';
 
   var html='<div class="scard'+(s.featured?' scard-featured':'')+'">';
   if(s.featured){html+='<div class="scard-featured-badge">★ Featured</div>';}
   html+='<div class="scard-top"><div class="scard-name">'+s.name+newBadge+'</div>'+topBadge+'</div>';
-  html+='<div class="scard-country">'+flagEmoji(s.country)+s.country+'<span class="scard-ship-inline"> · '+s.shipping+'</span></div>';
+  html+='<div class="scard-country">'+flagEmoji(s.country)+s.country+(s.note&&!s.warning?' <span style="color:var(--green);font-size:11px;margin-left:6px;">'+s.note+'</span>':'')+'</div>';
   html+='<div class="supplier-angle">✓ '+supplierAngle(s)+'</div>';
-  html+='<div class="scard-about">'+clickReason(s)+'</div>';
-  if(s.reviews>0){html+='<div class="scard-stars-row">'+renderStars(s.rating)+'<span class="rating-text">'+s.rating+' · '+s.reviews+' review'+(s.reviews===1?'':'s')+'</span>'+judgeLink+reviewsLink+'</div>';}
+  html+='<div class="scard-stars-row">'+stars+judgeLink+reviewsLink+'</div>';
   if(s.featuredReview){html+='<div class="scard-review">"'+s.featuredReview+'"</div>';}
   if(s.coaCount&&s.verified){html+='<div class="coa-badge">✓ '+s.coaCount+' '+(s.coaSource||'lab')+' COAs reviewed</div>';}
   if(s.peptides&&s.peptides.length){html+='<div class="scard-peptides">'+s.peptides.slice(0,5).map(function(p){return '<span class="peptide-tag">'+p+'</span>';}).join('')+'</div>';}
-  html+='<div class="tags" style="flex-grow:1;align-content:flex-start;">'+s.tags.map(function(t){return '<div class="tag">'+t+'</div>';}).join('')+'</div>';
+  html+='<div class="tags" style="margin-bottom:12px;flex-grow:1;align-content:flex-start;">'+s.tags.map(function(t){return '<div class="tag">'+t+'</div>';}).join('')+'</div>';
   html+='<div class="scard-footer">';
+  html+='<span class="scard-meta">'+s.shipping+'</span>';
   if(s.url2){
-    html+='<div style="display:flex;gap:8px;"><button class="visit-btn" style="flex:1;" onclick="trackClick(\''+nameEsc+'\',\''+s.url+'\',\'Clicked Supplier - Telegram\')">Telegram →</button>';
-    html+='<button class="visit-btn visit-btn-ghost" style="flex:1;" onclick="trackClick(\''+nameEsc+'\',\''+s.url2+'\',\'Clicked Supplier - WhatsApp\')">WhatsApp →</button></div>';
+    html+='<div style="display:flex;gap:8px;"><button class="visit-btn" onclick="trackClick(\''+nameEsc+'\',\''+s.url+'\',\'Clicked Supplier - Telegram\')">Telegram →</button>';
+    html+='<button class="visit-btn visit-btn-ghost" onclick="trackClick(\''+nameEsc+'\',\''+s.url2+'\',\'Clicked Supplier - WhatsApp\')">WhatsApp →</button></div>';
   } else {
-    html+='<button class="visit-btn" style="width:100%;" onclick="trackClick(\''+nameEsc+'\',\''+s.url+'\')">Visit '+s.name+' →</button>';
+    html+='<button class="visit-btn" onclick="trackClick(\''+nameEsc+'\',\''+s.url+'\')">Check supplier →</button>';
   }
   html+='</div></div>';
   return html;
