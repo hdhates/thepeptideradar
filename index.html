@@ -239,17 +239,17 @@ h1 em{font-style:normal;color:var(--green);position:relative;}
 .country-filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:2rem;align-items:center;}
 .cf{background:rgba(255,255,255,0.04);border:0.5px solid var(--border);color:var(--text2);font-size:12px;padding:6px 14px;border-radius:100px;cursor:pointer;transition:all 0.15s;font-family:'DM Sans',sans-serif;white-space:nowrap;}
 .cf:hover,.cf.active{background:var(--green-dim);border-color:rgba(126,232,162,0.4);color:var(--green);}
-.cf-rest{display:none;}
+.cf-rest{display:inline-block;}
 .cf-select{display:inline-block;background:rgba(255,255,255,0.04);border:0.5px solid var(--border);color:var(--text2);font-size:12px;padding:6px 28px 6px 14px;border-radius:100px;cursor:pointer;font-family:'DM Sans',sans-serif;appearance:none;-webkit-appearance:none;outline:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='rgba(240%2C237%2C232%2C0.3)' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 10px center;}
 .cf-select.active{background-color:var(--green-dim);border-color:rgba(126,232,162,0.4);color:var(--green);}
 .cf-select option{background:#111118;color:#f0ede8;}
-.supplier-grid{display:grid;grid-template-columns:1fr;gap:12px;padding:0 2rem 4rem;max-width:1100px;margin:0 auto;}
+.supplier-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;padding:0 2rem 4rem;max-width:1100px;margin:0 auto;}
 .scard-left{flex:0 0 320px;display:flex;flex-direction:column;}
 .scard-right{flex:1;display:flex;flex-direction:column;min-width:0;}
 .scard-new{background:var(--green);color:#0a0a0f;font-size:9px;font-weight:800;letter-spacing:1px;padding:2px 8px;border-radius:100px;text-transform:uppercase;margin-left:8px;vertical-align:middle;display:inline-block;}
 .scard-featured-badge{display:inline-flex;align-items:center;gap:5px;background:linear-gradient(90deg,rgba(255,193,7,0.15),rgba(255,193,7,0.05));border:0.5px solid rgba(255,193,7,0.4);color:#ffc107;font-size:10px;font-weight:800;letter-spacing:0.8px;padding:4px 10px;border-radius:100px;text-transform:uppercase;margin-bottom:10px;width:fit-content;}
 .scard-stars-row{display:flex;align-items:center;flex-wrap:wrap;gap:4px;margin-top:auto;padding-top:12px;}
-@media(max-width:640px){.supplier-grid{padding:0 1rem 3rem;}.scard{flex-direction:column !important;}.scard-left{flex:none;}.scard-right{flex:none;}}
+@media(max-width:640px){.supplier-grid{padding:0 1rem 3rem;grid-template-columns:1fr;}.scard-left{flex:none;}.scard-right{flex:none;}}
 @keyframes cardReveal{from{opacity:0;transform:translateY(18px);}to{opacity:1;transform:translateY(0);}}
 @keyframes scanSweep{0%{background-position:200% center;}100%{background-position:-200% center;}}
 .scard{
@@ -259,7 +259,7 @@ h1 em{font-style:normal;color:var(--green);position:relative;}
   border:0.5px solid rgba(255,255,255,0.08);
   border-radius:20px;padding:1.75rem 2rem;
   transition:border-color 0.3s,transform 0.3s,box-shadow 0.35s;
-  display:flex;flex-direction:row;gap:2.5rem;min-width:0;word-wrap:break-word;overflow-wrap:break-word;
+  display:flex;flex-direction:column;gap:0;min-width:0;word-wrap:break-word;overflow-wrap:break-word;
   position:relative;overflow:hidden;
   animation:cardReveal 0.45s ease both;}
 .scard:nth-child(2){animation-delay:0.07s;}
@@ -417,7 +417,7 @@ footer span{font-size:12px;color:var(--text3);}
   .section-title{margin-bottom:1.5rem;}
   .steps{grid-template-columns:1fr;}
   .features-grid{grid-template-columns:1fr !important;}
-  .supplier-grid{grid-template-columns:1fr;padding:0 1.25rem 3rem;}
+  .supplier-grid{grid-template-columns:1fr !important;padding:0 1.25rem 3rem;}
   .dir-header{padding:2rem 1.25rem 1.5rem;}
   .form-wrap,.signup-wrap{padding:2rem 1.25rem;}
   .plan-cards{grid-template-columns:1fr;}
@@ -965,16 +965,12 @@ function updateStats(){
 function renderFilters(){
   const el = document.getElementById('country-filters');
   if(!suppliers.length){el.style.display='none';return;}
-  const rest=allShipCountries.filter(c=>c!=='United States'&&c!=='Canada');
-  const pinned=pinnedFilters.map(c=>{
+  const allCountries=['All','Europe',...allShipCountries];
+  const pills=allCountries.map(c=>{
     const label=c==='All'?'🌍 All':c==='Europe'?'<img src="https://flagcdn.com/16x12/eu.png" style="vertical-align:middle;border-radius:2px;margin-right:5px;" alt=""> Europe':flagEmoji(c)+c;
     return `<div class="cf ${c===activeCountry?'active':''}" data-country="${c}" onclick="setCountry('${c}')">${label}</div>`;
   }).join('');
-  const restPills=rest.map(c=>`<div class="cf cf-rest ${c===activeCountry?'active':''}" data-country="${c}" onclick="setCountry('${c}')">${flagEmoji(c)+c}</div>`).join('');
-  const isRestActive=rest.includes(activeCountry);
-  const restOptions=rest.map(c=>`<option value="${c}" ${c===activeCountry?'selected':''}>${c}</option>`).join('');
-  const selectEl=`<select class="cf-select${isRestActive?' active':''}" onchange="if(this.value)setCountry(this.value)"><option value="">More countries…</option>${restOptions}</select>`;
-  el.innerHTML=pinned+restPills+selectEl;
+  el.innerHTML=pills;
 }
 
 function setCountry(c){
@@ -1059,29 +1055,25 @@ function buildCard(s){
   var judgeLink=s.judgeMe?'<a href="#" style="color:var(--green);font-size:10px;text-decoration:none;margin-left:8px;">✓ Judge.me</a>':'';
   var reviewsLink=s.reviewsIoUrl?'<a href="'+s.reviewsIoUrl+'" target="_blank" rel="noopener" onclick="event.stopPropagation()" style="color:var(--green);font-size:10px;text-decoration:none;margin-left:8px;">✓ Reviews.io</a>':'';
 
-  var left='<div class="scard-left">';
-  if(s.featured){left+='<div class="scard-featured-badge">★ Featured</div>';}
-  left+='<div class="scard-top"><div class="scard-name">'+s.name+newBadge+'</div>'+topBadge+'</div>';
-  left+='<div class="scard-country">'+flagEmoji(s.country)+s.country+(s.note&&!s.warning?' <span style="color:var(--green);font-size:11px;margin-left:6px;">'+s.note+'</span>':'')+'</div>';
-  left+='<div class="supplier-angle">✓ '+supplierAngle(s)+'</div>';
-  left+='<div class="scard-stars-row">'+stars+judgeLink+reviewsLink+'</div>';
-  left+='</div>';
-
-  var right='<div class="scard-right">';
-  right+=renderDataSignals(s);
-  if(s.coaCount&&s.verified){right+='<div class="coa-badge">✓ '+s.coaCount+' '+(s.coaSource||'lab')+' COAs reviewed</div>';}
-  right+='<div class="tags" style="margin-bottom:0;">'+s.tags.map(function(t){return '<div class="tag">'+t+'</div>';}).join('')+'</div>';
-  right+='<div class="scard-footer" style="margin-top:auto;padding-top:14px;border-top:0.5px solid rgba(255,255,255,0.06);">';
-  right+='<span class="scard-meta">Ships in '+s.shipping+'</span>';
+  var html='<div class="scard'+(s.featured?' scard-featured':'')+'">';
+  if(s.featured){html+='<div class="scard-featured-badge">★ Featured</div>';}
+  html+='<div class="scard-top"><div class="scard-name">'+s.name+newBadge+'</div>'+topBadge+'</div>';
+  html+='<div class="scard-country">'+flagEmoji(s.country)+s.country+(s.note&&!s.warning?' <span style="color:var(--green);font-size:11px;margin-left:6px;">'+s.note+'</span>':'')+'</div>';
+  html+='<div class="supplier-angle">✓ '+supplierAngle(s)+'</div>';
+  html+='<div class="scard-stars-row" style="margin-top:0;padding-top:0;margin-bottom:10px;">'+stars+judgeLink+reviewsLink+'</div>';
+  html+=renderDataSignals(s);
+  if(s.coaCount&&s.verified){html+='<div class="coa-badge">✓ '+s.coaCount+' '+(s.coaSource||'lab')+' COAs reviewed</div>';}
+  html+='<div class="tags" style="margin-bottom:12px;flex-grow:1;align-content:flex-start;">'+s.tags.map(function(t){return '<div class="tag">'+t+'</div>';}).join('')+'</div>';
+  html+='<div class="scard-footer" style="margin-top:auto;padding-top:14px;border-top:0.5px solid rgba(255,255,255,0.06);">';
+  html+='<span class="scard-meta">Ships in '+s.shipping+'</span>';
   if(s.url2){
-    right+='<div style="display:flex;gap:8px;"><button class="visit-btn" onclick="trackClick(\''+nameEsc+'\',\''+s.url+'\',\'Clicked Supplier - Telegram\')">Telegram →</button>';
-    right+='<button class="visit-btn visit-btn-ghost" onclick="trackClick(\''+nameEsc+'\',\''+s.url2+'\',\'Clicked Supplier - WhatsApp\')">WhatsApp →</button></div>';
+    html+='<div style="display:flex;gap:8px;"><button class="visit-btn" onclick="trackClick(\''+nameEsc+'\',\''+s.url+'\',\'Clicked Supplier - Telegram\')">Telegram →</button>';
+    html+='<button class="visit-btn visit-btn-ghost" onclick="trackClick(\''+nameEsc+'\',\''+s.url2+'\',\'Clicked Supplier - WhatsApp\')">WhatsApp →</button></div>';
   } else {
-    right+='<button class="visit-btn" onclick="trackClick(\''+nameEsc+'\',\''+s.url+'\')">Check supplier →</button>';
+    html+='<button class="visit-btn" onclick="trackClick(\''+nameEsc+'\',\''+s.url+'\')">Check supplier →</button>';
   }
-  right+='</div></div>';
-
-  return '<div class="scard'+(s.featured?' scard-featured':'')+'">' + left + right + '</div>';
+  html+='</div></div>';
+  return html;
 }
 
 function reportSupplier(name){
