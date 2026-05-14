@@ -1066,7 +1066,6 @@ function buildCard(s){
   html+='<div class="supplier-angle">✓ '+supplierAngle(s)+'</div>';
   html+='<div class="scard-stars-row" style="margin-top:0;padding-top:0;margin-bottom:10px;">'+stars+judgeLink+reviewsLink+'</div>';
   if(s.featuredReview){html+='<div class="scard-review">"'+s.featuredReview+'"</div>';}
-  html+=renderDataSignals(s);
   if(s.coaCount&&s.verified){html+='<div class="coa-badge">✓ '+s.coaCount+' '+(s.coaSource||'lab')+' COAs reviewed</div>';}
   if(s.peptides&&s.peptides.length){html+='<div class="scard-peptides">'+s.peptides.slice(0,5).map(function(p){return '<span class="peptide-tag">'+p+'</span>';}).join('')+'</div>';}
   html+='<div class="tags" style="margin-bottom:12px;flex-grow:1;align-content:flex-start;">'+s.tags.map(function(t){return '<div class="tag">'+t+'</div>';}).join('')+'</div>';
