@@ -977,13 +977,15 @@ function updateStats(){
 function renderFilters(){
   const el = document.getElementById('country-filters');
   if(!suppliers.length){el.style.display='none';return;}
-  const rest=allShipCountries.filter(c=>!pinnedFilters.includes(c));
-  const allCountries=[...pinnedFilters,...rest];
-  const pills=allCountries.map(c=>{
+  const rest=allShipCountries.filter(c=>!pinnedFilters.includes(c)).sort();
+  const isRest=rest.includes(activeCountry);
+  const pills=pinnedFilters.map(c=>{
     const label=c==='All'?'🌍 All':c==='Europe'?'<img src="https://flagcdn.com/16x12/eu.png" style="vertical-align:middle;border-radius:2px;margin-right:5px;" alt=""> Europe':flagEmoji(c)+c;
     return `<div class="cf ${c===activeCountry?'active':''}" data-country="${c}" onclick="setCountry('${c}')">${label}</div>`;
   }).join('');
-  el.innerHTML='<span class="filter-row-label">Region</span>'+pills;
+  const opts=rest.map(c=>`<option value="${c}" ${c===activeCountry?'selected':''}>${c}</option>`).join('');
+  const sel=`<select class="cf-select ${isRest?'active':''}" onchange="setCountry(this.value);this.blur()"><option value="">More regions…</option>${opts}</select>`;
+  el.innerHTML='<span class="filter-row-label">Region</span>'+pills+sel;
 }
 
 function supplierHasPeptide(s,p){
