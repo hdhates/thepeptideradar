@@ -1080,7 +1080,7 @@ function buildCard(s){
   }
   right+='</div></div>';
 
-  return '<div class="scard'+(s.featured?' scard-featured')+'">' + left + right + '</div>';
+  return '<div class="scard'+(s.featured?' scard-featured':'')+'">' + left + right + '</div>';
 }
 
 function reportSupplier(name){
