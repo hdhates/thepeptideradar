@@ -840,12 +840,13 @@ html{scroll-padding-top:80px;}
 
 <div id="consent-banner" style="position:fixed;bottom:0;left:0;right:0;background:var(--bg2);border-top:0.5px solid var(--border2);padding:1rem 1.5rem calc(1rem + env(safe-area-inset-bottom,0));z-index:1000;display:none;backdrop-filter:blur(12px);">
   <div style="max-width:900px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;">
-    <div style="font-size:13px;color:var(--text2);flex:1;min-width:240px;line-height:1.5;">
-      We use Google Analytics to understand how visitors use the site. No personal data is sold or shared. <a href="/privacy.html" style="color:var(--green);text-decoration:none;">Privacy policy</a>
+    <div style="flex:1;min-width:240px;">
+      <div style="font-size:14px;font-weight:700;color:var(--text);margin-bottom:3px;">Help us build better guides 🧬</div>
+      <div style="font-size:12.5px;color:var(--text3);line-height:1.5;">We track which peptide guides and filters people use — no personal data, no ads, never sold. Helps us know which guides to build next. <a href="/privacy.html" style="color:var(--green);text-decoration:none;">Privacy policy</a></div>
     </div>
-    <div style="display:flex;gap:8px;flex-shrink:0;">
-      <button onclick="declineCookies()" style="background:transparent;color:var(--text2);border:0.5px solid var(--border2);padding:8px 18px;border-radius:100px;font-size:13px;cursor:pointer;font-family:'DM Sans',sans-serif;">Decline</button>
-      <button onclick="acceptCookies()" style="background:var(--green);color:#0a0a0f;border:none;padding:8px 20px;border-radius:100px;font-size:13px;font-weight:700;cursor:pointer;font-family:'DM Sans',sans-serif;">Accept</button>
+    <div style="display:flex;align-items:center;gap:12px;flex-shrink:0;">
+      <button onclick="declineCookies()" style="background:transparent;color:var(--text3);border:none;padding:6px 10px;font-size:12px;cursor:pointer;font-family:'DM Sans',sans-serif;text-decoration:underline;text-underline-offset:2px;">No thanks</button>
+      <button onclick="acceptCookies()" style="background:var(--green);color:#0a0a0f;border:none;padding:10px 24px;border-radius:100px;font-size:13px;font-weight:800;cursor:pointer;font-family:'DM Sans',sans-serif;letter-spacing:0.2px;">Yes, help out →</button>
     </div>
   </div>
 </div>
