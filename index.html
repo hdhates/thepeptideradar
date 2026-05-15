@@ -995,7 +995,7 @@ const allShipCountries=[...new Set(suppliers.flatMap(s=>s.shipsTo||[s.country]))
 const europeanCountries=new Set(["Albania","Andorra","Austria","Belarus","Belgium","Bosnia and Herzegovina","Bulgaria","Croatia","Cyprus","Czech Republic","Denmark","Estonia","Finland","France","Germany","Greece","Hungary","Iceland","Ireland","Italy","Kosovo","Latvia","Liechtenstein","Lithuania","Luxembourg","Malta","Moldova","Monaco","Montenegro","Netherlands","North Macedonia","Norway","Poland","Portugal","Romania","San Marino","Serbia","Slovakia","Slovenia","Spain","Sweden","Switzerland","Ukraine","United Kingdom","Vatican"]);
 const pinnedFilters=['All','United States','United Kingdom','Europe','Canada','Australia'];
 let activeCountry = 'All';
-let activePeptide = 'All';
+let activePeptides = new Set();
 let searchTerm = '';
 let detectedCountry = '';
 
@@ -1113,22 +1113,30 @@ function renderPeptideFilters(){
   var withCounts=candidates.map(function(p){
     return {p:p,n:suppliers.filter(function(s){return supplierHasPeptide(s,p);}).length};
   }).filter(function(x){return x.n>0;}).sort(function(a,b){return b.n-a.n;});
-  var allPill='<div class="pf'+(activePeptide==='All'?' active':'')+'" data-peptide="All" onclick="setPeptide(\'All\')">🌐 All</div>';
+  var allPill='<div class="pf'+(activePeptides.size===0?' active':'')+'" data-peptide="All" onclick="setPeptide(\'All\')">🌐 All</div>';
   var pills=withCounts.map(function(x){
     var em=getPeptideEmoji(x.p);
-    return '<div class="pf'+(x.p===activePeptide?' active':'')+'" data-peptide="'+x.p+'" onclick="setPeptide(\''+x.p.replace(/'/g,"\\'")+'\')">'+( em?em+' ':'')+x.p+'</div>';
+    return '<div class="pf'+(activePeptides.has(x.p)?' active':'')+'" data-peptide="'+x.p+'" onclick="setPeptide(\''+x.p.replace(/'/g,"\\'")+'\')">'+( em?em+' ':'')+x.p+'</div>';
   }).join('');
   el.innerHTML='<span class="filter-row-label">Peptide</span>'+allPill+pills;
 }
 function setPeptide(p){
-  if(p===activePeptide)p='All';
-  activePeptide=p;
-  document.querySelectorAll('#peptide-filters [data-peptide]').forEach(function(el){el.classList.toggle('active',el.dataset.peptide===p);});
-  track('Filtered by Peptide',{peptide:p});
+  if(p==='All'){
+    activePeptides.clear();
+  } else {
+    if(activePeptides.has(p))activePeptides.delete(p);
+    else activePeptides.add(p);
+  }
+  document.querySelectorAll('#peptide-filters [data-peptide]').forEach(function(el){
+    var dp=el.dataset.peptide;
+    el.classList.toggle('active',dp==='All'?activePeptides.size===0:activePeptides.has(dp));
+  });
+  track('Filtered by Peptide',{peptides:[...activePeptides].join(',')});
   renderGrid();
 }
 function setCountry(c){
   if(!c)return;
+  if(c===activeCountry&&c!=='All')c='All';
   activeCountry=c;
   document.querySelectorAll('#country-filters [data-country]').forEach(el=>el.classList.toggle('active',el.dataset.country===c));
   const sel=document.querySelector('#country-filters .cf-select');
@@ -1286,7 +1294,7 @@ function renderGrid(){
     var matchCountry=activeCountry==='All'||(activeCountry==='Europe'?(s.shipsTo?s.shipsTo.some(c=>europeanCountries.has(c)):europeanCountries.has(s.country)):(s.shipsTo?s.shipsTo.includes(activeCountry):s.country===activeCountry));
     var norm=normalize(searchTerm);
     var matchSearch=s.name.toLowerCase().includes(searchTerm)||normalize(s.name).includes(norm)||fuzzyMatch(searchTerm,s.name)||s.tags.some(function(t){return t.toLowerCase().includes(searchTerm)||normalize(t).includes(norm);})||s.country.toLowerCase().includes(searchTerm)||(s.peptides&&s.peptides.some(function(p){return p.toLowerCase().includes(searchTerm)||normalize(p).includes(norm)||fuzzyMatch(searchTerm,p);}))||(s.catalog&&s.catalog.some(function(p){return p.toLowerCase().includes(searchTerm)||normalize(p).includes(norm)||fuzzyMatch(searchTerm,p);}));
-    var matchPeptide=supplierHasPeptide(s,activePeptide);
+    var matchPeptide=activePeptides.size===0||[...activePeptides].some(function(p){return supplierHasPeptide(s,p);});
     return matchCountry&&matchSearch&&matchPeptide;
   });
   if(!filtered.length){
@@ -1349,7 +1357,7 @@ function showPage(id){
   });
   window.scrollTo(0,0);
   document.title=pageTitles[id]||'ThePeptideRadar';
-  if(id!=='directory'){searchTerm='';activeCountry='All';activePeptide='All';var si=document.getElementById('search-input');if(si)si.value='';}
+  if(id!=='directory'){searchTerm='';activeCountry='All';activePeptides=new Set();var si=document.getElementById('search-input');if(si)si.value='';}
   renderFilters();
   if(id==='directory'){renderPeptideFilters();renderGrid();}
   document.querySelectorAll('.success-msg').forEach(function(el){el.style.display='none';});
