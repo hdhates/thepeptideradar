@@ -427,7 +427,7 @@ footer span{font-size:12px;color:var(--text3);}
   .nav-links.open{display:flex;}
   .nav-links a{font-size:15px;padding:0.85rem 0.25rem;border-bottom:0.5px solid var(--border);}
   .nav-cta-mobile{display:block;}
-  .nav-cta-mobile a{color:var(--green) !important;}
+  .nav-cta-mobile a{color:var(--text2) !important;}
   .hero{padding:1.75rem 1.25rem 1.5rem;}
   .hero-layout{grid-template-columns:1fr;gap:0;margin-bottom:1rem;}
   .hero-radar-col{margin-bottom:12px;padding:0;}
@@ -499,9 +499,11 @@ html{scroll-padding-top:80px;}
   <ul class="nav-links" id="nav-links">
     <li><a href="#" onclick="showPage('landing');closeNav();return false;">Home</a></li>
     <li><a href="#" onclick="showPage('directory');closeNav();return false;">Directory</a></li>
+    <li><a href="/peptides/" onclick="closeNav()">Peptide Guides</a></li>
     <li><a href="#" onclick="showPage('contact');closeNav();return false;">Contact</a></li>
     <li class="nav-cta-mobile"><a href="#" onclick="showPage('verify');closeNav();return false;">How We Review Data</a></li>
     <li class="nav-cta-mobile"><a href="#" onclick="showPage('signup');closeNav();return false;">List your business</a></li>
+    <li class="nav-cta-mobile"><a href="/advertise.html" onclick="closeNav()">For Suppliers</a></li>
   </ul>
   <button class="nav-cta" onclick="showPage('verify')">How We Review Data</button>
   <button class="hamburger" id="hamburger" onclick="toggleNav()" aria-label="Menu">
@@ -853,7 +855,7 @@ html{scroll-padding-top:80px;}
     <div class="footer-brand">
       <div class="logo"><svg width="22" height="22" viewBox="0 0 100 100" style="vertical-align:middle;margin-right:6px;" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="50" cy="50" r="44" fill="none" stroke="#52be73" stroke-width="6"/><circle cx="50" cy="50" r="29" fill="none" stroke="#52be73" stroke-width="4" opacity=".6"/><circle cx="50" cy="50" r="14" fill="none" stroke="#52be73" stroke-width="3" opacity=".35"/><line x1="50" y1="50" x2="84" y2="18" stroke="#52be73" stroke-width="5" stroke-linecap="round"/><circle cx="50" cy="50" r="5" fill="#52be73"/></svg>ThePeptide<span>Radar</span></div>
       <div class="footer-tagline">The independent directory for finding peptide suppliers you can actually trust.</div>
-      <a href="mailto:peptideradar@gmail.com" class="footer-email">peptideradar@gmail.com</a>
+      <a href="#" onclick="showPage('contact');return false;" class="footer-email">Get in touch →</a>
     </div>
     <div class="footer-nav">
       <div class="footer-nav-title">Navigate</div>
@@ -861,7 +863,7 @@ html{scroll-padding-top:80px;}
         <a href="#" onclick="showPage('directory');return false;">Directory</a>
         <a href="#" onclick="showPage('verify');return false;">How Data Signals Work</a>
         <a href="#" onclick="showPage('signup');return false;">List your business</a>
-        <a href="/advertise.html">Advertise</a>
+        <a href="/advertise.html">For Suppliers</a>
         <a href="#" onclick="showPage('contact');return false;">Contact</a>
       </div>
     </div>
@@ -1111,7 +1113,7 @@ function renderPeptideFilters(){
   var withCounts=candidates.map(function(p){
     return {p:p,n:suppliers.filter(function(s){return supplierHasPeptide(s,p);}).length};
   }).filter(function(x){return x.n>0;}).sort(function(a,b){return b.n-a.n;});
-  var allPill='<div class="pf'+(activePeptide==='All'?' active':'')+'" data-peptide="All" onclick="setPeptide(\'All\')">All</div>';
+  var allPill='<div class="pf'+(activePeptide==='All'?' active':'')+'" data-peptide="All" onclick="setPeptide(\'All\')">🌐 All</div>';
   var pills=withCounts.map(function(x){
     var em=getPeptideEmoji(x.p);
     return '<div class="pf'+(x.p===activePeptide?' active':'')+'" data-peptide="'+x.p+'" onclick="setPeptide(\''+x.p.replace(/'/g,"\\'")+'\')">'+( em?em+' ':'')+x.p+'</div>';
@@ -1119,12 +1121,14 @@ function renderPeptideFilters(){
   el.innerHTML='<span class="filter-row-label">Peptide</span>'+allPill+pills;
 }
 function setPeptide(p){
+  if(p===activePeptide)p='All';
   activePeptide=p;
   document.querySelectorAll('#peptide-filters [data-peptide]').forEach(function(el){el.classList.toggle('active',el.dataset.peptide===p);});
   track('Filtered by Peptide',{peptide:p});
   renderGrid();
 }
 function setCountry(c){
+  if(!c)return;
   activeCountry=c;
   document.querySelectorAll('#country-filters [data-country]').forEach(el=>el.classList.toggle('active',el.dataset.country===c));
   const sel=document.querySelector('#country-filters .cf-select');
@@ -1210,7 +1214,7 @@ function buildCard(s){
 
   var cardClick=s.url2?'':'onclick="trackClick(\''+nameEsc+'\',\''+s.url+'\')"';
   var html='<div class="scard'+(s.featured?' scard-featured':'')+'" '+cardClick+'>';
-  if(s.featured){html+='<div class="scard-featured-badge">★ Featured</div>';}
+  if(s.featured){html+='<a class="scard-featured-badge" href="/advertise.html" onclick="event.stopPropagation()" style="text-decoration:none;">★ Featured</a>';}
   html+='<div class="scard-top"><div class="scard-name">'+s.name+newBadge+'</div>'+topBadge+'</div>';
   html+='<div class="scard-country">'+flagEmoji(s.country)+s.country+(s.note&&!s.warning?' <span style="color:var(--green);font-size:11px;margin-left:6px;">'+s.note+'</span>':'')+'</div>';
   html+='<div class="supplier-angle">✓ '+supplierAngle(s)+'</div>';
@@ -1292,7 +1296,7 @@ function renderGrid(){
     grid.innerHTML='<div style="grid-column:1/-1;padding:5rem 2rem;text-align:center;"><p style="font-size:22px;font-weight:700;margin-bottom:10px;color:var(--text);">'+emptyTitle+'</p><p style="font-size:14px;color:var(--text3);max-width:320px;margin:0 auto 1.5rem;">'+emptySub+'</p>'+emptyBtn+'</div>';
     return;
   }
-  var promoCard='<div class="scard-promo"><div style="position:relative;z-index:1;"><div style="font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--text3);font-weight:700;margin-bottom:8px;">Featured listing</div><div style="font-family:\'Plus Jakarta Sans\',sans-serif;font-size:18px;font-weight:800;letter-spacing:-0.4px;color:var(--text);margin-bottom:8px;line-height:1.2;">Get your brand in front of this audience</div><div style="font-size:13px;color:var(--text3);line-height:1.6;max-width:280px;">Featured listings appear at the top of the directory with enhanced visibility and a highlighted card.</div></div><button class="visit-btn" style="position:relative;z-index:1;background:transparent;color:var(--green);border:0.5px solid rgba(82,190,115,0.4);" onclick="showPage(\'signup\')">Apply for a featured slot →</button></div>';
+  var promoCard='<div class="scard-promo"><div style="position:relative;z-index:1;"><div style="font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--text3);font-weight:700;margin-bottom:8px;">Featured listing</div><div style="font-family:\'Plus Jakarta Sans\',sans-serif;font-size:18px;font-weight:800;letter-spacing:-0.4px;color:var(--text);margin-bottom:8px;line-height:1.2;">Get your brand in front of this audience</div><div style="font-size:13px;color:var(--text3);line-height:1.6;max-width:280px;">Featured listings appear at the top of the directory with enhanced visibility and a highlighted card.</div></div><a class="visit-btn" href="/advertise.html" onclick="event.stopPropagation()" style="position:relative;z-index:1;background:transparent;color:var(--green);border:0.5px solid rgba(82,190,115,0.4);text-decoration:none;">Get featured →</a></div>';
   grid.innerHTML=filtered.map(buildCard).join('')+promoCard;
 }
 
@@ -1487,12 +1491,18 @@ document.querySelectorAll('details.faq-item').forEach(function(d){
 });
 (function(){
   var validPages=['landing','directory','contact','signup','verify'];
-  function applyHash(){
-    var h=(window.location.hash||'').replace('#','');
-    if(h&&validPages.indexOf(h)>-1)showPage(h);
+  var h=(window.location.hash||'').replace('#','');
+  if(h&&validPages.indexOf(h)>-1){
+    showPage(h);
+    history.replaceState(null,'',window.location.pathname);
   }
-  applyHash();
-  window.addEventListener('hashchange',applyHash);
+  window.addEventListener('hashchange',function(){
+    var h2=(window.location.hash||'').replace('#','');
+    if(h2&&validPages.indexOf(h2)>-1){
+      showPage(h2);
+      history.replaceState(null,'',window.location.pathname);
+    }
+  });
 })();
 document.querySelectorAll('.nav-links a').forEach(function(a){
   a.classList.toggle('active',(a.getAttribute('onclick')||'').includes("'landing'"));
