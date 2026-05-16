@@ -224,6 +224,18 @@ h1 em{font-style:normal;color:var(--green);position:relative;}
 .faq-item p{margin-top:16px;color:var(--text2);font-size:14px;line-height:1.75;padding-bottom:2px;}
 
 .email-row{display:flex;gap:8px;max-width:400px;margin:0 auto;}
+.email-capture-block{background:linear-gradient(135deg,rgba(82,190,115,0.07),rgba(82,190,115,0.02));border:0.5px solid rgba(82,190,115,0.22);border-radius:20px;padding:2rem 2.5rem;display:flex;align-items:center;justify-content:space-between;gap:2rem;position:relative;overflow:hidden;}
+.email-capture-block::before{content:"";position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,var(--green),transparent 60%);opacity:0.6;}
+.ec-left{flex:1;min-width:0;}
+.ec-title{font-family:'Plus Jakarta Sans',sans-serif;font-size:clamp(18px,2.2vw,24px);font-weight:800;letter-spacing:-0.6px;color:var(--text);line-height:1.2;margin:0.5rem 0 0.6rem;}
+.ec-sub{font-size:13.5px;color:var(--text3);line-height:1.6;max-width:380px;}
+.ec-form{display:flex;gap:8px;flex-shrink:0;align-items:center;}
+.ec-input{background:rgba(255,255,255,0.05);border:0.5px solid var(--border2);border-radius:10px;padding:11px 16px;font-family:'DM Sans',sans-serif;font-size:14px;color:var(--text);outline:none;transition:border-color 0.2s,box-shadow 0.2s;width:220px;}
+.ec-input::placeholder{color:var(--text3);}
+.ec-input:focus{border-color:rgba(82,190,115,0.5);box-shadow:0 0 0 3px rgba(82,190,115,0.08);}
+.ec-btn{background:var(--green);color:#0a0a0f;border:none;padding:11px 22px;border-radius:10px;font-family:'DM Sans',sans-serif;font-weight:800;font-size:13px;cursor:pointer;white-space:nowrap;transition:transform 0.2s,box-shadow 0.2s;}
+@media(hover:hover){.ec-btn:hover{transform:translateY(-1px);box-shadow:0 6px 20px rgba(82,190,115,0.35);}}
+@media(max-width:640px){.email-capture-block{flex-direction:column;align-items:flex-start;gap:1.25rem;padding:1.5rem 1.25rem;}.ec-form{width:100%;}.ec-input{flex:1;width:auto;}.ec-title br{display:none;}}
 .email-row input{flex:1;background:rgba(255,255,255,0.05);border:0.5px solid var(--border2);border-radius:100px;padding:12px 20px;font-family:'DM Sans',sans-serif;font-size:14px;color:var(--text);outline:none;}
 .email-row input::placeholder{color:var(--text3);}
 .email-row input:focus{border-color:rgba(93,217,138,0.5);}
@@ -546,6 +558,23 @@ html{scroll-padding-top:80px;}
       <a href="/peptides/ipamorelin.html" class="gcard"><div class="gcard-head"><div class="gcard-title">Ipamorelin</div><span class="gcard-arrow">→</span></div><div class="gcard-meta">5 suppliers</div><div class="gcard-desc">Selective GH secretagogue.</div></a>
     </div>
     <div style="text-align:center;margin-top:1.5rem;"><a href="/peptides/" style="color:var(--green);font-size:13px;text-decoration:none;font-weight:700;opacity:0.8;">View all 23 peptide guides →</a></div>
+  </div>
+
+  <div class="section" style="padding-top:0;padding-bottom:2.5rem;">
+    <div class="email-capture-block">
+      <div class="ec-left">
+        <div class="section-tag">Stay ahead</div>
+        <div class="ec-title">Supplier changes. New guides.<br>First to know.</div>
+        <div class="ec-sub">When suppliers close, new COA data drops, or new guides go live — you'll know before everyone else.</div>
+      </div>
+      <form id="email-capture-form" class="ec-form">
+        <input type="email" name="email" placeholder="your@email.com" required class="ec-input"/>
+        <input type="hidden" name="_subject" value="Email signup — ThePeptideRadar"/>
+        <input type="hidden" name="type" value="email_signup"/>
+        <button type="submit" class="ec-btn">Notify me →</button>
+      </form>
+      <div id="ec-success" style="display:none;font-size:13px;color:var(--green);margin-top:10px;font-weight:600;">You're in. We'll be in touch.</div>
+    </div>
   </div>
 
   <div class="section" style="padding-top:0;">
@@ -1407,6 +1436,17 @@ function renderTopSuppliers(){
     '</a>';
   }).join('');
 }
+
+document.getElementById('email-capture-form').addEventListener('submit',function(e){
+  e.preventDefault();
+  const btn=e.target.querySelector('.ec-btn');
+  btn.textContent='...';btn.disabled=true;
+  fetch('https://formspree.io/f/mrerdbrz',{method:'POST',body:new FormData(e.target),headers:{Accept:'application/json'}})
+    .then(r=>{
+      if(r.ok){e.target.style.display='none';document.getElementById('ec-success').style.display='block';}
+      else{btn.textContent='Notify me →';btn.disabled=false;}
+    }).catch(function(){btn.textContent='Notify me →';btn.disabled=false;});
+});
 
 document.getElementById('contact-form').addEventListener('submit',function(e){
   e.preventDefault();
