@@ -1,10 +1,12 @@
 document.addEventListener('DOMContentLoaded',function(){
   var btn=document.getElementById('hamburger');
   var nav=document.querySelector('.nav-links');
+  var navEl=document.querySelector('nav');
   if(btn&&nav){
     btn.addEventListener('click',function(){
       btn.classList.toggle('open');
       nav.classList.toggle('open');
+      if(navEl)navEl.classList.toggle('nav-open');
     });
   }
   document.querySelectorAll('details.faq-item').forEach(function(d){

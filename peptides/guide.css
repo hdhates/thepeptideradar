@@ -138,10 +138,12 @@ a:focus-visible,button:focus-visible,details:focus-visible,summary:focus-visible
 
 /* Mobile */
 @media(max-width:640px){
-  nav{padding:0.85rem 1.25rem;flex-wrap:wrap;}
-  .hamburger{display:flex;}
+  nav{padding:0.85rem 1.25rem;flex-wrap:wrap;align-items:center;background:rgba(10,10,15,0.96);}
+  nav.nav-open{background:rgba(10,10,15,0.99);}
+  .logo{order:1;flex:1;}
+  .hamburger{order:2;display:flex;}
   .nav-cta{display:none;}
-  .nav-links{display:none;flex-direction:column;width:100%;gap:0;padding:0.5rem 0;border-top:0.5px solid var(--border);margin-top:0.5rem;}
+  .nav-links{order:3;display:none;flex-direction:column;width:100%;gap:0;padding:0.5rem 0;border-top:0.5px solid var(--border);margin-top:0.5rem;}
   .nav-links.open{display:flex;}
   .nav-links li a{font-size:15px;padding:0.85rem 0.25rem;border-bottom:0.5px solid var(--border);display:block;}
   main{padding:2rem 1.25rem 3rem;}

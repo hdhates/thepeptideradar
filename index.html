@@ -431,7 +431,8 @@ footer span{font-size:12px;color:var(--text3);}
 
 /* ── MOBILE ── */
 @media(max-width:640px){
-  nav{padding:0.85rem 1.25rem;flex-wrap:wrap;}
+  nav{padding:0.85rem 1.25rem;flex-wrap:wrap;background:rgba(10,10,15,0.98);}
+  nav.nav-open{background:rgba(10,10,15,1.0);}
   .logo{font-size:22px;}
   .hamburger{display:flex;}
   .nav-cta{display:none;}
@@ -1400,10 +1401,12 @@ function showPage(id){
 function toggleNav(){
   document.getElementById('nav-links').classList.toggle('open');
   document.getElementById('hamburger').classList.toggle('open');
+  document.querySelector('nav').classList.toggle('nav-open');
 }
 function closeNav(){
   document.getElementById('nav-links').classList.remove('open');
   document.getElementById('hamburger').classList.remove('open');
+  document.querySelector('nav').classList.remove('nav-open');
 }
 document.addEventListener('click',function(e){
   var nav=document.getElementById('nav-links');
