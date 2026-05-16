@@ -25,7 +25,7 @@ body::before{content:"";position:fixed;top:0;left:0;right:0;height:700px;backgro
 
 /* NAV */
 nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:1rem 3rem;background:rgba(10,10,15,0.92);backdrop-filter:blur(12px);border-bottom:0.5px solid var(--border);}
-.logo{font-family:'Plus Jakarta Sans',sans-serif;font-size:28px;font-weight:800;letter-spacing:-1px;color:var(--text);text-decoration:none;display:flex;align-items:center;gap:8px;}
+.logo{font-family:'Plus Jakarta Sans',sans-serif;font-size:28px;font-weight:800;letter-spacing:-1px;color:var(--text);text-decoration:none;display:flex;align-items:center;gap:8px;white-space:nowrap;flex-shrink:0;}
 .logo span{color:var(--green);}
 .nav-links{list-style:none;display:flex;gap:2rem;align-items:center;}
 .nav-links a{font-size:14px;color:var(--text2);text-decoration:none;transition:color 0.2s;font-weight:500;}
