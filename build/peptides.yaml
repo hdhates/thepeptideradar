@@ -14,7 +14,7 @@ bpc-157:
   intro:
     - "BPC-157 (Body Protection Compound 157) is a synthetic peptide derived from a protective protein in human gastric juice. It is one of the most widely studied research peptides for tissue repair, gut barrier function, and tendon and ligament healing in animal models."
     - "BPC-157 is sold worldwide as a research-use-only (RUO) compound. Quality and purity vary significantly between suppliers, which is why third-party lab testing (HPLC, mass spectrometry) and certificates of analysis matter."
-  suppliers: [cernum, europeptides, uther, elytra, purepeptides_uk]
+  suppliers: [cernum, europeptides, uther, elytra, purepeptides_uk, cncbiolabs]
   faqs:
     - q: "What is BPC-157?"
       a: "BPC-157 (Body Protection Compound 157) is a synthetic peptide derived from a protective protein found in human gastric juice. It is widely studied in research for its effects on tissue repair, gut health, and tendon healing in animal models."
@@ -42,12 +42,12 @@ tb-500:
   intro:
     - "TB-500 is a synthetic version of Thymosin Beta-4 (TB-4), a naturally occurring peptide found throughout the body. It is widely studied in research for its effects on tissue repair, recovery, and inflammation in animal models."
     - "TB-500 is sold worldwide as a research-use-only (RUO) compound. Purity and consistency vary between suppliers, which is why third-party lab testing (HPLC, mass spectrometry) and certificates of analysis matter."
-  suppliers: [cernum, uther, purepeptides_uk]
+  suppliers: [cernum, uther, purepeptides_uk, cncbiolabs]
   faqs:
     - q: "What is TB-500?"
       a: "TB-500 is a synthetic version of Thymosin Beta-4. It is widely studied in research for its effects on tissue repair, recovery, and inflammation in animal models."
     - q: "Where can I buy TB-500?"
-      a: "TB-500 is available from research peptide suppliers worldwide. The 3 suppliers above ship to the United States, the UK, and internationally."
+      a: "TB-500 is available from research peptide suppliers worldwide. The 4 suppliers above ship to the United States, Canada, the UK, and internationally."
     - q: "How is TB-500 supplier data shown?"
       a: "Each listed supplier surfaces HPLC and mass-spec lab testing, third-party COAs, shipping details, and community reviews. No supplier pays to change this data."
   related:
@@ -68,12 +68,12 @@ ghk-cu:
   intro:
     - "GHK-Cu is a naturally occurring copper-binding tripeptide (glycyl-histidyl-lysyl copper) — sometimes simply called \"copper peptide.\" It is widely studied in research for skin remodeling, wound healing, hair growth signaling, and antioxidant effects."
     - "GHK-Cu is sold worldwide as a research-use-only compound. Because copper-binding stability matters, third-party HPLC and mass spectrometry testing is critical for purity verification."
-  suppliers: [cernum, europeptides, elytra, purepeptides_uk]
+  suppliers: [cernum, europeptides, elytra, purepeptides_uk, cncbiolabs]
   faqs:
     - q: "What is GHK-Cu?"
       a: "GHK-Cu is a naturally occurring copper-binding tripeptide. It is widely studied in research for skin remodeling, wound healing, hair growth, and antioxidant effects, and is sometimes called copper peptide."
     - q: "Where can I buy GHK-Cu?"
-      a: "GHK-Cu is available from multiple research peptide suppliers worldwide. The 4 suppliers above ship to the United States, Europe, and the UK."
+      a: "GHK-Cu is available from multiple research peptide suppliers worldwide. The 5 suppliers above ship to the United States, Canada, Europe, and the UK."
     - q: "How is GHK-Cu supplier data shown?"
       a: "Each listed supplier surfaces HPLC and mass-spec lab testing, third-party COAs, shipping details, and community reviews. No supplier pays to change this data."
 
@@ -89,12 +89,12 @@ retatrutide:
   intro:
     - "Retatrutide is an investigational triple agonist research peptide that targets GLP-1, GIP, and glucagon receptors. It has attracted significant clinical and research interest for its metabolic profile in studies."
     - "As a relatively new compound, sourcing matters more than ever. Look for suppliers with HPLC and mass spectrometry verification and third-party certificates of analysis."
-  suppliers: [cernum, europeptides, uther, elytra]
+  suppliers: [cernum, europeptides, uther, elytra, cncbiolabs]
   faqs:
     - q: "What is Retatrutide?"
       a: "Retatrutide is an investigational triple agonist research peptide targeting GLP-1, GIP, and glucagon receptors. It is being studied in clinical research for metabolic effects."
     - q: "Where can I buy Retatrutide?"
-      a: "Retatrutide is available from select research peptide suppliers. The 4 suppliers above ship to the United States, Europe, and internationally."
+      a: "Retatrutide is available from select research peptide suppliers. The suppliers above ship to the United States, Canada, Europe, and internationally."
     - q: "How is Retatrutide supplier data shown?"
       a: "Each listed supplier surfaces HPLC and mass-spec lab testing, third-party COAs, shipping details, and community reviews. No supplier pays to change this data."
 
@@ -193,7 +193,7 @@ mots-c:
   intro:
     - "MOTS-c (Mitochondrial Open Reading Frame of the 12S rRNA-c) is a 16-amino acid mitochondrial-derived peptide. It is studied in research for its role in metabolic homeostasis, insulin sensitivity, and exercise-induced adaptations in animal models."
     - "MOTS-c is sold worldwide as a research-use-only (RUO) compound. Purity and consistency vary between suppliers, which is why third-party lab testing (HPLC, mass spectrometry) and certificates of analysis matter when comparing options."
-  suppliers: [cernum, europeptides, uther]
+  suppliers: [cernum, europeptides, uther, cncbiolabs]
   what_to_look_for:
     intro: "When comparing MOTS-c suppliers, the most useful transparency signals are:"
     bullets:
@@ -324,7 +324,7 @@ nad:
   intro:
     - "NAD+ (Nicotinamide Adenine Dinucleotide) is a coenzyme central to cellular redox reactions and energy metabolism. In research it is studied for its role in mitochondrial function, sirtuin signaling, DNA repair pathways, and aging-related endpoints."
     - "NAD+ is sold worldwide as a research-use-only (RUO) compound, typically as a lyophilized powder. Purity and consistency vary between suppliers, which is why third-party lab testing (HPLC, mass spectrometry) and certificates of analysis matter when comparing options."
-  suppliers: [cernum, uther]
+  suppliers: [cernum, uther, cncbiolabs]
   what_to_look_for:
     intro: "When comparing NAD+ suppliers, the most useful transparency signals are:"
     bullets:
@@ -423,7 +423,7 @@ tesamorelin:
   intro:
     - "Tesamorelin is a synthetic 44-amino acid analog of growth hormone-releasing hormone (GHRH), with a trans-3-hexenoic acid modification at the N-terminus that extends its plasma stability. It is studied in research for its effects on endogenous growth hormone secretion and visceral adipose tissue."
     - "Tesamorelin is sold worldwide as a research-use-only (RUO) compound. Purity and consistency vary between suppliers, which is why third-party lab testing (HPLC, mass spectrometry) and certificates of analysis matter when comparing options."
-  suppliers: [cernum, uther, peptidecentre]
+  suppliers: [cernum, uther, peptidecentre, cncbiolabs]
   comparison:
     title: "Tesamorelin vs Sermorelin vs CJC-1295"
     intro: "All three are GHRH analogs studied in research, but with distinct pharmacokinetic profiles:"

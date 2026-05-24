@@ -63,3 +63,12 @@ peptidecentre:
   tags: ["Lab Tested", "Janoshik", "12 COAs on file"]
   url: "https://peptidecentre.com"
   cta: "Visit Peptide Centre →"
+
+cncbiolabs:
+  flag: "🇨🇦"
+  name: "CNC BioLabs"
+  country: "Canada"
+  meta: "Canada · Express ships in ~2 days"
+  tags: ["Lab Tested", "3rd Party COA", "Endotoxin Tested"]
+  url: "https://cncbiolabs.com/"
+  cta: "Visit CNC BioLabs →"
