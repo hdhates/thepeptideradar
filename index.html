@@ -476,7 +476,7 @@ footer span{font-size:12px;color:var(--text3);}
   .email-row{flex-direction:column;}
   .email-row input,.email-row button{width:100%;}
   .form-group input,.form-group textarea,.form-group select,.search-bar input,.email-row input,.cf-select{font-size:16px;}
-  .visit-btn{padding:11px 20px;font-size:11px;}
+  .visit-btn{padding:0 20px;font-size:11px;min-height:44px;display:inline-flex;align-items:center;justify-content:center;}
   .cf{padding:9px 16px;font-size:13px;}
   .back-to-top{width:44px;height:44px;font-size:16px;bottom:calc(1.5rem + env(safe-area-inset-bottom,0));}
   .form-wrap h2,.signup-wrap h2{font-size:26px;letter-spacing:-0.5px;}
@@ -551,7 +551,7 @@ html{scroll-padding-top:80px;}
     <div class="stats-row">
       <div class="stat-item"><div class="stat-num" id="stat-suppliers">—</div><div class="stat-label">Suppliers listed</div></div>
       <div class="stat-item"><div class="stat-num" id="stat-countries">—</div><div class="stat-label">Countries served</div></div>
-      <div class="stat-item"><div class="stat-num">23<em>+</em></div><div class="stat-label">Peptide guides</div></div>
+      <div class="stat-item"><div class="stat-num">26<em>+</em></div><div class="stat-label">Peptide guides</div></div>
     </div>
   </div>
 
@@ -559,12 +559,12 @@ html{scroll-padding-top:80px;}
     <div class="section-tag">Buyer's Guides</div>
     <div class="section-title">Looking for a specific peptide?</div>
     <div class="guides-grid" style="display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:1.5rem;">
-      <a href="/peptides/bpc-157.html" class="gcard"><div class="gcard-head"><div class="gcard-title">BPC-157</div><span class="gcard-arrow">→</span></div><div class="gcard-meta">6 suppliers</div><div class="gcard-desc">Tissue repair &amp; gut health.</div></a>
+      <a href="/peptides/bpc-157.html" class="gcard"><div class="gcard-head"><div class="gcard-title">BPC-157</div><span class="gcard-arrow">→</span></div><div class="gcard-meta">7 suppliers</div><div class="gcard-desc">Tissue repair &amp; gut health.</div></a>
       <a href="/peptides/ghk-cu.html" class="gcard"><div class="gcard-head"><div class="gcard-title">GHK-Cu</div><span class="gcard-arrow">→</span></div><div class="gcard-meta">5 suppliers</div><div class="gcard-desc">Copper peptide for skin &amp; healing.</div></a>
-      <a href="/peptides/retatrutide.html" class="gcard"><div class="gcard-head"><div class="gcard-title">Retatrutide</div><span class="gcard-arrow">→</span></div><div class="gcard-meta">5 suppliers</div><div class="gcard-desc">Triple agonist GLP-1/GIP/glucagon.</div></a>
+      <a href="/peptides/retatrutide.html" class="gcard"><div class="gcard-head"><div class="gcard-title">Retatrutide</div><span class="gcard-arrow">→</span></div><div class="gcard-meta">6 suppliers</div><div class="gcard-desc">Triple agonist GLP-1/GIP/glucagon.</div></a>
       <a href="/peptides/ipamorelin.html" class="gcard"><div class="gcard-head"><div class="gcard-title">Ipamorelin</div><span class="gcard-arrow">→</span></div><div class="gcard-meta">5 suppliers</div><div class="gcard-desc">Selective GH secretagogue.</div></a>
     </div>
-    <div style="text-align:center;margin-top:1.5rem;"><a href="/peptides/" style="color:var(--green);font-size:13px;text-decoration:none;font-weight:700;opacity:0.8;">View all 23 peptide guides →</a></div>
+    <div style="text-align:center;margin-top:1.5rem;"><a href="/peptides/" style="color:var(--green);font-size:13px;text-decoration:none;font-weight:700;opacity:0.8;">View all 26 peptide guides →</a></div>
   </div>
 
   <div class="section" style="padding-top:0;padding-bottom:2.5rem;">
@@ -1007,8 +1007,9 @@ html{scroll-padding-top:80px;}
       var ba = angle + (Math.random() - 0.5) * 0.35;
       blips.push({x: cx + Math.cos(ba) * r2, y: cy + Math.sin(ba) * r2, r: Math.random() * 2.5 + 1.5, a: 0.75 + Math.random() * 0.25});
     }
-    requestAnimationFrame(tick);
+    if(!reducedMotion) requestAnimationFrame(tick);
   }
+  var reducedMotion = window.matchMedia('(prefers-reduced-motion:reduce)').matches;
   tick();
 })();
 
