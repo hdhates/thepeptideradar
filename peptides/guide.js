@@ -23,6 +23,16 @@ document.addEventListener('DOMContentLoaded',function(){
     var s=d.querySelector('summary');
     if(s){s.addEventListener('click',function(e){e.preventDefault();e.stopPropagation();d.open=!d.open;});}
   });
+  document.querySelectorAll('.card-cta').forEach(function(link){
+    link.addEventListener('click',function(){
+      var card=this.closest('.card');
+      var nameEl=card&&card.querySelector('.card-name');
+      var name=nameEl?nameEl.textContent.trim():'';
+      if(typeof gtag==='function'){
+        gtag('event','Clicked Supplier - Visit Site',{supplier_name:name,supplier_url:this.href,page_peptide:document.title.split('—')[0].replace('Where to Buy','').trim()});
+      }
+    });
+  });
   var crumb=document.querySelector('.crumb');
   if(crumb){
     var parts=crumb.textContent.split('/');
