@@ -4,7 +4,7 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Peptide Supplier Directory — COAs, Lab Data &amp; Reviews | ThePeptideRadar</title>
-<meta name="description" content="Independent directory of 8 research peptide suppliers. COAs, lab sources, shipping details, and customer reviews surfaced for each. Filter by country. No paid rankings."/>
+<meta name="description" content="Independent directory of 9 research peptide suppliers. COAs, lab sources, shipping details, and customer reviews surfaced for each. Filter by country. No paid rankings."/>
 <meta name="keywords" content="peptide supplier, buy peptides, BPC-157, TB-500, peptide source, trusted peptide supplier, peptide directory"/>
 <meta name="google" content="notranslate"/>
 <meta property="og:title" content="ThePeptideRadar — Peptide Suppliers with COAs, Lab Data &amp; Reviews"/>
@@ -31,7 +31,7 @@
 {"@context":"https://schema.org","@type":"Organization","name":"ThePeptideRadar","url":"https://thepeptideradar.com","description":"An independent directory for comparing peptide suppliers by COAs, lab sources, reviews, and transparency signals.","email":"peptideradar@gmail.com","sameAs":["https://twitter.com/ThePeptideRadar"]}
 </script>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebSite","name":"ThePeptideRadar","url":"https://thepeptideradar.com","potentialAction":{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://thepeptideradar.com/?q={search_term_string}"},"query-input":"required name=search_term_string"}}
+{"@context":"https://schema.org","@type":"WebSite","name":"ThePeptideRadar","url":"https://thepeptideradar.com"}
 </script>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"ItemList","name":"Peptide Supplier Data Directory","description":"Independent directory of peptide suppliers with available COA, lab, review, and country data.","itemListElement":[
@@ -39,7 +39,11 @@
 {"@type":"ListItem","position":2,"item":{"@type":"Organization","name":"EuroPeptides","url":"https://europeptides.de","address":{"@type":"PostalAddress","addressCountry":"Austria"}}},
 {"@type":"ListItem","position":3,"item":{"@type":"Organization","name":"Uther","url":"https://t.me/+hMYZjdVCq2o5MDFh","address":{"@type":"PostalAddress","addressCountry":"China"}}},
 {"@type":"ListItem","position":4,"item":{"@type":"Organization","name":"Elytra Labs","url":"https://elytralabs.shop","address":{"@type":"PostalAddress","addressCountry":"United States"}}},
-{"@type":"ListItem","position":5,"item":{"@type":"Organization","name":"Pure Peptides UK","url":"https://purepeptidesuk.com/","address":{"@type":"PostalAddress","addressCountry":"United Kingdom"}}}
+{"@type":"ListItem","position":5,"item":{"@type":"Organization","name":"Pure Peptides UK","url":"https://purepeptidesuk.com/","address":{"@type":"PostalAddress","addressCountry":"United Kingdom"}}},
+{"@type":"ListItem","position":6,"item":{"@type":"Organization","name":"Particle Peptides","url":"https://particlepeptides.com","address":{"@type":"PostalAddress","addressCountry":"Slovakia"}}},
+{"@type":"ListItem","position":7,"item":{"@type":"Organization","name":"Peptide Centre","url":"https://peptidecentre.com","address":{"@type":"PostalAddress","addressCountry":"Australia"}}},
+{"@type":"ListItem","position":8,"item":{"@type":"Organization","name":"Research Peptides Europe","url":"https://researchpeptideseurope.com/","address":{"@type":"PostalAddress","addressCountry":"Spain"}}},
+{"@type":"ListItem","position":9,"item":{"@type":"Organization","name":"CNC BioLabs","url":"https://cncbiolabs.com/","address":{"@type":"PostalAddress","addressCountry":"Canada"}}}
 ]}
 </script>
 <script type="application/ld+json">
@@ -623,16 +627,16 @@ html{scroll-padding-top:80px;}
     <div class="inner-divider"></div>
     <form id="contact-form">
       <div class="form-group">
-        <label>Your name</label>
-        <input type="text" name="name" placeholder="Full name" required/>
+        <label for="c-name">Your name</label>
+        <input id="c-name" type="text" name="name" placeholder="Full name" required/>
       </div>
       <div class="form-group">
-        <label>Email address</label>
-        <input type="email" name="email" placeholder="your@email.com" required/>
+        <label for="c-email">Email address</label>
+        <input id="c-email" type="email" name="email" placeholder="your@email.com" required/>
       </div>
       <div class="form-group">
-        <label>Subject</label>
-        <select name="subject">
+        <label for="c-subject">Subject</label>
+        <select id="c-subject" name="subject">
           <option>General question</option>
           <option>Suggest a supplier</option>
           <option>Report a supplier</option>
@@ -643,8 +647,8 @@ html{scroll-padding-top:80px;}
         </select>
       </div>
       <div class="form-group">
-        <label>Message</label>
-        <textarea name="message" placeholder="Tell us what's on your mind..." required></textarea>
+        <label for="c-message">Message</label>
+        <textarea id="c-message" name="message" placeholder="Tell us what's on your mind..." required></textarea>
       </div>
       <button type="submit" class="submit-btn">Send message</button>
       <div id="contact-success" class="success-msg">Thanks! We'll get back to you soon.</div>
@@ -687,16 +691,16 @@ html{scroll-padding-top:80px;}
     <hr class="section-divider"/>
     <form id="signup-form">
       <div class="form-group">
-        <label>Business name</label>
-        <input type="text" name="business_name" placeholder="Your company name" required/>
+        <label for="s-bname">Business name</label>
+        <input id="s-bname" type="text" name="business_name" placeholder="Your company name" required/>
       </div>
       <div class="form-group">
-        <label>Website URL</label>
-        <input type="url" name="website" placeholder="https://yoursupplier.com" required/>
+        <label for="s-url">Website URL</label>
+        <input id="s-url" type="url" name="website" placeholder="https://yoursupplier.com" required/>
       </div>
       <div class="form-group">
-        <label>Country of operation</label>
-        <select name="country" required>
+        <label for="s-country">Country of operation</label>
+        <select id="s-country" name="country" required>
           <option value="">Select country...</option>
           <option>United States</option>
           <option>Canada</option>
@@ -756,20 +760,20 @@ html{scroll-padding-top:80px;}
         </select>
       </div>
       <div class="form-group">
-        <label>Contact email</label>
-        <input type="email" name="email" placeholder="contact@yoursupplier.com" required/>
+        <label for="s-email">Contact email</label>
+        <input id="s-email" type="email" name="email" placeholder="contact@yoursupplier.com" required/>
       </div>
       <div class="form-group">
-        <label>Top 5 peptides you carry</label>
-        <input type="text" name="peptides" placeholder="e.g. BPC-157, TB-500, Semaglutide..."/>
+        <label for="s-peptides">Top 5 peptides you carry</label>
+        <input id="s-peptides" type="text" name="peptides" placeholder="e.g. BPC-157, TB-500, Semaglutide..."/>
       </div>
       <div class="form-group">
-        <label>Average shipping time</label>
-        <input type="text" name="shipping" placeholder="e.g. 2-5 business days"/>
+        <label for="s-shipping">Average shipping time</label>
+        <input id="s-shipping" type="text" name="shipping" placeholder="e.g. 2-5 business days"/>
       </div>
       <div class="form-group">
-        <label>Do you offer lab testing?</label>
-        <select name="lab_testing">
+        <label for="s-lab">Do you offer lab testing?</label>
+        <select id="s-lab" name="lab_testing">
           <option>Yes — third party tested</option>
           <option>Yes — in-house testing</option>
           <option>Partial — some products tested</option>
@@ -777,8 +781,8 @@ html{scroll-padding-top:80px;}
         </select>
       </div>
       <div class="form-group">
-        <label>Tell us about your business</label>
-        <textarea name="description" placeholder="Years in operation, quality standards, anything else we should know..."></textarea>
+        <label for="s-desc">Tell us about your business</label>
+        <textarea id="s-desc" name="description" placeholder="Years in operation, quality standards, anything else we should know..."></textarea>
       </div>
       <button type="submit" class="submit-btn">Submit for review →</button>
       <div id="signup-success" class="success-msg">Submitted! We'll review your listing and be in touch.</div>
@@ -871,7 +875,7 @@ html{scroll-padding-top:80px;}
   </div>
 </div>
 
-<button class="back-to-top" id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+<button class="back-to-top" id="back-to-top" aria-label="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
 
 <div id="consent-banner" style="position:fixed;bottom:0;left:0;right:0;background:var(--bg2);border-top:0.5px solid var(--border2);padding:1rem 1.5rem calc(1rem + env(safe-area-inset-bottom,0));z-index:1000;display:none;backdrop-filter:blur(12px);">
   <div style="max-width:900px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;">
@@ -1209,7 +1213,8 @@ function supplierAngle(s){
     'Pure Peptides UK':'Strong UK review profile',
     'Particle Peptides':'Broad testing panel · EU ships',
     'Peptide Centre':'Strong COA depth · AU-based',
-    'Research Peptides Europe':'EU-wide shipping + public test data'
+    'Research Peptides Europe':'EU-wide shipping + public test data',
+    'CNC BioLabs':'Canada-based · Express 2-day shipping'
   };
   return angles[s.name] || 'Supplier data available';
 }
@@ -1222,7 +1227,8 @@ function clickReason(s){
     'Pure Peptides UK':'UK-based with an 8+ year community presence, 8 verified Reviews.io reviews, and international shipping to 30+ countries.',
     'Particle Peptides':'Slovakia-based with endotoxin and heavy metals testing in addition to HPLC — broader test coverage than most. More documentation being reviewed.',
     'Peptide Centre':'Australia-based with 12 Janoshik COAs across product lines, fast AU domestic shipping, and shipping to US, UK, Canada, and New Zealand.',
-    'Research Peptides Europe':'Spain-based with a public third-party test results page, EU-wide shipping via FedEx and UPS, and a focused catalog of high-demand research peptides.'
+    'Research Peptides Europe':'Spain-based with a public third-party test results page, EU-wide shipping via FedEx and UPS, and a focused catalog of high-demand research peptides.',
+    'CNC BioLabs':'Canada-based with third-party COAs, endotoxin testing, and a focused catalog covering GLP-1s, longevity peptides, and popular research compounds. Express domestic shipping across Canada.'
   };
   return reasons[s.name] || 'Supplier listing includes available transparency signals and shipping details.';
 }
@@ -1442,22 +1448,6 @@ function toggleReviews(btn){
 }
 
 
-function renderTopSuppliers(){
-  var grid=document.getElementById('top-suppliers');
-  if(!grid)return;
-  var top=suppliers.filter(function(s){return s.verified&&!s.warning;})
-    .sort(function(a,b){return a.country.localeCompare(b.country);});
-  grid.innerHTML=top.map(function(s){
-    var reviews=s.reviews>0?'<div class="bcard-reviews">★ '+s.rating+' · '+s.reviews+' review'+(s.reviews===1?'':'s')+'</div>':'<div class="bcard-reviews">No reviews yet</div>';
-    return '<a href="#" class="bcard" onclick="showPage(\'directory\');setTimeout(function(){var s=document.getElementById(\'search-input\');if(s){s.value=\''+s.name.replace(/'/g,"\\'")+'\';s.dispatchEvent(new Event(\'input\'));}},100);return false;">'+
-      '<div class="bcard-name">'+s.name+'</div>'+
-      '<div class="bcard-country">'+flagEmoji(s.country)+s.country+'</div>'+
-      '<div class="bcard-ship">'+s.shipping+'</div>'+
-      reviews+
-      '<div class="bcard-cta">Explore supplier →</div>'+
-    '</a>';
-  }).join('');
-}
 
 document.getElementById('email-capture-form').addEventListener('submit',function(e){
   e.preventDefault();
