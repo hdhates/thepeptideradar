@@ -4,7 +4,7 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Peptide Supplier Directory — COAs, Lab Data &amp; Reviews | ThePeptideRadar</title>
-<meta name="description" content="Independent directory of 9 research peptide suppliers. COAs, lab sources, shipping details, and customer reviews surfaced for each. Filter by country. No paid rankings."/>
+<meta name="description" content="Independent directory of 10 research peptide suppliers. COAs, lab sources, shipping details, and customer reviews surfaced for each. Filter by country. No paid rankings."/>
 <meta name="keywords" content="peptide supplier, buy peptides, BPC-157, TB-500, peptide source, trusted peptide supplier, peptide directory"/>
 <meta name="google" content="notranslate"/>
 <meta property="og:title" content="ThePeptideRadar — Peptide Suppliers with COAs, Lab Data &amp; Reviews"/>
@@ -43,7 +43,8 @@
 {"@type":"ListItem","position":6,"item":{"@type":"Organization","name":"Particle Peptides","url":"https://particlepeptides.com","address":{"@type":"PostalAddress","addressCountry":"Slovakia"}}},
 {"@type":"ListItem","position":7,"item":{"@type":"Organization","name":"Peptide Centre","url":"https://peptidecentre.com","address":{"@type":"PostalAddress","addressCountry":"Australia"}}},
 {"@type":"ListItem","position":8,"item":{"@type":"Organization","name":"Research Peptides Europe","url":"https://researchpeptideseurope.com/","address":{"@type":"PostalAddress","addressCountry":"Spain"}}},
-{"@type":"ListItem","position":9,"item":{"@type":"Organization","name":"CNC BioLabs","url":"https://cncbiolabs.com/","address":{"@type":"PostalAddress","addressCountry":"Canada"}}}
+{"@type":"ListItem","position":9,"item":{"@type":"Organization","name":"CNC BioLabs","url":"https://cncbiolabs.com/","address":{"@type":"PostalAddress","addressCountry":"Canada"}}},
+{"@type":"ListItem","position":10,"item":{"@type":"Organization","name":"Echo Peptides","url":"https://echopeptides.co/","address":{"@type":"PostalAddress","addressCountry":"United States"}}}
 ]}
 </script>
 <script type="application/ld+json">
@@ -1027,6 +1028,7 @@ const suppliers = [
   {name:"Peptide Centre",country:"Australia",flag:"🇦🇺",rating:5,reviews:0,tags:["Lab Tested","COA on file (lab source)","Janoshik Tested"],peptides:["Retatrutide","CJC-1295 / Ipamorelin","BPC-157 & TB-500","GHK-Cu","TB-500","IGF-1 LR3","Tesamorelin","Ipamorelin","MOTS-c"],shipping:"AU: 2 days · International: 3-7 days",verified:true,verifiedDate:"2026-05",isNew:true,url:"https://peptidecentre.com",coaCount:12,coaSource:"Janoshik",shipsTo:["Australia","United States","United Kingdom","Canada","New Zealand"]},
   {name:"Research Peptides Europe",country:"Spain",flag:"🇪🇸",rating:5,reviews:0,tags:["Lab Tested","3rd Party COA","Public Test Results"],peptides:["Retatrutide","Tesamorelin","BPC-157","GHK-Cu","Selank"],catalog:["Retatrutide","Tesamorelin","BPC-157","GHK-Cu","Selank"],shipping:"EU: 2-5 days (FedEx & UPS available)",verified:true,verifiedDate:"2026-05",isNew:true,url:"https://researchpeptideseurope.com/",note:"Ships EU-wide from Spain",coaSource:"3rd Party",shipsTo:["Austria","Belgium","Bulgaria","Croatia","Cyprus","Czech Republic","Denmark","Estonia","Finland","France","Germany","Greece","Hungary","Ireland","Italy","Latvia","Lithuania","Luxembourg","Malta","Netherlands","Poland","Portugal","Romania","Slovakia","Slovenia","Spain","Sweden","Switzerland"]},
   {name:"CNC BioLabs",country:"Canada",flag:"🇨🇦",rating:5,reviews:0,tags:["Lab Tested","3rd Party COA","Endotoxin Tested"],peptides:["Retatrutide","BPC-157","TB-500","GHK-Cu","Tesamorelin","MOTS-c","NAD+"],catalog:["Retatrutide","BPC-157","TB-500","Thymosin Beta-4","GHK-Cu","Copper Peptide","Tesamorelin","MOTS-c","MOTS-C","NAD","NAD+","KPV","5-Amino-1MQ","FOXO4-DRI","Cerebrolysin"],shipping:"Canada: Express ~2 days",verified:true,verifiedDate:"2026-05",isNew:true,url:"https://cncbiolabs.com/",note:"Canada only",shipsTo:["Canada"]},
+  {name:"Echo Peptides",country:"United States",flag:"🇺🇸",rating:5,reviews:0,tags:["Partial Lab Testing"],peptides:["Tirzepatide","Retatrutide","Semaglutide","BPC-157","TB-500"],catalog:["Tirzepatide","Retatrutide","Semaglutide","BPC-157","TB-500"],shipping:"See echopeptides.co for details",verified:false,isNew:true,url:"https://echopeptides.co/",shipsTo:["United States"]},
 ];
 
 
@@ -1214,7 +1216,8 @@ function supplierAngle(s){
     'Particle Peptides':'Broad testing panel · EU ships',
     'Peptide Centre':'Strong COA depth · AU-based',
     'Research Peptides Europe':'EU-wide shipping + public test data',
-    'CNC BioLabs':'Canada-based · Express 2-day shipping'
+    'CNC BioLabs':'Canada-based · Express 2-day shipping',
+    'Echo Peptides':'US-based · GLP-1 focused catalog'
   };
   return angles[s.name] || 'Supplier data available';
 }
@@ -1228,7 +1231,8 @@ function clickReason(s){
     'Particle Peptides':'Slovakia-based with endotoxin and heavy metals testing in addition to HPLC — broader test coverage than most. More documentation being reviewed.',
     'Peptide Centre':'Australia-based with 12 Janoshik COAs across product lines, fast AU domestic shipping, and shipping to US, UK, Canada, and New Zealand.',
     'Research Peptides Europe':'Spain-based with a public third-party test results page, EU-wide shipping via FedEx and UPS, and a focused catalog of high-demand research peptides.',
-    'CNC BioLabs':'Canada-based with third-party COAs, endotoxin testing, and a focused catalog covering GLP-1s, longevity peptides, and popular research compounds. Express domestic shipping across Canada.'
+    'CNC BioLabs':'Canada-based with third-party COAs, endotoxin testing, and a focused catalog covering GLP-1s, longevity peptides, and popular research compounds. Express domestic shipping across Canada.',
+    'Echo Peptides':'US-based research peptide storefront with a GLP-1-focused catalog including Tirzepatide, Retatrutide, and Semaglutide alongside BPC-157 and TB-500. Partial lab testing on some products.'
   };
   return reasons[s.name] || 'Supplier listing includes available transparency signals and shipping details.';
 }
