@@ -1385,9 +1385,9 @@ function dataSignals(s){
   var tags=(s.tags||[]).map(function(t){return t.toLowerCase();});
   var signals=[];
   function has(txt){return tags.some(function(t){return t.indexOf(txt)>-1;});}
-  if(has('coa on file')||has('coa verified')||has('coa available')||s.coaCount){signals.push({type:'good',text:'COA data available'});} else {signals.push({type:'warn',text:'COA data not shown'});}
-  if(has('janoshik')||has('chromate')||has('hplc')||has('ms tested')||has('ms verified')||has('3rd party')){signals.push({type:'good',text:'Third-party lab source listed'});} else if(has('lab tested')){signals.push({type:'warn',text:'Lab tested claim needs context'});} else {signals.push({type:'warn',text:'Lab source not listed'});}
-  if(s.coaCount&&s.coaCount>1){signals.push({type:'good',text:s.coaCount+' COAs referenced'});} else {signals.push({type:'warn',text:'Limited batch history shown'});}
+  if(has('coa')||has('public test results')||s.coaCount){signals.push({type:'good',text:'COA data available'});} else {signals.push({type:'warn',text:'COA data not shown'});}
+  if(has('janoshik')||has('chromate')||has('hplc')||has('ms tested')||has('ms verified')||has('3rd party')||has('public test results')){signals.push({type:'good',text:'Third-party lab source listed'});} else if(has('lab tested')){signals.push({type:'warn',text:'Lab tested claim needs context'});} else {signals.push({type:'warn',text:'Lab source not listed'});}
+  if(s.coaCount&&s.coaCount>1){signals.push({type:'good',text:s.coaCount+' COAs referenced'});}
   if((s.reviews||0)>0){signals.push({type:'good',text:s.reviews+' customer review'+(s.reviews===1?'':'s')+' surfaced'});} else {signals.push({type:'warn',text:'No customer reviews yet'});}
   if(s.warning){signals.unshift({type:'warn',text:'Data pending — more documentation can improve this listing'});}
   return signals.slice(0,5);
@@ -1419,6 +1419,7 @@ function buildCard(s){
   html+='<div class="scard-country">'+flagEmoji(s.country)+s.country+(s.note&&!s.warning?' <span style="color:var(--green);font-size:11px;margin-left:6px;">'+s.note+'</span>':'')+'</div>';
   html+='<div class="supplier-angle">✓ '+supplierAngle(s)+'</div>';
   html+='<div class="scard-about">'+clickReason(s)+'</div>';
+  html+=renderDataSignals(s);
   if(s.reviews>0||judgeLink||reviewsLink){html+='<div class="scard-stars-row">'+stars+judgeLink+reviewsLink+'</div>';}
   if(s.featuredReview){html+='<div class="scard-review">"'+s.featuredReview+'"</div>';}
   if(s.coaCount&&s.verified){html+='<div class="coa-badge">✓ '+s.coaCount+' '+(s.coaSource||'lab')+' COAs reviewed</div>';}
